@@ -15,6 +15,7 @@ namespace DQ
 
         public bool b_Input;
         public bool f_Input;
+        public bool y_Input;
         public bool rb_Input;
         public bool rt_Input;
         public bool jump_Input;
@@ -31,6 +32,7 @@ namespace DQ
         //public bool rollFlag;
         public bool isRolling;
         public bool sprintFlag;
+        public bool twoHandFlag;
         public bool comboFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
@@ -41,6 +43,7 @@ namespace DQ
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         UIManager uiManager;
+        WeaponSlotManager weaponSlotManager;
 
         Vector2 movementInput;
         Vector2 cameraInput;
@@ -51,6 +54,7 @@ namespace DQ
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             uiManager = FindObjectOfType<UIManager>();
+            weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
         }
         public void OnEnable()
         {
@@ -65,6 +69,11 @@ namespace DQ
                 inputActions.PlayerQuickSlots.DPadDown.performed += inputActions => d_Pad_Down = true;
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
+                inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
+                inputActions.PlayerActions.F.performed += i => f_Input = true;
+                inputActions.PlayerActions.Y.performed += i => y_Input = true;
+                inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
+                
             }
             inputActions.Enable();
         }
@@ -78,9 +87,10 @@ namespace DQ
             HandleRollInput(delta);
             HandleAttackInput(delta);
             HandleQuickSlotsInput();
-            HandleInteractingButtonInput();
-            HandleJumpInput();
+            //HandleInteractingButtonInput();
+            //HandleJumpInput();
             HandleInventoryInput();
+            HandleTwoHandInput();
         }   
         private void MoveInput(float delta)
         {
@@ -146,22 +156,22 @@ namespace DQ
             }
             else if (d_Pad_Left)
             {
-                //playerInventory.ChangeLeftWeapon();
+                playerInventory.ChangeLeftWeapon();
             }
         }
 
-        private void HandleInteractingButtonInput()
+        /*private void HandleInteractingButtonInput()
         {
-            inputActions.PlayerActions.F.performed += i => f_Input = true;
+            
         }
 
         private void HandleJumpInput()
         {
-            inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
-        }        
+            
+        }        */
         private void HandleInventoryInput()
         {
-            inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
+            
 
             if (inventory_Input)
             {
@@ -170,10 +180,34 @@ namespace DQ
                 if (inventoryFlag)
                 {
                     uiManager.OpenSelectWindows();
+                    uiManager.UpdateUI();
+                    uiManager.hudWindow.SetActive(false);
                 }
                 else
                 {
                     uiManager.CloseSelectWindows();
+                    uiManager.CloseAllInventoryWindow();
+                    uiManager.hudWindow.SetActive(true);
+                }
+            }
+        }
+        private void HandleTwoHandInput()
+        {
+            if (y_Input)
+            {
+                y_Input = false;
+                twoHandFlag = !twoHandFlag;
+
+                if (twoHandFlag)
+                {
+                    //Enable
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+                }
+                else
+                {
+                    //disable
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
                 }
             }
         }

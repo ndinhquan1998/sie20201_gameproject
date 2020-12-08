@@ -33,12 +33,14 @@ public class PlayerManager : MonoBehaviour
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
             anim.SetBool("isInAir", isInAir);
-
             inputHandler.TickInput(delta);
-            
             playerLocomotion.HandleRollingAndSprinting(delta);
-            interactableUI = FindObjectOfType<InteractableUI>();
             playerLocomotion.HandleJumping();
+            
+            
+            
+            interactableUI = FindObjectOfType<InteractableUI>();
+            
             CheckForInteractableObject();
 
 
@@ -49,6 +51,7 @@ public class PlayerManager : MonoBehaviour
             float delta = Time.fixedDeltaTime;
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+            
         }
         private void LateUpdate()
         {

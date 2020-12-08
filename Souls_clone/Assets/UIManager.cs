@@ -6,13 +6,34 @@ namespace DQ
     public class UIManager : MonoBehaviour
     {
         public PlayerInventory playerInventory;
+        public EquipmentWindowUI equipmentWindowUI;
 
+        [Header("UI WIndows")]
+        public GameObject hudWindow;
         public GameObject selectWindow;
+        public GameObject equipmentScreenWindow;
+        public GameObject weaponInventoryWindow;
 
+        [Header("Equiment Window Slot Selected")]
+        public bool rightHandSlot01Selected;
+        public bool rightHandSlot02Selected;
+        public bool leftHandSlot01Selected;
+        public bool leftHandSlot02Selected;
+
+        [Header("Weapon Inventory")]
         public GameObject weaponInventorySlotPrefab;
         public Transform weaponInventorySlotsParent;
         WeaponInventorySlot[] weaponInventorySlots;
 
+/*        private void Awake()
+        {
+            equipmentWindowUI = FindObjectOfType<EquipmentWindowUI>();
+        }*/
+        private void Start()
+        {
+            weaponInventorySlots = weaponInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
+            equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
+        }
         public void UpdateUI()
         {
             #region Weapon Inventory Slots 
@@ -41,6 +62,21 @@ namespace DQ
         public void CloseSelectWindows()
         {
             selectWindow.SetActive(false);
+        }
+        public void CloseAllInventoryWindow()
+        {
+            ResetAllSelectedSlots();
+            weaponInventoryWindow.SetActive(false);
+            equipmentScreenWindow.SetActive(false);
+        }
+
+        public void ResetAllSelectedSlots()
+        {
+            rightHandSlot01Selected = false;
+            rightHandSlot02Selected = false;
+            leftHandSlot01Selected = false;
+            leftHandSlot02Selected = false;
+
         }
     }
 }

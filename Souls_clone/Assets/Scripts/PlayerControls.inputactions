@@ -139,6 +139,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Y",
+                    "type": "Button",
+                    "id": "8e61146a-54c1-4b81-be57-23cf3483da83",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "074134b0-1b95-4472-a68f-2ea0e0c0a0cc",
@@ -241,6 +249,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50f82b79-b858-4975-aca0-8ca3700051a7",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Y",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
