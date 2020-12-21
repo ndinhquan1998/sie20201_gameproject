@@ -62,6 +62,12 @@ namespace DQ
             currentStamina = currentStamina - damage;
             staminaBar.SetCurrentStamina(currentStamina);
         }
+
+        public void AddHealth()
+        {
+            currentHealth += 20;
+            healthBar.SetCurrentHealth(currentHealth);
+        }
     }
 }
 
