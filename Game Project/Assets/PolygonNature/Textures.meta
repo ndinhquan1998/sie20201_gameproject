@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game Project/Assets/PolygonNature/Textures.meta
 guid: ac3f77c0d7cf87d4e98bf16d7d489624
+=======
+guid: 43130b77f2348fd4c9336e18b2ed8fb6
+>>>>>>> ecbdea155ec85093752ba49330a292756b051015:Game Project/Assets/Core Game/Model/Animation/Gestures.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

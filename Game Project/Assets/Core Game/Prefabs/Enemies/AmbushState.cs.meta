@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game Project/Assets/Core Game/Prefabs/Enemies/AmbushState.cs.meta
 guid: 8a3565e84810a8946aed8c81f75ed6c8
+=======
+guid: 3186fe60d3b3d994da872e8fb0b00813
+>>>>>>> ecbdea155ec85093752ba49330a292756b051015:Game Project/Assets/Core Game/Scripts/DayNightController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
