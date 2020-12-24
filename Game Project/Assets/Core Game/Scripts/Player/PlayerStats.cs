@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 namespace DQ
 {
     public class PlayerStats : CharacterStats
@@ -54,13 +57,33 @@ namespace DQ
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Death_01", true);
                 //Handler death 
+                //Handle respawn 
+                //Restart1();
+                StartCoroutine(Restart(4, this.gameObject));
             }
-        }
 
+        }
+        IEnumerator Restart(int seconds, GameObject obj)
+        {
+            yield return new WaitForSeconds(seconds);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        void Restart1()
+        {
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
         public void TakeStamina(int damage)
         {
             currentStamina = currentStamina - damage;
             staminaBar.SetCurrentStamina(currentStamina);
+        }
+
+        public void AddHealth()
+        {
+            currentHealth += 20;
+            healthBar.SetCurrentHealth(currentHealth);
         }
     }
 }

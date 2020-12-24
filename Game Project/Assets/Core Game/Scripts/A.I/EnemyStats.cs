@@ -32,12 +32,20 @@ namespace DQ
 
             animator.Play("Damage_01");
 
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 animator.Play("Death_01");
                 //Handler death 
+                StartCoroutine(RemoveAfterSeconds(3, this.gameObject));
+
             }
+        }
+
+        IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
+        {
+            yield return new WaitForSeconds(seconds);
+            obj.SetActive(false);
         }
     }
 }

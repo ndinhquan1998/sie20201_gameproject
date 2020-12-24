@@ -18,6 +18,7 @@ namespace DQ
         public Rigidbody enemyRigidbody;
 
         public bool isPerformingAction;
+        public bool isInteracting;
         public float distanceFromTarget;
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
@@ -52,6 +53,8 @@ namespace DQ
         private void Update()
         {
             HandleRecoveryTimer();
+
+            isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
         }
 
         private void FixedUpdate()
