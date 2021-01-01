@@ -14,14 +14,20 @@ namespace DQ
 
             //walk around target
    
-            enemyManager.distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
 
-            if(enemyManager.currentRecoveryTime <= 0 && enemyManager.distanceFromTarget <= enemyManager.maximumAttackRange)
+            if (enemyManager.isPerformingAction)
+            {
+                //after atk return to combat state
+                enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+            }
+
+            if(enemyManager.currentRecoveryTime <= 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
             {
                 return attackState;
                 // if still in the atk range , return atk state
             }
-            else if(enemyManager.distanceFromTarget > enemyManager.maximumAttackRange)
+            else if(distanceFromTarget > enemyManager.maximumAttackRange)
             {
                 return pursueTargetState;
                 //in cooldown attacking , return this state and continue focus player

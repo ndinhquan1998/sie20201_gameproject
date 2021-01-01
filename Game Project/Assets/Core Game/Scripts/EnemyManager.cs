@@ -19,10 +19,8 @@ namespace DQ
 
         public bool isPerformingAction;
         public bool isInteracting;
-        public float distanceFromTarget;
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
-        public float viewableAngle;
 
         [Header("A.I Setting")]
         public float detectionRadius = 20;
