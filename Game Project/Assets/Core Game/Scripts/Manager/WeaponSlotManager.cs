@@ -17,14 +17,17 @@ namespace DQ
         QuickSlotsUI quickSlotsUI;
 
         public WeaponItem attackingWeapon;
+        PlayerManager playerManager;
 
         PlayerStats playerStats;
         InputHandler inputHandler;
         private void Awake()
         {
+            playerManager = GetComponentInParent<PlayerManager>();
             animator = GetComponent<Animator>();
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
+
             inputHandler = GetComponentInParent<InputHandler>();
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach(WeaponHolderSlot weaponSlot in weaponHolderSlots)
@@ -106,26 +109,25 @@ namespace DQ
             rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
         }
 
-        public void OpenRightDamageCollider()
+        public void OpenDamageCollider()
         {
-            rightHandDamageCollider.EnableDamageCollider();
+            if (playerManager.isUsingRightHand)
+            {
+                rightHandDamageCollider.EnableDamageCollider();
+            }
+            else if(playerManager.isUsingLeftHand)
+            {
+                leftHandDamageCollider.EnableDamageCollider();
+            }
+
 
         }           
-        public void CloseRightDamageCollider()
+        public void CloseDamageCollider()
         {
             rightHandDamageCollider.DisableDamageCollider();
-
-        }        
-        public void OpenLeftDamageCollider()
-        {
-            leftHandDamageCollider.EnableDamageCollider();
-
-        }        
-        public void CloseLeftDamageCollider()
-        {
             leftHandDamageCollider.DisableDamageCollider();
+        }        
 
-        }
         #endregion
 
         #region Weapon Stamina Drain

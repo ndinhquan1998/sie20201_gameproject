@@ -10,8 +10,11 @@ namespace DQ
         EnemyManager enemyManager;
         EnemyAnimatorManager enemyAnimatorManager;
 
+        public CapsuleCollider characterCollider;
+        public CapsuleCollider characterCollisionBlockerCollider;
 
 
+        public LayerMask detectionLayer;
 
         private void Awake()
         {
@@ -20,6 +23,9 @@ namespace DQ
                     
 
         }
-
+        private void Start()
+        {
+            Physics.IgnoreCollision(characterCollider, characterCollisionBlockerCollider, true);
+        }
     }
 }

@@ -5,22 +5,24 @@ namespace DQ
 { 
 public class PlayerManager : CharacterManager
     {
-    InputHandler inputHandler;
-    Animator anim;
-    PlayerLocomotion playerLocomotion;
-    InteractableUI interactableUI;
-    CameraHandler cameraHandler;
+        InputHandler inputHandler;
+        Animator anim;
+        PlayerLocomotion playerLocomotion;
+        InteractableUI interactableUI;
+        CameraHandler cameraHandler;
 
-    public GameObject interactableUIGameObject;
-    public GameObject itemInteractableGameObject;
+        public GameObject interactableUIGameObject;
+        public GameObject itemInteractableGameObject;
 
-    public bool isInteracting;
+        public bool isInteracting;
     
-    [Header("Player Flags")]
-    public bool isSprinting;
-    public bool isInAir;
-    public bool isGrounded;
-    public bool canDoCombo;
+        [Header("Player Flags")]
+        public bool isSprinting;
+        public bool isInAir;
+        public bool isGrounded;
+        public bool canDoCombo;
+        public bool isUsingRightHand;
+        public bool isUsingLeftHand;
 
     void Start()
     {
@@ -38,7 +40,11 @@ public class PlayerManager : CharacterManager
 
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
+            isUsingRightHand = anim.GetBool("isUsingRightHand");
+            isUsingLeftHand = anim.GetBool("isUsingLeftHand");
             anim.SetBool("isInAir", isInAir);
+
+
             inputHandler.TickInput(delta);
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();

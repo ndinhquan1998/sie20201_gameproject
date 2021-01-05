@@ -46,6 +46,9 @@ namespace DQ
 
         public void TakeDamage(int damage)
         {
+            if (isDead)
+                return;
+
             currentHealth = currentHealth - damage;
 
             healthBar.SetCurrentHealth(currentHealth);
@@ -56,6 +59,7 @@ namespace DQ
             {
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Death_01", true);
+                isDead = true;
                 //Handler death 
                 //Handle respawn 
                 //Restart1();

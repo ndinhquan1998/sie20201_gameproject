@@ -28,6 +28,9 @@ namespace DQ
         }
         public void TakeDamage(int damage)
         {
+            if (isDead)
+                return;
+
             currentHealth = currentHealth - damage;
 
             animator.Play("Damage_01");
@@ -37,6 +40,7 @@ namespace DQ
                 currentHealth = 0;
                 animator.Play("Death_01");
                 //Handler death 
+                isDead = true;
                 StartCoroutine(RemoveAfterSeconds(3, this.gameObject));
 
             }
