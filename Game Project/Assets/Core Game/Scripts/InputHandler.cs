@@ -49,6 +49,7 @@ namespace DQ
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
+        AnimatorHandler animatorHandler;
         
 
         Vector2 movementInput;
@@ -66,6 +67,7 @@ namespace DQ
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+            animatorHandler = GetComponentInChildren<AnimatorHandler>();
 
             
         }
@@ -164,6 +166,8 @@ namespace DQ
                         return;
                     if (playerManager.canDoCombo)
                         return;
+
+                    animatorHandler.anim.SetBool("isUsingRightHand", true);
                     playerAttacking.HandleLightAttack(playerInventory.rightWeapon);
                 }
                

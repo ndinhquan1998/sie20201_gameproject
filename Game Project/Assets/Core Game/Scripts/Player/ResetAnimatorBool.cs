@@ -17,11 +17,25 @@ public class ResetAnimatorBool : StateMachineBehaviour
 
 
     public string targetBool;
-    public bool status;
+    public bool status;    
+
+    public string targetBool_1;
+    public bool status_1;    
+
+    public string targetBool_2;
+    public bool status_2;    
+
+    public string targetBool_3;
+    public bool status_3;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool(targetBool, status);
+        animator.SetBool(targetBool_1, status_1);
+        animator.SetBool(targetBool_2, status_2);
+        animator.SetBool(targetBool_3, status_3);
+
+
     }
 
 }

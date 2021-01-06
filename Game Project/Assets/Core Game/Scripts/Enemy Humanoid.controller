@@ -36,6 +36,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!114 &-9018151188260644129
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50,6 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1102 &-8327641040006536093
 AnimatorState:
   serializedVersion: 6
@@ -170,6 +182,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-7321832051780271355
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f270c084aee7e4c87115c05cb8cb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: 
+  status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1102 &-7127564446486348189
 AnimatorState:
   serializedVersion: 6
@@ -256,6 +288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!114 &-6495878815507179917
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,6 +308,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!114 &-6469988784647536679
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,6 +328,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: canDoCombo
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1102 &-6442791837346240487
 AnimatorState:
   serializedVersion: 6
@@ -333,6 +383,10 @@ AnimatorState:
   - {fileID: 4120322727943259100}
   - {fileID: -3037524057870646887}
   - {fileID: 4573331839029847208}
+  - {fileID: 7398773622731964097}
+  - {fileID: 5305018717492361059}
+  - {fileID: -7321832051780271355}
+  - {fileID: -300609551513528893}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -552,6 +606,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1101 &-2936767780138687129
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -798,6 +858,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-300609551513528893
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f270c084aee7e4c87115c05cb8cb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: 
+  status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -812,31 +892,43 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: canDoCombo
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isInAir
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Horizontal
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Vertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: isUsingRightHand
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: isUsingLeftHand
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1173,6 +1265,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1102 &4143199602472653889
 AnimatorState:
   serializedVersion: 6
@@ -1325,6 +1423,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1102 &4846046041079349545
 AnimatorState:
   serializedVersion: 6
@@ -1377,6 +1481,26 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 50, y: -40, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -4330829543798529060}
+--- !u!114 &5305018717492361059
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f270c084aee7e4c87115c05cb8cb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: 
+  status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!206 &5403815414374839228
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1421,6 +1545,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: 
   status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1107 &5935382195034160303
 AnimatorStateMachine:
   serializedVersion: 6
@@ -1598,6 +1728,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBool: isInteracting
   status: 0
+  targetBool_1: canDoCombo
+  status_1: 0
+  targetBool_2: isUsingRightHand
+  status_2: 0
+  targetBool_3: isUsingLeftHand
+  status_3: 0
+--- !u!114 &7398773622731964097
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f270c084aee7e4c87115c05cb8cb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: 
+  status: 0
+  targetBool_1: 
+  status_1: 0
+  targetBool_2: 
+  status_2: 0
+  targetBool_3: 
+  status_3: 0
 --- !u!1101 &7820553885594895954
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
