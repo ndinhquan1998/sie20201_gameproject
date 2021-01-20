@@ -26,7 +26,10 @@ public class ResetAnimatorBool : StateMachineBehaviour
     public bool status_2;    
 
     public string targetBool_3;
-    public bool status_3;
+    public bool status_3;    
+    
+    public string targetBool_4;
+    public bool status_4;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -34,8 +37,7 @@ public class ResetAnimatorBool : StateMachineBehaviour
         animator.SetBool(targetBool_1, status_1);
         animator.SetBool(targetBool_2, status_2);
         animator.SetBool(targetBool_3, status_3);
-
-
+        animator.SetBool(targetBool_4, status_4);
     }
 
 }
