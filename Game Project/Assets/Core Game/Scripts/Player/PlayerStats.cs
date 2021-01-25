@@ -113,6 +113,17 @@ namespace DQ
                 }
             }
         }
+
+        public void healPlayer(int healthAmount)
+        {
+            currentHealth = currentHealth + healthAmount;
+
+            if(currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+            healthBar.SetCurrentHealth(currentHealth);
+        }
     }
 }
 

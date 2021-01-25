@@ -29,6 +29,12 @@ namespace DQ
         public float lightAttackMultiplier;
         public float heavyAttackMultiplier;
 
+        [Header("Weapon Type")]
+        public bool isSpellCaster;
+        public bool isHolyCaster;
+        public bool isPyroCaster;
+        public bool isMeleeWeapon;
+
     }
 }
 

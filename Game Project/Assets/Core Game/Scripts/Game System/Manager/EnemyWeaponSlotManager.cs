@@ -90,7 +90,7 @@ namespace DQ
         public void CloseDamageCollider()
         {
             rightHandDamageCollider.DisableDamageCollider();
-            leftHandDamageCollider.DisableDamageCollider();
+            //leftHandDamageCollider.DisableDamageCollider();
         }
 
         public void DrainStaminaLightAttack()

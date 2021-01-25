@@ -61,7 +61,7 @@ namespace DQ
         }
         private void Awake()
         {
-            playerAttacking = GetComponent<PlayerAttacking>();
+            playerAttacking = GetComponentInChildren<PlayerAttacking>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             uiManager = FindObjectOfType<UIManager>();
@@ -153,24 +153,7 @@ namespace DQ
         {
             if(rb_Input)
             {
-
-                if (playerManager.canDoCombo)
-                {
-                    comboFlag = true;
-                    playerAttacking.HandleWeaponCombo(playerInventory.rightWeapon);
-                    comboFlag = false;
-                }
-                else
-                {
-                    if (playerManager.isInteracting)
-                        return;
-                    if (playerManager.canDoCombo)
-                        return;
-
-                    animatorHandler.anim.SetBool("isUsingRightHand", true);
-                    playerAttacking.HandleLightAttack(playerInventory.rightWeapon);
-                }
-               
+                playerAttacking.HandleRBAction();              
             }            
             if(rt_Input)
             {

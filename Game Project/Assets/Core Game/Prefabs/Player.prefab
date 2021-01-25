@@ -311,6 +311,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackingWeapon: {fileID: 0}
+--- !u!114 &619927910583482751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462247851632077925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54244730a3baf8245a0117b6fa95a68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastAttack: 
 --- !u!114 &4462247851012647935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +357,6 @@ GameObject:
   - component: {fileID: 4462247851748741401}
   - component: {fileID: 4462247851748741405}
   - component: {fileID: 4462247851748741406}
-  - component: {fileID: 4462247851748741407}
   - component: {fileID: 4462247851748742880}
   - component: {fileID: 6116501336095313772}
   m_Layer: 13
@@ -490,6 +502,7 @@ MonoBehaviour:
   canDoCombo: 0
   isUsingRightHand: 0
   isUsingLeftHand: 0
+  isInvulnerable: 0
 --- !u!114 &4462247851748741406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,19 +525,6 @@ MonoBehaviour:
   currentRightWeaponIndex: 1
   currentLeftWeaponIndex: 0
   weaponsInventory: []
---- !u!114 &4462247851748741407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462247851748741399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54244730a3baf8245a0117b6fa95a68b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastAttack: 
 --- !u!114 &4462247851748742880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,8 +543,11 @@ MonoBehaviour:
   staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
+  isDead: 0
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
+  staminaRegenerationAmount: 1
+  staminaRegenTimer: 0
 --- !u!114 &6116501336095313772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,7 +1229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 121250, guid: a62e0ab0f0837ca48adf4710699a7e91, type: 3}
       propertyPath: m_Name
-      value: Character_Knight_03_Blue
+      value: Player Model
       objectReference: {fileID: 0}
     - target: {fileID: 121250, guid: a62e0ab0f0837ca48adf4710699a7e91, type: 3}
       propertyPath: m_Layer
@@ -1524,15 +1527,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4462247851631624243 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 439796, guid: a62e0ab0f0837ca48adf4710699a7e91,
-    type: 3}
-  m_PrefabInstance: {fileID: 4462247851631998407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4462247851631935061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 199570, guid: a62e0ab0f0837ca48adf4710699a7e91,
+    type: 3}
+  m_PrefabInstance: {fileID: 4462247851631998407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4462247851631624243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 439796, guid: a62e0ab0f0837ca48adf4710699a7e91,
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}

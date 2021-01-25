@@ -31,8 +31,9 @@ public class PlayerManager : CharacterManager
         inputHandler = GetComponent<InputHandler>();
         anim = GetComponentInChildren<Animator>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
-            playerStats = GetComponent<PlayerStats>();
-    }
+        playerStats = GetComponent<PlayerStats>();
+        interactableUI = FindObjectOfType<InteractableUI>();
+        }
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
@@ -55,7 +56,7 @@ public class PlayerManager : CharacterManager
             playerStats.RegenerateStamina();
 
 
-            interactableUI = FindObjectOfType<InteractableUI>();
+            
             
             CheckForInteractableObject();
 

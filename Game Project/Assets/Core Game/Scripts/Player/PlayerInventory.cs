@@ -10,6 +10,7 @@ namespace DQ
 
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
+        public SpellItems currentSpell;
 
         public WeaponItem unarmedWeapon;
 
