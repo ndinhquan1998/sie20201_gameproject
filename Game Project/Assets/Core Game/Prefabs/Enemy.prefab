@@ -435,6 +435,10 @@ MonoBehaviour:
   staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
+  FP_level: 10
+  maxFP_Points: 0
+  currentFP_Points: 0
+  isDead: 0
   healthBar: {fileID: 0}
 --- !u!136 &3243657855374335476
 CapsuleCollider:
@@ -2097,7 +2101,7 @@ PrefabInstance:
     - target: {fileID: 9520566, guid: 2ef59bc5d753ebe4490b708befe65999, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0683e9f1cb7e5924ba20d5e457977383, type: 2}
+      objectReference: {fileID: 9100000, guid: 298c237547a5d97459344fc9610e0208, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef59bc5d753ebe4490b708befe65999, type: 3}
 --- !u!4 &3666945511376223003 stripped

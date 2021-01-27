@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackingWeapon: {fileID: 0}
+  cost_L: 0
+  cost_H: 0
 --- !u!1 &4462247850483107126
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +286,19 @@ MonoBehaviour:
   isRightHandSlot: 1
   isBackSlot: 0
   currentWeaponModel: {fileID: 0}
+--- !u!114 &619927910583482751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462247851632077925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54244730a3baf8245a0117b6fa95a68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastAttack: 
 --- !u!114 &4462247851631998410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,19 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackingWeapon: {fileID: 0}
---- !u!114 &619927910583482751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462247851632077925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54244730a3baf8245a0117b6fa95a68b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastAttack: 
+  cost_L: 0
+  cost_H: 0
 --- !u!114 &4462247851012647935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,14 +521,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightWeapon: {fileID: 11400000, guid: d30d6ffa9138852479188f6890f31b6f, type: 2}
   leftWeapon: {fileID: 11400000, guid: 23177667899e48041a8a15a259764680, type: 2}
+  currentSpell: {fileID: 11400000, guid: 7f80a9dd3f6149c4d8d0458e09a3ba6b, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 23177667899e48041a8a15a259764680, type: 2}
   weaponsInRightHandSlot:
   - {fileID: 11400000, guid: d30d6ffa9138852479188f6890f31b6f, type: 2}
   - {fileID: 11400000, guid: 6b85b3d085d6c154e9a0459408dfc062, type: 2}
-  weaponsInLeftHandSlot: []
-  currentRightWeaponIndex: 1
-  currentLeftWeaponIndex: 0
-  weaponsInventory: []
+  weaponsInLeftHandSlot:
+  - {fileID: 11400000, guid: 23177667899e48041a8a15a259764680, type: 2}
+  - {fileID: 11400000, guid: 23177667899e48041a8a15a259764680, type: 2}
+  currentRightWeaponIndex: -1
+  currentLeftWeaponIndex: -1
+  weaponsInventory:
+  - {fileID: 11400000, guid: a8d3352b5e22bfb45a0bb4ca3d01313b, type: 2}
+  - {fileID: 11400000, guid: 9145bf9a1c2fb18458b848b89b64cbd5, type: 2}
 --- !u!114 &4462247851748742880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,10 +552,14 @@ MonoBehaviour:
   staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
+  FP_level: 10
+  maxFP_Points: 0
+  currentFP_Points: 0
   isDead: 0
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
-  staminaRegenerationAmount: 1
+  focusPointBar: {fileID: 0}
+  staminaRegenerationAmount: 30
   staminaRegenTimer: 0
 --- !u!114 &6116501336095313772
 MonoBehaviour:

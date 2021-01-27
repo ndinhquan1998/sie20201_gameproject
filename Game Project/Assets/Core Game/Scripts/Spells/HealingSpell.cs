@@ -10,6 +10,7 @@ namespace DQ {
 
         public override void AttempToCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
         {
+            base.AttempToCastSpell(animationHandler, playerStats);
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animationHandler.transform);
             animationHandler.PlayTargetAnimation(spellAnimation, true);
             Debug.Log("Casting Spell");
@@ -17,6 +18,8 @@ namespace DQ {
         
         public override void SuccessfullyCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
         {
+            //whenever we use the successfully cast spell it will also fire this function from the class it derives from on Spell_Item
+            base.SuccessfullyCastSpell(animationHandler, playerStats);
             GameObject instantiatedSpellFX = Instantiate(spellCastFX, animationHandler.transform);
             playerStats.healPlayer(healAmount);
             Debug.Log("Spell Cast Successful");

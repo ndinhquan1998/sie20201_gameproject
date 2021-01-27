@@ -12,6 +12,7 @@ namespace DQ
 
         public HealthBar healthBar;
         public StaminaBar staminaBar;
+        public FPBar focusPointBar;
         PlayerManager playerManager;
         AnimatorHandler animatorHandler;
 
@@ -23,6 +24,7 @@ namespace DQ
             playerManager = GetComponent<PlayerManager>();
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
+            focusPointBar = FindObjectOfType<FPBar>();
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
         }
 
@@ -31,9 +33,18 @@ namespace DQ
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetCurrentHealth(currentHealth);
 
             maxStamina = SetMaxStaminaFromLevel();
             currentStamina = maxStamina;
+            staminaBar.SetMaxStamina(maxStamina);
+            staminaBar.SetCurrentStamina(currentStamina);
+
+            maxFP_Points = SetMaxFocusPointFromLevel();
+            currentFP_Points = maxFP_Points;
+            focusPointBar.SetMaxFocusPoints(maxFP_Points);
+            focusPointBar.SetCurrentFocusPoints(currentFP_Points);
+            
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -46,6 +57,12 @@ namespace DQ
         {
             maxStamina = staminaLevel * 10;
             return maxStamina;
+        }        
+        
+        private float SetMaxFocusPointFromLevel()
+        {
+            maxFP_Points = FP_level * 10;
+            return maxFP_Points;
         }
 
         public void TakeDamage(int damage)
@@ -68,7 +85,6 @@ namespace DQ
                 isDead = true;
                 //Handler death 
                 //Handle respawn 
-                //Restart1();
                 StartCoroutine(Restart(4, this.gameObject));
             }
 
@@ -77,12 +93,6 @@ namespace DQ
         {
             yield return new WaitForSeconds(seconds);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        void Restart1()
-        {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
         }
         public void TakeStamina(int damage)
         {
@@ -123,6 +133,17 @@ namespace DQ
                 currentHealth = maxHealth;
             }
             healthBar.SetCurrentHealth(currentHealth);
+        }
+
+        public void DeductFocusPoints(int focusPoints)
+        {
+            currentFP_Points = currentFP_Points - focusPoints;
+
+            if(currentFP_Points < 0)
+            {
+                currentFP_Points = 0;
+            }
+            focusPointBar.SetCurrentFocusPoints(currentFP_Points);
         }
     }
 }

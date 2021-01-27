@@ -9,6 +9,9 @@ namespace DQ
         public GameObject spellCastFX;
         public string spellAnimation;
 
+        [Header("Spell Cost")]
+        public int focusPointCost;
+
         [Header("Spell Types")]
         public bool isHolySpell;
         public bool isMagicSpell;
@@ -21,10 +24,12 @@ namespace DQ
         public virtual void AttempToCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
         {
             Debug.Log("Casting Spell");
+
         }        
         public virtual void SuccessfullyCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
         {
             Debug.Log("Casting Spell successful");
+            playerStats.DeductFocusPoints(focusPointCost);
         }
     }
 

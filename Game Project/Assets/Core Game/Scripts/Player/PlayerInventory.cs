@@ -30,13 +30,7 @@ namespace DQ
 
         private void Start()
         {
-            /*            rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
-                        leftWeapon = weaponsInLeftHandSlot[currentLeftWeaponIndex];
-                        weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
-                        weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);*/
-            //rightWeapon = unarmedWeapon;
-            //leftWeapon = unarmedWeapon;
-            rightWeapon = weaponsInRightHandSlot[-1];
+            rightWeapon = weaponsInRightHandSlot[0];
             leftWeapon = weaponsInLeftHandSlot[0];
             weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
             weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
@@ -47,6 +41,7 @@ namespace DQ
         public void ChangeRightWeapon()
         {
             currentRightWeaponIndex = currentRightWeaponIndex + 1;
+
             if(currentRightWeaponIndex == 0 && weaponsInRightHandSlot[0] != null)
             {
                 rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
@@ -61,7 +56,7 @@ namespace DQ
                 rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
                 weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlot[currentRightWeaponIndex], false);
             }
-            else
+            else if (currentRightWeaponIndex == 1 && weaponsInRightHandSlot[1] == null)
             {
                 currentRightWeaponIndex = currentRightWeaponIndex + 1;
             }
@@ -91,7 +86,7 @@ namespace DQ
                 leftWeapon = weaponsInLeftHandSlot[currentLeftWeaponIndex];
                 weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
             }
-            else
+            else if(currentLeftWeaponIndex == 1 && weaponsInLeftHandSlot[1] == null)
             {
                 currentLeftWeaponIndex = currentLeftWeaponIndex + 1;
             }

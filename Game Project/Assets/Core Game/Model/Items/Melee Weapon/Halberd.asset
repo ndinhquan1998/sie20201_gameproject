@@ -16,3 +16,19 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   modelPrefab: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
   isUnarmed: 0
+  right_hand_idle: 
+  left_hand_idle: 
+  two_hand_idle: 
+  OH_Light_Attack_1: 
+  OH_Light_Attack_2: 
+  OH_Heavy_Attack_1: 
+  TH_Light_Attack_1: 
+  TH_Light_Attack_2: 
+  TH_Heavy_Attack_1: 
+  baseStamina: 0
+  lightAttackMultiplier: 0
+  heavyAttackMultiplier: 0
+  isSpellCaster: 0
+  isHolyCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1

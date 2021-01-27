@@ -91,7 +91,7 @@ namespace DQ
         #region Attack Actions
         private void PerformRB_MeleeAction()
         {
-            if (playerManager.canDoCombo)
+           if (playerManager.canDoCombo)
             {
                 inputHandler.comboFlag = true;
                 HandleWeaponCombo(playerInventory.rightWeapon);
@@ -103,21 +103,35 @@ namespace DQ
                     return;
                 if (playerManager.canDoCombo)
                     return;
+                
+                    animatorHandler.anim.SetBool("isUsingRightHand", true);
+                    HandleLightAttack(playerInventory.rightWeapon);
 
-                animatorHandler.anim.SetBool("isUsingRightHand", true);
-                HandleLightAttack(playerInventory.rightWeapon);
+/*                animatorHandler.anim.SetBool("isUsingRightHand", true);
+                HandleLightAttack(playerInventory.rightWeapon);*/
             }
         }
 
         private void PerformRB_MagicAction( WeaponItem weapon)
         {
+            if (playerManager.isInteracting) 
+                return;
             if (weapon.isHolyCaster)
             {
+                //check for FP stat
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isHolySpell)
                 {
-                    //check for FP stat
-                    playerInventory.currentSpell.AttempToCastSpell(animatorHandler, playerStats);
-                    //cast spell
+                    if (playerStats.currentFP_Points >= playerInventory.currentSpell.focusPointCost)
+                    {
+                        playerInventory.currentSpell.AttempToCastSpell(animatorHandler, playerStats);
+                        //cast spell
+                    }
+                    else
+                    {
+                        animatorHandler.PlayTargetAnimation("Failed_Attempt", true);
+                        //play animation failed to cast spell
+                    }
+
                 }
             }
         }

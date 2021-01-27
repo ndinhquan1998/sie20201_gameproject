@@ -13,6 +13,10 @@ namespace DQ
         public float maxStamina;
         public float currentStamina;
 
+        public int FP_level = 10;
+        public float maxFP_Points;
+        public float currentFP_Points;
+
         public bool isDead;
 
     }

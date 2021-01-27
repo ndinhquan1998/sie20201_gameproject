@@ -28,3 +28,7 @@ MonoBehaviour:
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackMultiplier: 0
+  isSpellCaster: 0
+  isHolyCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1

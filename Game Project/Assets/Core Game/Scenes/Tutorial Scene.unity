@@ -325,6 +325,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7342613666504175557, guid: ab50082d952448846ab9fb8e25692f18,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342613666504175557, guid: ab50082d952448846ab9fb8e25692f18,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8401097953996369531, guid: ab50082d952448846ab9fb8e25692f18,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1661,6 +1671,23 @@ PrefabInstance:
       propertyPath: itemInteractableGameObject
       value: 
       objectReference: {fileID: 162370355}
+    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: currentRightWeaponIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: weaponsInventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d3352b5e22bfb45a0bb4ca3d01313b,
+        type: 2}
+    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: weaponsInRightHandSlot.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b85b3d085d6c154e9a0459408dfc062,
+        type: 2}
     - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
         type: 3}
       propertyPath: healthBar

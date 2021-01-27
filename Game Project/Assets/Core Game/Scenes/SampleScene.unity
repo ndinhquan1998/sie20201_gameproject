@@ -250,15 +250,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4230151212242467523, guid: ab50082d952448846ab9fb8e25692f18,
+    - target: {fileID: 7342613666504175557, guid: ab50082d952448846ab9fb8e25692f18,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 45.59961
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4230151212242467523, guid: ab50082d952448846ab9fb8e25692f18,
+    - target: {fileID: 7342613666504175557, guid: ab50082d952448846ab9fb8e25692f18,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -65.84961
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8401097953996369531, guid: ab50082d952448846ab9fb8e25692f18,
         type: 3}
@@ -269,16 +269,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8401097955351419547, guid: ab50082d952448846ab9fb8e25692f18,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 45.59961
-      objectReference: {fileID: 0}
-    - target: {fileID: 8401097955351419547, guid: ab50082d952448846ab9fb8e25692f18,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -90.84961
       objectReference: {fileID: 0}
     - target: {fileID: 8401097955680470281, guid: ab50082d952448846ab9fb8e25692f18,
         type: 3}
@@ -1029,24 +1019,6 @@ PrefabInstance:
       propertyPath: itemInteractableGameObject
       value: 
       objectReference: {fileID: 28816696}
-    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
-        type: 3}
-      propertyPath: rightWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: a8d3352b5e22bfb45a0bb4ca3d01313b,
-        type: 2}
-    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
-        type: 3}
-      propertyPath: currentSpell
-      value: 
-      objectReference: {fileID: 11400000, guid: 7f80a9dd3f6149c4d8d0458e09a3ba6b,
-        type: 2}
-    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
-        type: 3}
-      propertyPath: weaponsInRightHandSlot.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: a8d3352b5e22bfb45a0bb4ca3d01313b,
-        type: 2}
     - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
         type: 3}
       propertyPath: healthBar
@@ -1057,11 +1029,6 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 28816698}
-    - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
-        type: 3}
-      propertyPath: staminaRegenerationAmount
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36570bbb14bfae84589b274af4d56564, type: 3}
 --- !u!114 &1219504293 stripped

@@ -126,7 +126,7 @@ namespace DQ
         {
             rightHandDamageCollider.DisableDamageCollider();
             leftHandDamageCollider.DisableDamageCollider();
-        }        
+        }
 
         #endregion
 
