@@ -30,6 +30,94 @@ Transform:
   m_Father: {fileID: 4462247851748741400}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &149203098252141389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415739259573479223}
+  m_Layer: 13
+  m_Name: Critical Attack Raycast Start Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415739259573479223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149203098252141389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4803807957862656713}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596605491178612595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5187124362491862160}
+  - component: {fileID: 1650737354497919099}
+  - component: {fileID: 6610503045210501608}
+  m_Layer: 14
+  m_Name: Back Stab Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5187124362491862160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596605491178612595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8469726272069354851}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1650737354497919099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596605491178612595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.62, y: 1, z: 0.03}
+  m_Center: {x: 0.0245, y: 0, z: 0.03}
+--- !u!114 &6610503045210501608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596605491178612595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c292b6e4f1aefbe43b77fc0e59bab1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backStabStandPoint: {fileID: 5392649591064642733}
 --- !u!1 &1710659464100373493
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,8 +146,40 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8723069771493967862}
+  - {fileID: 5187124362491862160}
   m_Father: {fileID: 4462247851748741400}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1991719900115154254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6007465296328092284}
+  m_Layer: 13
+  m_Name: Combat Tranforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6007465296328092284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991719900115154254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5392649591064642733}
+  m_Father: {fileID: 4462247851748741400}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4462247850245227321
 MonoBehaviour:
@@ -187,8 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackingWeapon: {fileID: 0}
-  cost_L: 0
-  cost_H: 0
 --- !u!1 &4462247850483107126
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,8 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackingWeapon: {fileID: 0}
-  cost_L: 0
-  cost_H: 0
 --- !u!114 &4462247851012647935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +501,8 @@ Transform:
   - {fileID: 4462247851631624243}
   - {fileID: 2028764454}
   - {fileID: 8469726272069354851}
+  - {fileID: 4803807957862656713}
+  - {fileID: 6007465296328092284}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -440,6 +558,7 @@ MonoBehaviour:
   y_Input: 0
   rb_Input: 0
   rt_Input: 0
+  critical_Attack_Input: 0
   jump_Input: 0
   inventory_Input: 0
   lockOn_Input: 0
@@ -456,6 +575,7 @@ MonoBehaviour:
   comboFlag: 0
   inventoryFlag: 0
   rollInputTimer: 0
+  criticalAttackRayCastStartPoint: {fileID: 415739259573479223}
 --- !u!114 &4462247851748741401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 2028764454}
+  backStabBoxCollider: {fileID: 0}
+  backStabCollider: {fileID: 0}
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
   isInteracting: 0
@@ -575,6 +697,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCollider: {fileID: 4462247851748741404}
   characterBlockerCollider: {fileID: 2687122324398576151}
+--- !u!1 &4599218357920368033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4803807957862656713}
+  m_Layer: 13
+  m_Name: RayCast Start Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4803807957862656713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4599218357920368033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 415739259573479223}
+  m_Father: {fileID: 4462247851748741400}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8303662198816598299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5392649591064642733}
+  m_Layer: 13
+  m_Name: Back Stab Standing Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5392649591064642733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303662198816598299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6007465296328092284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4462247850103138364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1522,15 +1705,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62e0ab0f0837ca48adf4710699a7e91, type: 3}
---- !u!4 &4462247851631577699 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 425892, guid: a62e0ab0f0837ca48adf4710699a7e91,
-    type: 3}
-  m_PrefabInstance: {fileID: 4462247851631998407}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4462247851632098261 stripped
+--- !u!1 &4462247851631935061 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 101906, guid: a62e0ab0f0837ca48adf4710699a7e91,
+  m_CorrespondingSourceObject: {fileID: 199570, guid: a62e0ab0f0837ca48adf4710699a7e91,
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}
@@ -1540,9 +1717,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4462247851631935061 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 199570, guid: a62e0ab0f0837ca48adf4710699a7e91,
+--- !u!4 &4462247851631577699 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 425892, guid: a62e0ab0f0837ca48adf4710699a7e91,
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}
@@ -1555,6 +1732,12 @@ Transform:
 --- !u!1 &4462247851632077925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 121250, guid: a62e0ab0f0837ca48adf4710699a7e91,
+    type: 3}
+  m_PrefabInstance: {fileID: 4462247851631998407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4462247851632098261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101906, guid: a62e0ab0f0837ca48adf4710699a7e91,
     type: 3}
   m_PrefabInstance: {fileID: 4462247851631998407}
   m_PrefabAsset: {fileID: 0}

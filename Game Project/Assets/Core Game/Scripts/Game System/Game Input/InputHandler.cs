@@ -18,6 +18,7 @@ namespace DQ
         public bool y_Input;
         public bool rb_Input;
         public bool rt_Input;
+        public bool critical_Attack_Input;
         public bool jump_Input;
         public bool inventory_Input;
         public bool lockOn_Input;
@@ -40,7 +41,9 @@ namespace DQ
         public bool comboFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
-        
+
+        // transform doc lap de khong bi dinh transform tinh tu chan hay mat dat cua model 
+        public Transform criticalAttackRayCastStartPoint;
 
         PlayerControls inputActions;
         PlayerAttacking playerAttacking;
@@ -91,6 +94,7 @@ namespace DQ
                 //Actions Input
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
+                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
                 inputActions.PlayerActions.F.performed += i => f_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
@@ -119,6 +123,7 @@ namespace DQ
             HandleInventoryInput();
             HandleTwoHandInput();
             HandleLockOnInput();
+            HandleCriticalAttackInput();
         }   
         private void HandleMoveInput(float delta)
         {
@@ -216,6 +221,14 @@ namespace DQ
             }
         }
 
+        private void HandleCriticalAttackInput()
+        {
+            if(critical_Attack_Input)
+            {
+                critical_Attack_Input = false;
+                playerAttacking.AttemptBackStabOrParry();
+            }
+        }
         private void HandleLockOnInput()
         {
             if(lockOn_Input && lockOnFlag == false)

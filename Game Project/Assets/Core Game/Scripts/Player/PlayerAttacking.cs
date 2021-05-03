@@ -6,6 +6,8 @@ namespace DQ
 {
     public class PlayerAttacking : MonoBehaviour
     {
+        LayerMask backStabLayer = 1 << 14; // backstab layer is on layer 14
+
         AnimatorHandler animatorHandler;
         PlayerManager playerManager;
         PlayerStats playerStats;
@@ -145,6 +147,44 @@ namespace DQ
 
         #endregion
 
+        public void AttemptBackStabOrParry()
+        {
+            RaycastHit hit;
+
+            // start point - going out to transforms direction forward - out hit variable - distance 0.5f - scan on layer 
+            if(Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, backStabLayer))
+            {
+                CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
+
+                if(enemyCharacterManager != null)
+                {
+                    //check id ( so you cant stab ally )
+
+                    //pull is into a transform behind the enemy so backstab looks clean
+                    playerManager.transform.position = enemyCharacterManager.backStabCollider.backStabStandPoint.position;
+
+
+                    //rotate us towards that transform
+
+                    Vector3 rotationDirection = playerManager.transform.root.eulerAngles;
+                    rotationDirection = hit.transform.position - playerManager.transform.position;
+                    rotationDirection.y = 0;
+                    rotationDirection.Normalize();
+                    Quaternion tr = Quaternion.LookRotation(rotationDirection);
+                    Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
+                    playerManager.transform.rotation = targetRotation;
+
+                    //play animation
+                    animatorHandler.PlayTargetAnimation("Back Stab", true);
+                    //make enemy play animation
+                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
+                    
+                    
+                    //do damage
+
+                }
+            }
+        }
     }
 }
 

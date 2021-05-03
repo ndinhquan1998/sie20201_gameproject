@@ -34,13 +34,16 @@ namespace DQ
         // Start is called before the first frame update
         private void Awake()
         {
-            
-            enemyRigidbody = GetComponent<Rigidbody>();
             enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
+            enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+            enemyStats = GetComponent<EnemyStats>();
+            enemyRigidbody = GetComponent<Rigidbody>();
+            
+            backStabCollider = GetComponentInChildren<BackStabCollider>();
             navMeshAgent = GetComponentInChildren<NavMeshAgent>();
             navMeshAgent.enabled = false;
-            enemyStats = GetComponent<EnemyStats>();
-            enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+            
+            
         }
 
         private void Start()

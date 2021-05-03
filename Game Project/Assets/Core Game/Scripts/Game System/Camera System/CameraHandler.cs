@@ -15,8 +15,8 @@ namespace DQ
 
         private Transform myTransform;
         private Vector3 cameraTransformPosition;
-        private LayerMask ignoreLayers;
-        private LayerMask environmentLayer;
+        public LayerMask ignoreLayers;
+        public LayerMask environmentLayer;
         private Vector3 cameraFollowVelocity = Vector3.zero;
 
 
@@ -52,7 +52,7 @@ namespace DQ
             singleton = this;
             myTransform = transform;
             defaultPosition = cameraTransform.localPosition.z;
-            ignoreLayers = ~(1 << 8 | 1 << 9 | 1 << 10);
+            ignoreLayers = ~(1 << 8 | 1 << 10 | 1 << 12 | 1 << 14);
             inputHandler = FindObjectOfType<InputHandler>();
             playerManager = FindObjectOfType<PlayerManager>();
             targetTransform = FindObjectOfType<PlayerManager>().transform;
