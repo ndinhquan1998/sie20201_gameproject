@@ -28,6 +28,10 @@ namespace DQ
 
         public void HandleWeaponCombo(WeaponItem weapon)
         {
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             if (inputHandler.comboFlag)
             {
                 animatorHandler.anim.SetBool("canDoCombo", false);
@@ -44,6 +48,10 @@ namespace DQ
         }
         public void HandleLightAttack(WeaponItem weapon)
         {
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             weaponSlotManager.attackingWeapon = weapon;
 
             if (inputHandler.twoHandFlag)
@@ -61,6 +69,10 @@ namespace DQ
         }        
         public void HandleHeavyAttack(WeaponItem weapon)
         {
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             weaponSlotManager.attackingWeapon = weapon;
             if (inputHandler.twoHandFlag)
             {
@@ -149,6 +161,10 @@ namespace DQ
 
         public void AttemptBackStabOrParry()
         {
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             RaycastHit hit;
 
             // start point - going out to transforms direction forward - out hit variable - distance 0.5f - scan on layer 

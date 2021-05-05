@@ -6,6 +6,7 @@ namespace DQ
     public class PlayerLocomotion : MonoBehaviour
     {
         PlayerManager playerManager;
+        PlayerStats playerStats;
         Transform cameraObject;
         InputHandler inputHandler;
         CameraHandler cameraHandler;
@@ -43,19 +44,28 @@ namespace DQ
         [SerializeField]
         float fallingSpeed = 45;
 
+        [Header("Action's Stamina Cost")]
+        [SerializeField]
+        int rollStaminaCost = 15;
+        int backStepStaminaCost = 10;
+        int sprintStaminaCost = 1;
+
         public CapsuleCollider characterCollider;
         public CapsuleCollider characterCollisionBlockerCollider;
 
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
+            rigidbody = GetComponent<Rigidbody>();
+            inputHandler = GetComponent<InputHandler>();
+            playerManager = GetComponent<PlayerManager>();
+            playerStats = GetComponent<PlayerStats>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+
         }
         void Start()
         {
-            rigidbody = GetComponent<Rigidbody>();
-            inputHandler = GetComponent<InputHandler>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
-            playerManager = GetComponentInParent<PlayerManager>();
+
             cameraObject = Camera.main.transform;
             myTransform = transform;
             animatorHandler.Initialize();
@@ -157,6 +167,7 @@ namespace DQ
                 speed = sprintSpeed;
                 playerManager.isSprinting = true;
                 moveDirection *= speed;
+                playerStats.TakeStamina(sprintStaminaCost);
             }
             else
             {
@@ -195,6 +206,11 @@ namespace DQ
         {
             if (animatorHandler.anim.GetBool("isInteracting"))
                 return;
+
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             if (inputHandler.isRolling)
             {
                 moveDirection = cameraObject.forward * inputHandler.vertical;
@@ -206,10 +222,13 @@ namespace DQ
                     moveDirection.y = 0;
                     Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                     myTransform.rotation = rollRotation;
+                    playerStats.TakeStamina(rollStaminaCost);
+
                 }
                 else
                 {
                     animatorHandler.PlayTargetAnimation("Backstep", true);
+                    playerStats.TakeStamina(backStepStaminaCost);
                 }
             }
         }
@@ -304,6 +323,11 @@ namespace DQ
         {
             if (playerManager.isInteracting)
                 return;
+
+            //Stamina dependency
+            if (playerStats.currentStamina <= 0)
+                return;
+
             if (inputHandler.jump_Input)
             {
                 if(inputHandler.moveAmount > 0)
