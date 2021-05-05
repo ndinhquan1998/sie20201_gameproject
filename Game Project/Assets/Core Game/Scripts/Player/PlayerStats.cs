@@ -14,7 +14,7 @@ namespace DQ
         public StaminaBar staminaBar;
         public FPBar focusPointBar;
         PlayerManager playerManager;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
 
 
         public float staminaRegenerationAmount = 1;
@@ -25,7 +25,7 @@ namespace DQ
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             focusPointBar = FindObjectOfType<FPBar>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
         }
 
         void Start()
@@ -63,6 +63,17 @@ namespace DQ
         {
             maxFP_Points = FP_level * 10;
             return maxFP_Points;
+        }
+
+        public void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth = currentHealth - damage;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                isDead = true;
+            }
         }
 
         public void TakeDamage(int damage)

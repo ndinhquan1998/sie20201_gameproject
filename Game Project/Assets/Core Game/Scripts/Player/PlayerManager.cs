@@ -7,11 +7,13 @@ public class PlayerManager : CharacterManager
     {
         InputHandler inputHandler;
         Animator anim;
-        PlayerLocomotion playerLocomotion;
-        PlayerStats playerStats;
-        InteractableUI interactableUI;
         CameraHandler cameraHandler;
+        PlayerLocomotion playerLocomotion;
+        PlayerAnimatorManager playerAnimatorManager;
+        PlayerStats playerStats;
 
+
+        InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
         public GameObject itemInteractableGameObject;
 
@@ -26,18 +28,18 @@ public class PlayerManager : CharacterManager
         public bool isUsingLeftHand;
         public bool isInvulnerable;
 
-    void Start()
-    {
-        inputHandler = GetComponent<InputHandler>();
-        anim = GetComponentInChildren<Animator>();
-        playerLocomotion = GetComponent<PlayerLocomotion>();
-        playerStats = GetComponent<PlayerStats>();
-        interactableUI = FindObjectOfType<InteractableUI>();
-        }
+
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
             backStabCollider = GetComponentInChildren<BackStabCollider>();
+
+            inputHandler = GetComponent<InputHandler>();
+            playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
+            anim = GetComponentInChildren<Animator>();
+            playerLocomotion = GetComponent<PlayerLocomotion>();
+            playerStats = GetComponent<PlayerStats>();
+            interactableUI = FindObjectOfType<InteractableUI>();
         }
         void Update()
         {
@@ -49,19 +51,15 @@ public class PlayerManager : CharacterManager
             isUsingLeftHand = anim.GetBool("isUsingLeftHand");
             isInvulnerable = anim.GetBool("isInvulnerable");
             anim.SetBool("isInAir", isInAir);
-
+            anim.SetBool("isDead", playerStats.isDead);
 
             inputHandler.TickInput(delta);
+            playerAnimatorManager.canRotate = anim.GetBool("canRotate");
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
 
-
-            
-            
             CheckForInteractableObject();
-
-
 
             //ResetActions();
         }
@@ -73,6 +71,7 @@ public class PlayerManager : CharacterManager
 
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+            playerLocomotion.HandleRotation(delta);
             
         }
         private void LateUpdate()
@@ -92,6 +91,7 @@ public class PlayerManager : CharacterManager
 
 
             float delta = Time.deltaTime;
+
             if (cameraHandler != null)
             {
                 cameraHandler.FollowTarget(delta);

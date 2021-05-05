@@ -52,7 +52,7 @@ namespace DQ
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
         
 
         Vector2 movementInput;
@@ -70,7 +70,7 @@ namespace DQ
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
 
             
         }

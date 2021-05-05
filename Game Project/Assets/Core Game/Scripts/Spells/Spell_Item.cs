@@ -21,12 +21,12 @@ namespace DQ
         [TextArea]
         public string spellDescription;
 
-        public virtual void AttempToCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
+        public virtual void AttempToCastSpell(PlayerAnimatorManager animationHandler, PlayerStats playerStats)
         {
             Debug.Log("Casting Spell");
 
         }        
-        public virtual void SuccessfullyCastSpell(AnimatorHandler animationHandler, PlayerStats playerStats)
+        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animationHandler, PlayerStats playerStats)
         {
             Debug.Log("Casting Spell successful");
             playerStats.DeductFocusPoints(focusPointCost);

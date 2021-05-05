@@ -7,12 +7,12 @@ namespace DQ
     {
 
         Animator animator;
-        public EnemyHealthBar healthBar;
+
 
         private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
-            healthBar = FindObjectOfType<EnemyHealthBar>();
+  
         }
 
         void Start()
@@ -26,6 +26,18 @@ namespace DQ
             maxHealth = healthLevel * 10;
             return maxHealth;
         }
+
+        public void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth = currentHealth - damage;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                isDead = true;
+            }
+        }
+
         public void TakeDamage(int damage)
         {
             if (isDead)
