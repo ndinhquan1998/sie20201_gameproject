@@ -156,6 +156,12 @@ namespace DQ
             }
             focusPointBar.SetCurrentFocusPoints(currentFP_Points);
         }
+
+        public void AddCoins(int coins)
+        {
+            coinCount += coins;
+        }
+
     }
 }
 

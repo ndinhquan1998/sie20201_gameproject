@@ -17,6 +17,8 @@ namespace DQ
         public float maxFP_Points;
         public float currentFP_Points;
 
+        public int coinCount = 0;
+
         public bool isDead;
 
     }
