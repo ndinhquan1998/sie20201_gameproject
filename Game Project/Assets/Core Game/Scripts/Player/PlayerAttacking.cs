@@ -7,6 +7,7 @@ namespace DQ
     public class PlayerAttacking : MonoBehaviour
     {
         LayerMask backStabLayer = 1 << 14; // backstab layer is on layer 14
+        LayerMask riposteLayer = 1 << 15;  
 
         PlayerAnimatorManager animatorHandler;
         PlayerManager playerManager;
@@ -159,7 +160,7 @@ namespace DQ
 
         #endregion
 
-        public void AttemptBackStabOrParry()
+        public void AttemptBackStabOrRiposte()
         {
             //Stamina dependency
             if (playerStats.currentStamina <= 0)
@@ -170,6 +171,7 @@ namespace DQ
             // start point - going out to transforms direction forward - out hit variable - distance 0.5f - scan on layer 
             if(Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, backStabLayer))
             {
+                #region Backstab
                 CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
                 DamageCollider rightWeapon = weaponSlotManager.rightHandDamageCollider;
 
@@ -178,7 +180,7 @@ namespace DQ
                     //check id ( so you cant stab ally )
 
                     //pull is into a transform behind the enemy so backstab looks clean
-                    playerManager.transform.position = enemyCharacterManager.backStabCollider.backStabStandPoint.position;
+                    playerManager.transform.position = enemyCharacterManager.backStabCollider.deathblowsPosition.position;
 
 
                     //rotate us towards that transform
@@ -199,11 +201,41 @@ namespace DQ
                     animatorHandler.PlayTargetAnimation("Back Stab", true);
                     //make enemy play animation
                     enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
-                    
-                    
-                    //do damage
 
+                    //do damage
                 }
+                #endregion
+            }
+
+            else if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.7f, riposteLayer))
+            {
+                #region Riposte
+                CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
+                DamageCollider rightWeapon = weaponSlotManager.rightHandDamageCollider;
+
+                if(enemyCharacterManager != null && enemyCharacterManager.canBeRiposted)
+                {
+                    playerManager.transform.position = enemyCharacterManager.riposteCollider.deathblowsPosition.position;
+
+                    Vector3 rotationDirection = playerManager.transform.root.eulerAngles;
+                    rotationDirection = hit.transform.position - playerManager.transform.position;
+                    rotationDirection.y = 0;
+                    rotationDirection.Normalize();
+
+                    Quaternion tr = Quaternion.LookRotation(rotationDirection);
+                    Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
+                    playerManager.transform.rotation = targetRotation;
+
+
+
+                    int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.currentWeaponDamage;
+                    enemyCharacterManager.pendingCriticalDamage = criticalDamage;
+
+                    animatorHandler.PlayTargetAnimation("Back Stab", true);
+                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
+                }
+
+                #endregion
             }
         }
     }

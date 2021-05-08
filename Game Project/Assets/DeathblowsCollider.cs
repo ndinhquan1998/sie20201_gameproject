@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace DQ
 {
-    public class BackStabCollider : MonoBehaviour
+    public class DeathblowsCollider : MonoBehaviour
     {
-        public Transform backStabStandPoint;
+        public Transform deathblowsPosition;
     }
 }

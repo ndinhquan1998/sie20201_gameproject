@@ -32,7 +32,7 @@ public class PlayerManager : CharacterManager
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
-            backStabCollider = GetComponentInChildren<BackStabCollider>();
+            backStabCollider = GetComponentInChildren<DeathblowsCollider>();
 
             inputHandler = GetComponent<InputHandler>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();

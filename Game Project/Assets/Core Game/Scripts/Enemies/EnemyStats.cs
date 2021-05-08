@@ -58,7 +58,7 @@ namespace DQ
             enemyAnimatorManager.PlayTargetAnimation("Death_01", true);
             //Handler death 
             isDead = true;
-            StartCoroutine(RemoveAfterSeconds(60, this.gameObject));
+            //StartCoroutine(RemoveAfterSeconds(60, this.gameObject));
 
         }
 

@@ -244,7 +244,7 @@ namespace DQ
             if(critical_Attack_Input)
             {
                 critical_Attack_Input = false;
-                playerAttacking.AttemptBackStabOrParry();
+                playerAttacking.AttemptBackStabOrRiposte();
             }
         }
         private void HandleLockOnInput()
