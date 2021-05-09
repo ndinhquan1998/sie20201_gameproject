@@ -7,20 +7,30 @@ namespace DQ
 {
     public class InputHandler : MonoBehaviour
     {
+        //left d-pad
         public float horizontal;
         public float vertical;
         public float moveAmount;
         public float mouseX;
         public float mouseY;
 
+        //Right D-pad
+        // Xbox Controller : Y X A B 
+        //                   RT RB LT LB  
+        //   PS Controller : Triangle Square Cross Circle 
+        //                   R1 R2 L1 L2
+        //   PC Controller : 
         public bool b_Input;
         public bool f_Input;
         public bool y_Input;
         public bool rb_Input;
         public bool rt_Input;
+        public bool lt_Input;
         public bool critical_Attack_Input;
         public bool jump_Input;
         public bool inventory_Input;
+
+        //analog stick
         public bool lockOn_Input;
         public bool rightStick_Left_Input;
         public bool rightStick_Right_Input;
@@ -93,16 +103,22 @@ namespace DQ
                 inputActions.PlayerQuickSlots.DPadLeft.performed += inputActions => d_Pad_Left = true;
                 inputActions.PlayerQuickSlots.DPadUp.performed += inputActions => d_Pad_Up = true;
                 inputActions.PlayerQuickSlots.DPadDown.performed += inputActions => d_Pad_Down = true;
+
                 //Actions Input
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
-                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
+                inputActions.PlayerActions.LT.performed += i => lt_Input = true;
+
                 inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
                 inputActions.PlayerActions.F.performed += i => f_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
                 inputActions.PlayerActions.Roll.performed += i => b_Input = true;
                 inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
+
+                //override action
+                //RB
+                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
 
                 //Lock On Input
                 inputActions.PlayerActions.LockOn.performed += i => lockOn_Input = true;
@@ -181,6 +197,17 @@ namespace DQ
             if(rt_Input)
             {
                 playerAttacking.HandleHeavyAttack(playerInventory.rightWeapon);
+            }
+            if (lt_Input)
+            {
+                if (twoHandFlag)
+                {
+                    //if two handing handle weapon art
+                }
+                else
+                {
+                    playerAttacking.HandleLTAction();
+                }
             }
         }
 

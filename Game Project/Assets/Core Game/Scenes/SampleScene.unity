@@ -800,6 +800,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70175b20790b3e4e8a27fa2785d63c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &903574538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 834545326, guid: 94bb286804b4cd344b425e4d649a9c53, type: 3}
+      propertyPath: canBeRiposted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903568747, guid: 94bb286804b4cd344b425e4d649a9c53, type: 3}
+      propertyPath: detectionLayer.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 327881245162841811, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.492
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335474, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335476, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335478, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335478, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243657855374335479, guid: 94bb286804b4cd344b425e4d649a9c53,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1455016937224131549, guid: 94bb286804b4cd344b425e4d649a9c53, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 94bb286804b4cd344b425e4d649a9c53, type: 3}
 --- !u!850595691 &951091668
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2527,6 +2625,18 @@ PrefabInstance:
       propertyPath: itemInteractableGameObject
       value: 
       objectReference: {fileID: 28816696}
+    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: leftWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a,
+        type: 2}
+    - target: {fileID: 4462247851748741406, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: weaponsInLeftHandSlot.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a,
+        type: 2}
     - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
         type: 3}
       propertyPath: healthBar
@@ -2537,6 +2647,11 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 28816698}
+    - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
+        type: 3}
+      propertyPath: healthLevel
+      value: 999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36570bbb14bfae84589b274af4d56564, type: 3}
 --- !u!114 &1324476251 stripped

@@ -103,6 +103,18 @@ namespace DQ
 
         }
 
+        public void HandleLTAction()
+        {
+            if (playerInventory.leftWeapon.isShieldWeapon)
+            {
+                PerformLTWeaponArt(inputHandler.twoHandFlag);
+            }
+            else if (playerInventory.leftWeapon.isMeleeWeapon)
+            {
+                //do a light attack
+            }
+        }
+
         #region Attack Actions
         private void PerformRB_MeleeAction()
         {
@@ -156,6 +168,21 @@ namespace DQ
             //call on animation event 
             //choose which frame of the animation to successfully cast a spell
             playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats);
+        }
+
+        private void PerformLTWeaponArt(bool isTwoHanding)
+        {
+            if (playerManager.isInteracting)
+                return;
+
+            if (isTwoHanding)
+            {
+                //If we are two handing preform weapon art for right weapon
+            }
+            else
+            {
+                animatorHandler.PlayTargetAnimation(playerInventory.leftWeapon.weapon_Art, true);
+            }
         }
 
         #endregion

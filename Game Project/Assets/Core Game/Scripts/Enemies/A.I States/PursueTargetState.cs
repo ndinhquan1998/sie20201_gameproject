@@ -10,6 +10,9 @@ namespace DQ
         public CombatStanceState combatStanceState;
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+            if (enemyManager.isInteracting)
+                return this;
+
             // Chase the target
 
             //Switch attack state when in the atk range

@@ -10,10 +10,14 @@ namespace DQ
 
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+            if (enemyManager.isInteracting)
+                return this;
+
+
             // Check for attack range
 
             //walk around target
-   
+
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
 
 

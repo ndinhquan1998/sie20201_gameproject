@@ -28,6 +28,9 @@ namespace DQ
         public string TH_Light_Attack_2;
         public string TH_Heavy_Attack_1;
 
+        [Header("Weapon Art")]
+        public string weapon_Art; 
+
         [Header("Stamina Costs")]
         public int baseStamina;
         public float lightAttackMultiplier;
@@ -38,6 +41,7 @@ namespace DQ
         public bool isHolyCaster;
         public bool isPyroCaster;
         public bool isMeleeWeapon;
+        public bool isShieldWeapon;
 
     }
 }

@@ -216,17 +216,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Critical Attack",
+                    "name": "RT",
                     "type": "Button",
-                    "id": "9d5f7f73-af54-4467-866b-e3b7e2136a36",
+                    "id": "f2964997-0083-437d-98c0-8571516abb7b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "RT",
+                    "name": "LT",
                     "type": "Button",
-                    "id": "f2964997-0083-437d-98c0-8571516abb7b",
+                    "id": "0f468499-e9fe-4a25-9675-06d55467bcc0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -267,6 +267,14 @@
                     "name": "Inventory",
                     "type": "Button",
                     "id": "9d3edcb2-bb3e-4193-a114-0006f0b950e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Critical Attack",
+                    "type": "Button",
+                    "id": "9d5f7f73-af54-4467-866b-e3b7e2136a36",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -391,6 +399,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2c4d08f-9e50-4ffe-acf9-6ef6182f704b",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93799d3c-1315-4aef-96a1-33755d9f11f8",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
