@@ -2650,7 +2650,7 @@ PrefabInstance:
     - target: {fileID: 4462247851748742880, guid: 36570bbb14bfae84589b274af4d56564,
         type: 3}
       propertyPath: healthLevel
-      value: 999
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36570bbb14bfae84589b274af4d56564, type: 3}
@@ -4890,6 +4890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421149003489884555, guid: 8799fc6a6bee4db45ae48abf258df1f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8421149004261460607, guid: 8799fc6a6bee4db45ae48abf258df1f4,
         type: 3}

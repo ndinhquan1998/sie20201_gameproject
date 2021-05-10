@@ -11,6 +11,7 @@ namespace DQ
 
         PlayerAnimatorManager animatorHandler;
         PlayerManager playerManager;
+        PlayerEquipmentManager playerEquipmentManager;
         PlayerStats playerStats;
         PlayerInventory playerInventory;
         InputHandler inputHandler;
@@ -20,6 +21,7 @@ namespace DQ
         private void Awake()
         {
             animatorHandler = GetComponent<PlayerAnimatorManager>();
+            playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerManager = GetComponentInParent<PlayerManager>();
             playerStats = GetComponentInParent<PlayerStats>();
             playerInventory = GetComponentInParent<PlayerInventory>();
@@ -103,6 +105,7 @@ namespace DQ
 
         }
 
+        #region Handle Inputs
         public void HandleLTAction()
         {
             if (playerInventory.leftWeapon.isShieldWeapon)
@@ -114,6 +117,12 @@ namespace DQ
                 //do a light attack
             }
         }
+
+        public void HandleLBAction()
+        {
+            PerformLBBlockAction();
+        }
+        #endregion
 
         #region Attack Actions
         private void PerformRB_MeleeAction()
@@ -265,6 +274,21 @@ namespace DQ
                 #endregion
             }
         }
+
+        #region Defense Actions
+        private void PerformLBBlockAction()
+        {
+            if (playerManager.isInteracting)
+                return;
+
+            if (playerManager.isBlocking)
+                return;
+
+            animatorHandler.PlayTargetAnimation("Block Start", false, true);
+            playerEquipmentManager.OpenBlockingCollider();
+            playerManager.isBlocking = true;
+        }
+        #endregion
     }
 }
 
