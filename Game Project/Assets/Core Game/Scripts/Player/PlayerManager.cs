@@ -141,6 +141,14 @@ public class PlayerManager : CharacterManager
             }
         }
 
+        public void OpenChestInteraction(Transform playerPosition)
+        {
+            playerLocomotion.rigidbody.velocity = Vector3.zero;
+            transform.position = playerPosition.transform.position;
+            //playerAnimatorManager.PlayTargetAnimation("Open Chest", true);
+
+        }
+
 
 }
 }

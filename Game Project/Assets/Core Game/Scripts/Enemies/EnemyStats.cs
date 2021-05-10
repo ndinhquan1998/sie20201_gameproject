@@ -5,13 +5,12 @@ namespace DQ
 {
     public class EnemyStats : CharacterStats
     {
-
-        Animator animator;
-
+        EnemyAnimatorManager enemyAnimatorManager;
+        public int coinsDrop = 50;
 
         private void Awake()
         {
-            animator = GetComponentInChildren<Animator>();
+            enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
   
         }
 
@@ -45,17 +44,22 @@ namespace DQ
 
             currentHealth = currentHealth - damage;
 
-            animator.Play("Damage_01");
+            enemyAnimatorManager.PlayTargetAnimation("Damage_01", true);
 
             if (currentHealth <= 0)
             {
-                currentHealth = 0;
-                animator.Play("Death_01");
-                //Handler death 
-                isDead = true;
-                StartCoroutine(RemoveAfterSeconds(3, this.gameObject));
-
+                HandleDeath();
             }
+        }
+
+        private void HandleDeath()
+        {
+            currentHealth = 0;
+            enemyAnimatorManager.PlayTargetAnimation("Death_01", true);
+            //Handler death 
+            isDead = true;
+            StartCoroutine(RemoveAfterSeconds(60, this.gameObject));
+
         }
 
         IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)

@@ -30,5 +30,20 @@ namespace DQ
             Vector3 velocity = deltaPosition / delta;
             enemyManager.enemyRigidbody.velocity = velocity;
         }
+
+        public void DroppingCoinOnDeath()
+        {
+            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+            CurrencyCounter currencyCounter = FindObjectOfType<CurrencyCounter>();
+
+            if (playerStats != null)
+            {
+                playerStats.AddCoins(enemyStats.coinsDrop);
+                if (currencyCounter != null)
+                {
+                    currencyCounter.SetCoinText(playerStats.coinCount);
+                }
+            }
+        }
     }
 }
