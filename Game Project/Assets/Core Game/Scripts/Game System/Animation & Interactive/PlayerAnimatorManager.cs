@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace DQ
 {
-    public class AnimatorHandler : AnimatorManager
+    public class PlayerAnimatorManager : AnimatorManager
     {
 
         InputHandler inputHandler;
+        PlayerStats playerStats;
         PlayerLocomotion playerLocomotion;
         PlayerManager playerManager;
         int vertical;
         int horizontal;
-        public bool canRotate;
+
 
         public void Initialize()
         {
             anim = GetComponent<Animator>();
             playerManager = GetComponentInParent<PlayerManager>();
+            playerStats = GetComponentInParent<PlayerStats>();
             inputHandler = GetComponentInParent<InputHandler>();
             playerLocomotion = GetComponentInParent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");
@@ -25,74 +27,74 @@ namespace DQ
         }
         public void UpdateAnimatorValues(float verticalMovement, float horizontalMovement, bool isSprinting)
         {
-            #region Vertical
-            float v = 0;
+            #region Vertical 
+            float tweakedVerticalValue = 0;
 
             if(verticalMovement > 0 && verticalMovement < 0.55f)
             {
-                v = 0.5f;
+                tweakedVerticalValue = 0.5f;
             }
             else if (verticalMovement >0.55f)
             {
-                v = 1;
+                tweakedVerticalValue = 1;
             }
             else if (verticalMovement < 0 && verticalMovement > -0.55f)
             {
-                v = -0.5f;
+                tweakedVerticalValue = -0.5f;
             }
             else if (verticalMovement < -0.55f)
             {
-                v = -1;
+                tweakedVerticalValue = -1;
             }
             else
             {
-                v = 0;
+                tweakedVerticalValue = 0;
             }
             #endregion
 
             #region Horizontal
-            float h = 0;
+            float tweakedHorizontallValue = 0;
             if (horizontalMovement > 0 && horizontalMovement < 0.55f)
             {
-                h = 0.5f;
+                tweakedHorizontallValue = 0.5f;
             }
             else if (horizontalMovement > 0.55f)
             {
-                h = 1;
+                tweakedHorizontallValue = 1;
             }
             else if (horizontalMovement < 0 && horizontalMovement > -0.55f)
             {
-                h = -0.5f;
+                tweakedHorizontallValue = -0.5f;
             }
             else if (horizontalMovement < -0.55f)
             {
-                h = -1;
+                tweakedHorizontallValue = -1;
             }
             else
             {
-                h = 0;
+                tweakedHorizontallValue = 0;
             }
             #endregion
 
-            if (isSprinting && v != 0)
+            if (isSprinting && tweakedVerticalValue != 0)
             {
-                v = 2;
-                h = horizontalMovement;
+                tweakedVerticalValue = 2;
+                tweakedHorizontallValue = horizontalMovement;
             }
 
-            anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
-            anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
+            anim.SetFloat(vertical, tweakedVerticalValue, 0.1f, Time.deltaTime);
+            anim.SetFloat(horizontal, tweakedHorizontallValue, 0.1f, Time.deltaTime);
         }
 
 
 
         public void CanRotate()
         {
-            canRotate = true;
+            anim.SetBool("canRotate", true);
         }
         public void StopRotation()
         {
-            canRotate = false;
+            anim.SetBool("canRotate", false);
         }
 
         public void EnableCombo()
@@ -112,6 +114,13 @@ namespace DQ
         {
             anim.SetBool("isInvulnerable", false);
         }
+
+        public override void TakeCriticalDamageAnimationEvent()
+        {
+            playerStats.TakeDamageNoAnimation(playerManager.pendingCriticalDamage);
+            playerManager.pendingCriticalDamage = 0;
+        }
+
         private void OnAnimatorMove()
         {
             if (playerManager.isInteracting == false)

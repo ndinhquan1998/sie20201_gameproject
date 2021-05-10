@@ -18,6 +18,7 @@ namespace DQ
         public bool y_Input;
         public bool rb_Input;
         public bool rt_Input;
+        public bool critical_Attack_Input;
         public bool jump_Input;
         public bool inventory_Input;
         public bool lockOn_Input;
@@ -40,16 +41,19 @@ namespace DQ
         public bool comboFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
-        
+
+        // transform doc lap de khong bi dinh transform tinh tu chan hay mat dat cua model 
+        public Transform criticalAttackRayCastStartPoint;
 
         PlayerControls inputActions;
         PlayerAttacking playerAttacking;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        PlayerStats playerStats;
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
         
 
         Vector2 movementInput;
@@ -64,10 +68,11 @@ namespace DQ
             playerAttacking = GetComponentInChildren<PlayerAttacking>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
+            playerStats = GetComponent<PlayerStats>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
 
             
         }
@@ -91,10 +96,13 @@ namespace DQ
                 //Actions Input
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
+                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_Input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
                 inputActions.PlayerActions.F.performed += i => f_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
+                inputActions.PlayerActions.Roll.performed += i => b_Input = true;
+                inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
 
                 //Lock On Input
                 inputActions.PlayerActions.LockOn.performed += i => lockOn_Input = true;
@@ -119,6 +127,7 @@ namespace DQ
             HandleInventoryInput();
             HandleTwoHandInput();
             HandleLockOnInput();
+            HandleCriticalAttackInput();
         }   
         private void HandleMoveInput(float delta)
         {
@@ -131,18 +140,32 @@ namespace DQ
 
         private void HandleRollInput(float delta)
         {
-            b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
-            sprintFlag = b_Input;
+            //remove for improvement
+            //b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+
+
             if (b_Input)
             {
                 rollInputTimer += delta;
-                
+
+                if (playerStats.currentStamina <= 0)
+                {
+                    b_Input = false;
+                    sprintFlag = false;
+                }
+
+                if(moveAmount > 0.5f && playerStats.currentStamina > 0)
+                {
+                    sprintFlag = true;
+                }
             }
             else
             {
-                if(rollInputTimer > 0 && rollInputTimer < 0.5f)
+                sprintFlag = false;
+
+                if (rollInputTimer > 0 && rollInputTimer < 0.5f)
                 {
-                    sprintFlag = false;
+                    
                     isRolling = true;
                 }
                 rollInputTimer = 0;
@@ -216,6 +239,14 @@ namespace DQ
             }
         }
 
+        private void HandleCriticalAttackInput()
+        {
+            if(critical_Attack_Input)
+            {
+                critical_Attack_Input = false;
+                playerAttacking.AttemptBackStabOrParry();
+            }
+        }
         private void HandleLockOnInput()
         {
             if(lockOn_Input && lockOnFlag == false)

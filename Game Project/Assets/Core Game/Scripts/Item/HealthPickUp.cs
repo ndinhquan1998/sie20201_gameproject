@@ -24,10 +24,10 @@ namespace DQ
         private void PickUpItem(PlayerManager playerManager)
         {
             PlayerLocomotion playerLocomotion;
-            AnimatorHandler animatorHandler;
+            PlayerAnimatorManager animatorHandler;
  
             playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
-            animatorHandler = playerManager.GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
  
             playerLocomotion.rigidbody.velocity = Vector3.zero; //Stops the player from moving whilst picking up item
             animatorHandler.PlayTargetAnimation("Pick Up Item", true); //Plays the animation of looting the item

@@ -9,6 +9,10 @@ namespace DQ
         public GameObject modelPrefab;
         public bool isUnarmed;
 
+        [Header("Damage")]
+        public int baseDamage = 25 ;
+        public int criticalDamageMultiplier = 4;
+        
         [Header("Idle Animation")]
         public string right_hand_idle;
         public string left_hand_idle;

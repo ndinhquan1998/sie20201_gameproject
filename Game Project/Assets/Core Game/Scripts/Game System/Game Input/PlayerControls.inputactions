@@ -216,6 +216,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Critical Attack",
+                    "type": "Button",
+                    "id": "9d5f7f73-af54-4467-866b-e3b7e2136a36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "RT",
                     "type": "Button",
                     "id": "f2964997-0083-437d-98c0-8571516abb7b",
@@ -302,7 +310,7 @@
                     "name": "",
                     "id": "85facb38-8ceb-4fcd-a5f4-b5199424afa8",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "RB",
@@ -383,6 +391,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61e43f82-629c-489f-8e53-e2deaf173ae8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Critical Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
