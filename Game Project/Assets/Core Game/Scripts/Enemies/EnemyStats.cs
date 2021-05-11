@@ -6,6 +6,8 @@ namespace DQ
     public class EnemyStats : CharacterStats
     {
         EnemyAnimatorManager enemyAnimatorManager;
+        public UIEnemyHealthBar enemyHealthBar;
+
         public int coinsDrop = 50;
 
         private void Awake()
@@ -18,6 +20,7 @@ namespace DQ
         {
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
+            enemyHealthBar.SetMaxHealth(maxHealth);
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -28,6 +31,7 @@ namespace DQ
 
         public void TakeDamageNoAnimation(int damage)
         {
+            enemyHealthBar.SetHealth(currentHealth);
             currentHealth = currentHealth - damage;
 
             if (currentHealth <= 0)
@@ -43,6 +47,7 @@ namespace DQ
                 return;
 
             currentHealth = currentHealth - damage;
+            enemyHealthBar.SetHealth(currentHealth);
 
             enemyAnimatorManager.PlayTargetAnimation(damageAnimation, true);
 
