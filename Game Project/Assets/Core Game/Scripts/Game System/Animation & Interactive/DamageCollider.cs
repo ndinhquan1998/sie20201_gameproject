@@ -7,6 +7,8 @@ namespace DQ
     {
         public CharacterManager characterManager;
         Collider damageCollider;
+        public bool enabledDamageColliderOnStartUp = false ;
+        // help spell trigger damage collider without animation events like physical attack
 
         public int currentWeaponDamage = 25;
 
@@ -15,7 +17,7 @@ namespace DQ
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
-            damageCollider.enabled = false;
+            damageCollider.enabled = enabledDamageColliderOnStartUp;
 
 
         }
