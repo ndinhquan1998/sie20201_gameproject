@@ -39,7 +39,7 @@ namespace DQ
             enemyStats = GetComponent<EnemyStats>();
             enemyRigidbody = GetComponent<Rigidbody>();
             
-            backStabCollider = GetComponentInChildren<BackStabCollider>();
+            //backStabCollider = GetComponentInChildren<DeathblowsCollider>();
             navMeshAgent = GetComponentInChildren<NavMeshAgent>();
             navMeshAgent.enabled = false;
             

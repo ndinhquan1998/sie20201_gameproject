@@ -32,7 +32,7 @@ public class PlayerManager : CharacterManager
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
-            backStabCollider = GetComponentInChildren<BackStabCollider>();
+            backStabCollider = GetComponentInChildren<DeathblowsCollider>();
 
             inputHandler = GetComponent<InputHandler>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
@@ -80,6 +80,7 @@ public class PlayerManager : CharacterManager
             //inputHandler.sprintFlag = false;
             inputHandler.rb_Input = false;
             inputHandler.rt_Input = false;
+            inputHandler.lt_Input = false;
             inputHandler.d_Pad_Up = false;
             inputHandler.d_Pad_Down = false;
             inputHandler.d_Pad_Left = false;
@@ -87,7 +88,6 @@ public class PlayerManager : CharacterManager
             inputHandler.f_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
-            //isSprinting = inputHandler.b_Input;
 
 
             float delta = Time.deltaTime;

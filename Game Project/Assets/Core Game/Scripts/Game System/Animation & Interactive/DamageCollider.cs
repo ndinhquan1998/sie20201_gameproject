@@ -5,6 +5,7 @@ namespace DQ
 {
     public class DamageCollider : MonoBehaviour
     {
+        public CharacterManager characterManager;
         Collider damageCollider;
 
         public int currentWeaponDamage = 25;
@@ -15,6 +16,8 @@ namespace DQ
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
             damageCollider.enabled = false;
+
+
         }
 
         public void EnableDamageCollider()
@@ -31,6 +34,17 @@ namespace DQ
             if(collision.tag == "Player")
             {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
+                CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+
+                if(enemyCharacterManager != null)
+                {
+                    if (enemyCharacterManager.isParrying)
+                    {
+                        // play animation
+                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        return;
+                    }
+                }
                 if(playerStats != null)
                 {
                     playerStats.TakeDamage(currentWeaponDamage);
@@ -40,7 +54,19 @@ namespace DQ
             if(collision.tag == "Enemy")
             {
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-                if(enemyStats != null)
+                CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+
+                if (enemyCharacterManager != null)
+                {
+                    if (enemyCharacterManager.isParrying)
+                    {
+                        // play animation
+                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        return;
+                    }
+                }
+
+                if (enemyStats != null)
                 {
                     enemyStats.TakeDamage(currentWeaponDamage);
                 }

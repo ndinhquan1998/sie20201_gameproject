@@ -13,6 +13,21 @@ namespace DQ
 
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+
+            if (enemyManager.isInteracting)
+                return this;
+           /* if (enemyManager.isInteracting && enemyManager.canDoCombo == false)
+            {
+                return this;
+            }
+            else if (enemyManager.isInteracting && enemyManager.canDoCombo)
+            {
+                if (isComboing)
+                {
+                    enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
+                    isComboing = false;
+                }
+            } */
             // Select attack base on atk score
 
             // select alt attack based on condition
