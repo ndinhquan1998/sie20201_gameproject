@@ -22,8 +22,17 @@ namespace DQ
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
 
+        [Header("Combat Flags")]
+        public bool canDoCombo;
+
+        [Header("A.I Combat Settings")]
+        public bool allowAIToPerformCombos;
+        public float comboLikelyHood;
+
         [Header("A.I Setting")]
         public float detectionRadius = 20;
+
+
 
         //"eyes's sight" variables
         public float maximumDetectionAngle = 50;
@@ -54,14 +63,17 @@ namespace DQ
         private void Update()
         {
             HandleRecoveryTimer();
+            HandleStateMachine();
 
+            canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
-            HandleStateMachine();
+            navMeshAgent.transform.localPosition = Vector3.zero;
+            navMeshAgent.transform.localRotation = Quaternion.identity;
         }
         private void HandleStateMachine()
         {

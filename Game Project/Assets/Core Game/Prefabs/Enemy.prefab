@@ -550,6 +550,8 @@ MonoBehaviour:
   backStabCollider: {fileID: 5725222852358999997}
   riposteCollider: {fileID: 8747977419206912476}
   canBeRiposted: 0
+  canBeParried: 0
+  isParrying: 0
   pendingCriticalDamage: 0
   currentState: {fileID: 1903568747}
   currentTarget: {fileID: 0}
@@ -559,6 +561,9 @@ MonoBehaviour:
   isInteracting: 0
   rotationSpeed: 15
   maximumAttackRange: 1.5
+  canDoCombo: 0
+  allowAIToPerformCombos: 0
+  comboLikelyHood: 100
   detectionRadius: 20
   maximumDetectionAngle: 50
   minimumDetectionAngle: -50

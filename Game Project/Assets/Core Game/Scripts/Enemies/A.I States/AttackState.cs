@@ -10,24 +10,26 @@ namespace DQ
 
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
+        private bool comboOnNextAttack = false;
 
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
 
-            if (enemyManager.isInteracting)
-                return this;
-           /* if (enemyManager.isInteracting && enemyManager.canDoCombo == false)
+            if (enemyManager.isInteracting && enemyManager.canDoCombo == false)
             {
                 return this;
             }
             else if (enemyManager.isInteracting && enemyManager.canDoCombo)
             {
-                if (isComboing)
+                if (comboOnNextAttack)
                 {
+                    comboOnNextAttack = false;
                     enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
-                    isComboing = false;
+
                 }
-            } */
+            } 
+
+
             // Select attack base on atk score
 
             // select alt attack based on condition
@@ -43,7 +45,7 @@ namespace DQ
 
             HandleRotateTowardsTarget(enemyManager);
 
-            if (enemyManager.isPerformingAction)
+            if (enemyManager.isPerformingAction )
             {
                 return combatStanceState;
             } 
@@ -67,10 +69,19 @@ namespace DQ
                             enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
                             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
                             enemyManager.isPerformingAction = true;
-                            enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
-                            currentAttack = null;
+                            RollForComboChance(enemyManager);
 
-                            return combatStanceState;
+                            if (currentAttack.canDoCombo && comboOnNextAttack)
+                            {
+                                currentAttack = currentAttack.comboAction;
+                                return this;
+                            }
+                            else
+                            {
+                                enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+                                currentAttack = null;
+                                return combatStanceState;
+                            }
                         }
                     }
                 }
@@ -161,6 +172,16 @@ namespace DQ
                 //control rotation of enemy include the model underneath in the hierarchy 
             }
 
+        }
+
+        private void RollForComboChance(EnemyManager enemyManager)
+        {
+            float comboChance = Random.Range(0, 100);
+
+            if (enemyManager.allowAIToPerformCombos && comboChance <= enemyManager.comboLikelyHood)
+            {
+                comboOnNextAttack = true;
+            }
         }
     }
 }
