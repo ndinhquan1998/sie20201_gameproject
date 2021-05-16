@@ -10,7 +10,7 @@ namespace DQ
         public Image leftWeaponIcon;
         public Image rightWeaponIcon;
 
-        public void UpdateWeaponQuickSlotsUI(bool isLeft, WeaponItem weapon)
+        public void UpdateWeaponQuickSlotsUI(bool isLeft, Weapon weapon)
         {
             if(isLeft == false)
             {

@@ -8,19 +8,25 @@ namespace DQ
     {
         WeaponSlotManager weaponSlotManager;
 
-        public WeaponItem rightWeapon;
-        public WeaponItem leftWeapon;
+        [Header("Quick Slot")]
+        public Weapon rightWeapon;
+        public Weapon leftWeapon;
         public SpellItems currentSpell;
+        //public ConsumableItem currentConsumable;
 
-        public WeaponItem unarmedWeapon;
+        [Header("Current Gear Equipment")]
+        public Helmet currentHelmetEquipment;
+        public ChestArmor currentChestArmorEquipment;
 
-        public WeaponItem[] weaponsInRightHandSlot = new WeaponItem[1];
-        public WeaponItem[] weaponsInLeftHandSlot = new WeaponItem[1];
+        public Weapon unarmedWeapon;
+
+        public Weapon[] weaponsInRightHandSlot = new Weapon[1];
+        public Weapon[] weaponsInLeftHandSlot = new Weapon[1];
 
         public int currentRightWeaponIndex = -1 ;
         public int currentLeftWeaponIndex = -1;
 
-        public List<WeaponItem> weaponsInventory;
+        public List<Weapon> weaponsInventory;
 
         private void Awake()
         {

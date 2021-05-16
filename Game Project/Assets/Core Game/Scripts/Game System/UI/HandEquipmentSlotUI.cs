@@ -9,7 +9,7 @@ namespace DQ
     {
         UIManager uiManager;
         public Image icon;
-        WeaponItem weapon;
+        Weapon weapon;
 
         public bool rightHandSlot01;
         public bool rightHandSlot02;
@@ -20,7 +20,7 @@ namespace DQ
         {
             uiManager = FindObjectOfType<UIManager>();
         }
-        public void AddItem(WeaponItem newWeapon)
+        public void AddItem(Weapon newWeapon)
         {
             weapon = newWeapon;
             icon.sprite = weapon.itemIcon;

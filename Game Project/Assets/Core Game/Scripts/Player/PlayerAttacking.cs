@@ -32,7 +32,7 @@ namespace DQ
             inputHandler = GetComponentInParent<InputHandler>();
         }
 
-        public void HandleWeaponCombo(WeaponItem weapon)
+        public void HandleWeaponCombo(Weapon weapon)
         {
             //Stamina dependency
             if (playerStats.currentStamina <= 0)
@@ -52,7 +52,7 @@ namespace DQ
              }
 
         }
-        public void HandleLightAttack(WeaponItem weapon)
+        public void HandleLightAttack(Weapon weapon)
         {
             //Stamina dependency
             if (playerStats.currentStamina <= 0)
@@ -73,7 +73,7 @@ namespace DQ
             }
 
         }        
-        public void HandleHeavyAttack(WeaponItem weapon)
+        public void HandleHeavyAttack(Weapon weapon)
         {
             //Stamina dependency
             if (playerStats.currentStamina <= 0)
@@ -151,7 +151,7 @@ namespace DQ
             }
         }
 
-        private void PerformRB_MagicAction( WeaponItem weapon)
+        private void PerformRB_MagicAction( Weapon weapon)
         {
             if (playerManager.isInteracting) 
                 return;
