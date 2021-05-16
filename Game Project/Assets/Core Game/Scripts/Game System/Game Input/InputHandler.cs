@@ -26,6 +26,7 @@ namespace DQ
         public bool rb_Input;
         public bool rt_Input;
         public bool lt_Input;
+        public bool lb_Input;
         public bool critical_Attack_Input;
         public bool jump_Input;
         public bool inventory_Input;
@@ -60,6 +61,7 @@ namespace DQ
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         PlayerStats playerStats;
+        BlockingCollider blockingCollider;
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
@@ -83,6 +85,7 @@ namespace DQ
             cameraHandler = FindObjectOfType<CameraHandler>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            blockingCollider = GetComponentInChildren<BlockingCollider>();
 
             
         }
@@ -108,6 +111,8 @@ namespace DQ
                 inputActions.PlayerActions.RB.performed += i => rb_Input = true;
                 inputActions.PlayerActions.RT.performed += i => rt_Input = true;
                 inputActions.PlayerActions.LT.performed += i => lt_Input = true;
+                inputActions.PlayerActions.LB.performed += i => lb_Input = true;
+                inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
 
                 inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
                 inputActions.PlayerActions.F.performed += i => f_Input = true;
@@ -136,7 +141,7 @@ namespace DQ
         {
             HandleMoveInput(delta);
             HandleRollInput(delta);
-            HandleAttackInput(delta);
+            HandleCombatInput(delta);
             HandleQuickSlotsInput();
             //HandleInteractingButtonInput();
             //HandleJumpInput();
@@ -188,7 +193,7 @@ namespace DQ
             }
         }
 
-        private void HandleAttackInput(float delta)
+        private void HandleCombatInput(float delta)
         {
             if(rb_Input)
             {
@@ -207,6 +212,19 @@ namespace DQ
                 else
                 {
                     playerAttacking.HandleLTAction();
+                }
+            }
+            if (lb_Input)
+            {
+                playerAttacking.HandleLBAction();
+            }
+            else
+            {
+                playerManager.isBlocking = false;
+
+                if (blockingCollider.blockingCollider.enabled)
+                {
+                    blockingCollider.DisableBlockingCollider();
                 }
             }
         }

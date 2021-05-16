@@ -12,7 +12,10 @@ namespace DQ
         [Header("Damage")]
         public int baseDamage = 25 ;
         public int criticalDamageMultiplier = 4;
-        
+
+        [Header("Damage Absorption")]
+        public float physicalDamageAbsorption;
+
         [Header("Idle Animation")]
         public string right_hand_idle;
         public string left_hand_idle;

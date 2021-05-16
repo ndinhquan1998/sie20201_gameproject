@@ -245,6 +245,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""LB"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c64f512-6d5d-427d-8fab-d3354a26ed0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""F"",
                     ""type"": ""Button"",
                     ""id"": ""649fa657-f897-485a-8723-0c3a75c4b902"",
@@ -447,6 +455,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Critical Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70a5096f-c6a2-47ba-8fb7-72179fb11508"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbd915bd-bb62-4469-a7e0-06c407ee5c55"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -593,6 +623,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
         m_PlayerActions_LT = m_PlayerActions.FindAction("LT", throwIfNotFound: true);
+        m_PlayerActions_LB = m_PlayerActions.FindAction("LB", throwIfNotFound: true);
         m_PlayerActions_F = m_PlayerActions.FindAction("F", throwIfNotFound: true);
         m_PlayerActions_Y = m_PlayerActions.FindAction("Y", throwIfNotFound: true);
         m_PlayerActions_LockOn = m_PlayerActions.FindAction("LockOn", throwIfNotFound: true);
@@ -715,6 +746,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_RB;
     private readonly InputAction m_PlayerActions_RT;
     private readonly InputAction m_PlayerActions_LT;
+    private readonly InputAction m_PlayerActions_LB;
     private readonly InputAction m_PlayerActions_F;
     private readonly InputAction m_PlayerActions_Y;
     private readonly InputAction m_PlayerActions_LockOn;
@@ -729,6 +761,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
         public InputAction @RT => m_Wrapper.m_PlayerActions_RT;
         public InputAction @LT => m_Wrapper.m_PlayerActions_LT;
+        public InputAction @LB => m_Wrapper.m_PlayerActions_LB;
         public InputAction @F => m_Wrapper.m_PlayerActions_F;
         public InputAction @Y => m_Wrapper.m_PlayerActions_Y;
         public InputAction @LockOn => m_Wrapper.m_PlayerActions_LockOn;
@@ -756,6 +789,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
                 @LT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
                 @LT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
+                @LB.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
+                @LB.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
+                @LB.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
                 @F.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnF;
                 @F.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnF;
                 @F.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnF;
@@ -790,6 +826,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LT.started += instance.OnLT;
                 @LT.performed += instance.OnLT;
                 @LT.canceled += instance.OnLT;
+                @LB.started += instance.OnLB;
+                @LB.performed += instance.OnLB;
+                @LB.canceled += instance.OnLB;
                 @F.started += instance.OnF;
                 @F.performed += instance.OnF;
                 @F.canceled += instance.OnF;
@@ -882,6 +921,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRB(InputAction.CallbackContext context);
         void OnRT(InputAction.CallbackContext context);
         void OnLT(InputAction.CallbackContext context);
+        void OnLB(InputAction.CallbackContext context);
         void OnF(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);
         void OnLockOn(InputAction.CallbackContext context);

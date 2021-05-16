@@ -29,6 +29,7 @@ public class PlayerManager : CharacterManager
         public bool isInvulnerable;
 
 
+
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
@@ -52,6 +53,7 @@ public class PlayerManager : CharacterManager
             isInvulnerable = anim.GetBool("isInvulnerable");
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isDead", playerStats.isDead);
+            anim.SetBool("isBlocking", isBlocking);
 
             inputHandler.TickInput(delta);
             playerAnimatorManager.canRotate = anim.GetBool("canRotate");

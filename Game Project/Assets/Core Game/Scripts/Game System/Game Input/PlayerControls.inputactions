@@ -232,6 +232,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "LB",
+                    "type": "Button",
+                    "id": "5c64f512-6d5d-427d-8fab-d3354a26ed0e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "F",
                     "type": "Button",
                     "id": "649fa657-f897-485a-8723-0c3a75c4b902",
@@ -432,6 +440,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Critical Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70a5096f-c6a2-47ba-8fb7-72179fb11508",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbd915bd-bb62-4469-a7e0-06c407ee5c55",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
