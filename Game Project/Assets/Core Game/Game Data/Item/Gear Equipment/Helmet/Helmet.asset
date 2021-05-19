@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b448bfb2ae63fe9469c3a49cfa165152, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Helmet_06
   itemIcon: {fileID: 0}
   physicalDefense: 0
-  helmetModelName: 
+  helmetModelName: Helmet_06

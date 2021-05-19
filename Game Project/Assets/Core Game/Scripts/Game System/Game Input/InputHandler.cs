@@ -21,7 +21,8 @@ namespace DQ
         //                   R1 R2 L1 L2
         //   PC Controller : 
         public bool b_Input;
-        public bool f_Input;
+        public bool a_Input;
+        public bool x_Input;
         public bool y_Input;
         public bool rb_Input;
         public bool rt_Input;
@@ -60,12 +61,13 @@ namespace DQ
         PlayerAttacking playerAttacking;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        PlayerFXManager playerFXManager;
         PlayerStats playerStats;
         BlockingCollider blockingCollider;
         CameraHandler cameraHandler;
         UIManager uiManager;
         WeaponSlotManager weaponSlotManager;
-        PlayerAnimatorManager animatorHandler;
+        PlayerAnimatorManager playerAnimatorManager;
         
 
         Vector2 movementInput;
@@ -84,7 +86,8 @@ namespace DQ
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
+            playerFXManager = GetComponentInChildren<PlayerFXManager>();
             blockingCollider = GetComponentInChildren<BlockingCollider>();
 
             
@@ -115,7 +118,8 @@ namespace DQ
                 inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
 
                 inputActions.PlayerActions.Inventory.performed += i => inventory_Input = true;
-                inputActions.PlayerActions.F.performed += i => f_Input = true;
+                inputActions.PlayerActions.A.performed += i => a_Input = true;
+                inputActions.PlayerActions.X.performed += i => x_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
                 inputActions.PlayerActions.Roll.performed += i => b_Input = true;
@@ -149,6 +153,7 @@ namespace DQ
             HandleTwoHandInput();
             HandleLockOnInput();
             HandleCriticalAttackInput();
+            HandleUseConsumableInput();
         }   
         private void HandleMoveInput(float delta)
         {
@@ -333,6 +338,16 @@ namespace DQ
                 }
             }
             cameraHandler.SetCameraHeight();
+        }
+
+        private void HandleUseConsumableInput()
+        {
+            if (x_Input)
+            {
+                x_Input = false;
+                //use Item
+                playerInventory.currentConsumable.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerFXManager);
+            }
         }
     }
 

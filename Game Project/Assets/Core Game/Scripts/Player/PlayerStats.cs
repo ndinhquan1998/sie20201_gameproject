@@ -136,7 +136,7 @@ namespace DQ
             }
         }
 
-        public void healPlayer(int healthAmount)
+        public void RestoreHP(int healthAmount)
         {
             currentHealth = currentHealth + healthAmount;
 

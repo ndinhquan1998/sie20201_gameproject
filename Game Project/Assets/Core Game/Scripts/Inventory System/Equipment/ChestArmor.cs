@@ -8,6 +8,12 @@ namespace DQ
     {
         //name of the gameobject not in-game item
         public string armorModelName;
+        public string upperLeftArmModelName;
+        public string upperRightArmModelName;
+        public string lowerLeftArmModelName;
+        public string lowerRightArmModelName;
+        public string rightShoulderModelName;
+        public string leftShoulderModelName;
     }
 }
 

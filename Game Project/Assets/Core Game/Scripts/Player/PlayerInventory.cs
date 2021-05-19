@@ -12,11 +12,13 @@ namespace DQ
         public Weapon rightWeapon;
         public Weapon leftWeapon;
         public SpellItems currentSpell;
-        //public ConsumableItem currentConsumable;
+        public ConsumableItem currentConsumable;
 
         [Header("Current Gear Equipment")]
         public Helmet currentHelmetEquipment;
         public ChestArmor currentChestArmorEquipment;
+        public BottomArmor currentBottomArmorEquipment;
+
 
         public Weapon unarmedWeapon;
 

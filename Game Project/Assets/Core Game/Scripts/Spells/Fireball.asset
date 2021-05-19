@@ -25,7 +25,7 @@ MonoBehaviour:
   isPyroSpell: 1
   spellDescription: 
   baseDamage: 75
-  projectileForwardVelocity: 500
-  projectileUpwardVelocity: 150
+  projectileForwardVelocity: 1000
+  projectileUpwardVelocity: 250
   projectileMass: 10
   isEffectedByGravity: 1

@@ -49,6 +49,13 @@ namespace DQ
                 } 
             }
         }
+
+        public void ReloadWeapons()
+        {
+            LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+            LoadWeaponOnSlot(playerInventory.leftWeapon, true);
+        }
+
         public void LoadWeaponOnSlot(Weapon weaponItem, bool isLeft)
         {
             if (isLeft)

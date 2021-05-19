@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c66f0f642b4ee74d9b98bd1da05152f, type: 3}
-  m_Name: Armor
+  m_Name: Beginner's Armor (13)
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Beginner's Armor
   itemIcon: {fileID: 0}
   physicalDefense: 0
-  armorModelName: 
+  armorModelName: Armor_13
+  upperLeftArmModelName: Chr_ArmUpperLeft_Male_15
+  upperRightArmModelName: Chr_ArmUpperRight_Male_15
+  lowerLeftArmModelName: Chr_ArmLowerLeft_Male_15
+  lowerRightArmModelName: Chr_ArmLowerRight_Male_15
+  rightShoulderModelName: Chr_ShoulderAttachRight_16
+  leftShoulderModelName: Chr_ShoulderAttachLeft_16

@@ -17,6 +17,7 @@ namespace DQ {
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animationHandler.transform);
             animationHandler.PlayTargetAnimation(spellAnimation, true);
             Debug.Log("Casting Spell");
+            Destroy(instantiatedWarmUpSpellFX,2);
         }        
         
         public override void SuccessfullyCastSpell(
@@ -28,7 +29,8 @@ namespace DQ {
             //whenever we use the successfully cast spell it will also fire this function from the class it derives from on Spell_Item
             base.SuccessfullyCastSpell(animationHandler, playerStats, cameraHandler, weaponSlotManager);
             GameObject instantiatedSpellFX = Instantiate(spellCastFX, animationHandler.transform);
-            playerStats.healPlayer(healAmount);
+            playerStats.RestoreHP(healAmount);
+            Destroy(instantiatedSpellFX, 2);
             Debug.Log("Spell Cast Successful");
         }
     }

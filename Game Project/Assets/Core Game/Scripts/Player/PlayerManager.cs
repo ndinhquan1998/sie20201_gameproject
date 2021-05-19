@@ -89,7 +89,7 @@ public class PlayerManager : CharacterManager
             inputHandler.d_Pad_Down = false;
             inputHandler.d_Pad_Left = false;
             inputHandler.d_Pad_Right = false;
-            inputHandler.f_Input = false;
+            inputHandler.a_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
 
@@ -125,7 +125,7 @@ public class PlayerManager : CharacterManager
                         interactableUI.interactableText.text = interactableText;
                         interactableUIGameObject.SetActive(true);
 
-                        if (inputHandler.f_Input)
+                        if (inputHandler.a_Input)
                         {
                             hit.collider.GetComponent<Interactable>().Interact(this);
                         }
@@ -138,7 +138,7 @@ public class PlayerManager : CharacterManager
                     interactableUIGameObject.SetActive(false);
                 }
 
-                if(interactableUIGameObject != null && inputHandler.f_Input)
+                if(interactableUIGameObject != null && inputHandler.a_Input)
                 {
                     itemInteractableGameObject.SetActive(false);
                 }
