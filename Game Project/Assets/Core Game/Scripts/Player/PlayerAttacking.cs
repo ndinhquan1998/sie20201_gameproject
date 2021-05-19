@@ -16,10 +16,13 @@ namespace DQ
         PlayerInventory playerInventory;
         InputHandler inputHandler;
         WeaponSlotManager weaponSlotManager;
+        CameraHandler cameraHandler;
+
         public string lastAttack;
 
         private void Awake()
         {
+            cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponent<PlayerAnimatorManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerManager = GetComponentInParent<PlayerManager>();
@@ -159,7 +162,7 @@ namespace DQ
                 {
                     if (playerStats.currentFP_Points >= playerInventory.currentSpell.focusPointCost)
                     {
-                        playerInventory.currentSpell.AttempToCastSpell(animatorHandler, playerStats);
+                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
                         //cast spell
                     }
                     else
@@ -170,13 +173,29 @@ namespace DQ
 
                 }
             }
+            else if (weapon.isPyroCaster)
+            {
+                if (playerInventory.currentSpell != null && playerInventory.currentSpell.isPyroSpell)
+                {
+                    if (playerStats.currentFP_Points >= playerInventory.currentSpell.focusPointCost)
+                    {
+                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
+                    }
+                    else
+                    {
+                        animatorHandler.PlayTargetAnimation("Failed_Attempt", true);
+                    }
+                }
+            }
         }
 
         private void SuccessfullyCastSpell()
         {
-            //call on animation event 
+            //call on animation event             
+            playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats, cameraHandler, weaponSlotManager);
+
             //choose which frame of the animation to successfully cast a spell
-            playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats);
+            animatorHandler.anim.SetBool("isFiringSpell", true);
         }
 
         private void PerformLTWeaponArt(bool isTwoHanding)

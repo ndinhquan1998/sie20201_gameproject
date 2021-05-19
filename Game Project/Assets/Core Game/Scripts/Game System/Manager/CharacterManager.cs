@@ -17,6 +17,8 @@ namespace DQ {
         public bool canBeParried;
         public bool isParrying;
         public bool isBlocking;
+        [Header("Spell Flags")]
+        public bool isFiringSpell;
 
         //Damage will be inflicted during an animation event
         //Used in backstab or riposte animations

@@ -21,6 +21,11 @@ namespace DQ
 
         public bool isDead;
 
+        public virtual void TakeDamage(int damage, string damageAnimation = "Damage_01")
+        {
+
+        }
+
     }
 }
 
