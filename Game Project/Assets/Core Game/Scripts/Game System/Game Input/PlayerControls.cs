@@ -235,7 +235,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""87887478-0e5c-40aa-8b52-c97372eb7125"",
             ""actions"": [
                 {
-                    ""name"": ""Roll"",
+                    ""name"": ""B"",
                     ""type"": ""Button"",
                     ""id"": ""1e653050-6ad7-4bee-8a8a-7a1669165bd3"",
                     ""expectedControlType"": ""Button"",
@@ -339,7 +339,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Roll"",
+                    ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -350,7 +350,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Roll"",
+                    ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -361,7 +361,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Dualshock Controller"",
-                    ""action"": ""Roll"",
+                    ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -372,7 +372,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Controller"",
-                    ""action"": ""Roll"",
+                    ""action"": ""B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -941,7 +941,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerMovement_LockOnTargetRight = m_PlayerMovement.FindAction("Lock On Target  Right", throwIfNotFound: true);
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
-        m_PlayerActions_Roll = m_PlayerActions.FindAction("Roll", throwIfNotFound: true);
+        m_PlayerActions_B = m_PlayerActions.FindAction("B", throwIfNotFound: true);
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
         m_PlayerActions_LT = m_PlayerActions.FindAction("LT", throwIfNotFound: true);
@@ -1065,7 +1065,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Player Actions
     private readonly InputActionMap m_PlayerActions;
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
-    private readonly InputAction m_PlayerActions_Roll;
+    private readonly InputAction m_PlayerActions_B;
     private readonly InputAction m_PlayerActions_RB;
     private readonly InputAction m_PlayerActions_RT;
     private readonly InputAction m_PlayerActions_LT;
@@ -1081,7 +1081,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Roll => m_Wrapper.m_PlayerActions_Roll;
+        public InputAction @B => m_Wrapper.m_PlayerActions_B;
         public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
         public InputAction @RT => m_Wrapper.m_PlayerActions_RT;
         public InputAction @LT => m_Wrapper.m_PlayerActions_LT;
@@ -1102,9 +1102,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsActionsCallbackInterface != null)
             {
-                @Roll.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
-                @Roll.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
-                @Roll.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
+                @B.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
+                @B.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
+                @B.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
                 @RB.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
                 @RB.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
                 @RB.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
@@ -1142,9 +1142,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Roll.started += instance.OnRoll;
-                @Roll.performed += instance.OnRoll;
-                @Roll.canceled += instance.OnRoll;
+                @B.started += instance.OnB;
+                @B.performed += instance.OnB;
+                @B.canceled += instance.OnB;
                 @RB.started += instance.OnRB;
                 @RB.performed += instance.OnRB;
                 @RB.canceled += instance.OnRB;
@@ -1275,7 +1275,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     }
     public interface IPlayerActionsActions
     {
-        void OnRoll(InputAction.CallbackContext context);
+        void OnB(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
         void OnRT(InputAction.CallbackContext context);
         void OnLT(InputAction.CallbackContext context);

@@ -8,14 +8,19 @@ namespace DQ
     public class VitalityItem : ConsumableItem
     {
         [Header("Potion Type")]
+
         public bool healthPotion;
+
         public bool magicPotion;
 
         [Header("Recovery Amount")]
+
         public int hpRestoredAmount;
+
         public int mpRestoredAmount;
 
         [Header("Animation FX")]
+
         public GameObject recoveryFX;
 
         public override void AttemptToConsumeItem(PlayerAnimatorManager playerAnimatorManager, WeaponSlotManager weaponSlotManager, PlayerFXManager playerFXManager)

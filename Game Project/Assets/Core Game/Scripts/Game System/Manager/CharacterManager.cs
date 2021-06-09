@@ -17,6 +17,10 @@ namespace DQ {
         public bool canBeParried;
         public bool isParrying;
         public bool isBlocking;
+
+        [Header("Movement Flags")]
+        public bool isRotatingWithRootMotion;
+
         [Header("Spell Flags")]
         public bool isFiringSpell;
 

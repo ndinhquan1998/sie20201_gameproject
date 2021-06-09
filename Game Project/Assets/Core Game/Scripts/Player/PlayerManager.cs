@@ -11,7 +11,7 @@ public class PlayerManager : CharacterManager
         PlayerLocomotion playerLocomotion;
         PlayerAnimatorManager playerAnimatorManager;
         PlayerStats playerStats;
-
+        ClimbingLogic climbingLogic;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -27,6 +27,7 @@ public class PlayerManager : CharacterManager
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
+        public bool isClimbing;
 
 
 
@@ -34,13 +35,15 @@ public class PlayerManager : CharacterManager
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
             backStabCollider = GetComponentInChildren<DeathblowsCollider>();
-
+            
             inputHandler = GetComponent<InputHandler>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             anim = GetComponentInChildren<Animator>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerStats = GetComponent<PlayerStats>();
             interactableUI = FindObjectOfType<InteractableUI>();
+
+            //climbingLogic = GetComponent<ClimbingLogic>();
         }
         void Update()
         {
@@ -62,6 +65,7 @@ public class PlayerManager : CharacterManager
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
+            //climbingLogic.Tick(delta);
 
             CheckForInteractableObject();
 

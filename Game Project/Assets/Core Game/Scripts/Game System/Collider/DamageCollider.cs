@@ -97,6 +97,13 @@ namespace DQ
                     enemyStats.TakeDamage(currentWeaponDamage);
                 }
             }
+
+            if (collision.tag == "Hidden Wall")
+            {
+                HiddenWall hiddenWall = collision.GetComponent<HiddenWall>();
+
+                hiddenWall.wallHasBeenHit = true;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   itemName: Fireball
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 0d6584794afdc8949a537a10ccfcbd2c, type: 3}
   spellWarmUpFX: {fileID: 6443170032596667514, guid: 0500e8312aee73e41b8a5dffbe7ab993,
     type: 3}
   spellCastFX: {fileID: 6443170032596667514, guid: ccdc4cadc00a72c49adb2f201e17d0a5,

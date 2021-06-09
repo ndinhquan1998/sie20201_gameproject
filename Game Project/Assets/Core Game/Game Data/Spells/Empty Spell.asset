@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccd6886c38323440a0631c956e4a31c, type: 3}
+  m_Name: Empty Spell
+  m_EditorClassIdentifier: 
+  itemName: Empty
+  itemIcon: {fileID: 21300000, guid: c39ef0e137f6d014dbda9f81776eb88f, type: 3}
+  spellWarmUpFX: {fileID: 0}
+  spellCastFX: {fileID: 0}
+  spellAnimation: 
+  focusPointCost: 0
+  isHolySpell: 0
+  isMagicSpell: 0
+  isPyroSpell: 0
+  spellDescription: 
+  healAmount: 0

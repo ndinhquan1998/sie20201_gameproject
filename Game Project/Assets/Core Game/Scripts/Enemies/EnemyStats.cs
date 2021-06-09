@@ -5,9 +5,11 @@ namespace DQ
 {
     public class EnemyStats : CharacterStats
     {
+        //private int healthLevel = 10;
+        public Stats _stats;
         EnemyAnimatorManager enemyAnimatorManager;
         public UIEnemyHealthBar enemyHealthBar;
-
+        
         public int coinsDrop = 50;
 
         private void Awake()
@@ -19,39 +21,38 @@ namespace DQ
         void Start()
         {
             maxHealth = SetMaxHealthFromHealthLevel();
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
             enemyHealthBar.SetMaxHealth(maxHealth);
         }
 
         private int SetMaxHealthFromHealthLevel()
         {
-            maxHealth = healthLevel * 10;
+            maxHealth = _stats.healthLevel * 10;
             return maxHealth;
         }
 
         public void TakeDamageNoAnimation(int damage)
         {
-            enemyHealthBar.SetHealth(currentHealth);
-            currentHealth = currentHealth - damage;
+            enemyHealthBar.SetHealth(CurrentHealth);
+            CurrentHealth = CurrentHealth - damage;
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
-                currentHealth = 0;
+                CurrentHealth = 0;
                 isDead = true;
             }
         }
 
         public override void TakeDamage(int damage, string damageAnimation = "Damage_01")
         {
-            if (isDead)
-                return;
+            base.TakeDamage(damage, damageAnimation = "Damage_01");
 
-            currentHealth = currentHealth - damage;
-            enemyHealthBar.SetHealth(currentHealth);
+
+            enemyHealthBar.SetHealth(CurrentHealth);
 
             enemyAnimatorManager.PlayTargetAnimation(damageAnimation, true);
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 HandleDeath();
             }
@@ -59,7 +60,7 @@ namespace DQ
 
         private void HandleDeath()
         {
-            currentHealth = 0;
+            CurrentHealth = 0;
             enemyAnimatorManager.PlayTargetAnimation("Death_01", true);
             //Handler death 
             isDead = true;

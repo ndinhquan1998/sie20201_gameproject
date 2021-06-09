@@ -208,7 +208,7 @@ namespace DQ
                 return;
 
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             if (inputHandler.isRolling)
@@ -311,12 +311,6 @@ namespace DQ
             {
                 myTransform.position = targetPosition;
             }
-
-
-            /*            if (playerManager.isGrounded)
-                        {
-
-                        }*/
         }
 
         public void HandleJumping()
@@ -325,7 +319,7 @@ namespace DQ
                 return;
 
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             if (inputHandler.jump_Input)

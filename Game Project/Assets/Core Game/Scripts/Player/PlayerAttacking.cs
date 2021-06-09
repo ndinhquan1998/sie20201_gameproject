@@ -35,7 +35,7 @@ namespace DQ
         public void HandleWeaponCombo(Weapon weapon)
         {
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             if (inputHandler.comboFlag)
@@ -55,7 +55,7 @@ namespace DQ
         public void HandleLightAttack(Weapon weapon)
         {
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             weaponSlotManager.attackingWeapon = weapon;
@@ -76,7 +76,7 @@ namespace DQ
         public void HandleHeavyAttack(Weapon weapon)
         {
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             weaponSlotManager.attackingWeapon = weapon;
@@ -160,7 +160,7 @@ namespace DQ
                 //check for FP stat
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isHolySpell)
                 {
-                    if (playerStats.currentFP_Points >= playerInventory.currentSpell.focusPointCost)
+                    if (playerStats.CurrentMP_Points >= playerInventory.currentSpell.focusPointCost)
                     {
                         playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
                         //cast spell
@@ -177,7 +177,7 @@ namespace DQ
             {
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isPyroSpell)
                 {
-                    if (playerStats.currentFP_Points >= playerInventory.currentSpell.focusPointCost)
+                    if (playerStats.CurrentMP_Points >= playerInventory.currentSpell.focusPointCost)
                     {
                         playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
                     }
@@ -218,7 +218,7 @@ namespace DQ
         public void AttemptBackStabOrRiposte()
         {
             //Stamina dependency
-            if (playerStats.currentStamina <= 0)
+            if (playerStats.CurrentStamina <= 0)
                 return;
 
             RaycastHit hit;

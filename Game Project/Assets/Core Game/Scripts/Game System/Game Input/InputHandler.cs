@@ -122,8 +122,8 @@ namespace DQ
                 inputActions.PlayerActions.X.performed += i => x_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_Input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
-                inputActions.PlayerActions.Roll.performed += i => b_Input = true;
-                inputActions.PlayerActions.Roll.canceled += i => b_Input = false;
+                inputActions.PlayerActions.B.performed += i => b_Input = true;
+                inputActions.PlayerActions.B.canceled += i => b_Input = false;
 
                 //override action
                 //RB
@@ -174,13 +174,13 @@ namespace DQ
             {
                 rollInputTimer += delta;
 
-                if (playerStats.currentStamina <= 0)
+                if (playerStats.CurrentStamina <= 0)
                 {
                     b_Input = false;
                     sprintFlag = false;
                 }
 
-                if(moveAmount > 0.5f && playerStats.currentStamina > 0)
+                if(moveAmount > 0.5f && playerStats.CurrentStamina > 0)
                 {
                     sprintFlag = true;
                 }
@@ -244,12 +244,18 @@ namespace DQ
             {
                 playerInventory.ChangeLeftWeapon();
             }
+            else if (d_Pad_Up)
+            {
+                playerInventory.ChangeSpellItem();
+            }
+            else if (d_Pad_Down)
+            {
+                playerInventory.ChangeConsumableItem();
+            }
         }
 
         private void HandleInventoryInput()
-        {
-            
-
+        {        
             if (inventory_Input)
             {
                 inventoryFlag = !inventoryFlag;

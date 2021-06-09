@@ -34,7 +34,7 @@ namespace DQ
             Destroy(gameObject);
  
  
-            if (playerStats.currentHealth < playerStats.maxHealth)
+            if (playerStats.CurrentHealth < playerStats.MaxHealth)
             {
                 playerStats.AddHealth();
             }

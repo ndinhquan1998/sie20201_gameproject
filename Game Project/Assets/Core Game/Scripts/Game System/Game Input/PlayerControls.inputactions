@@ -222,7 +222,7 @@
             "id": "87887478-0e5c-40aa-8b52-c97372eb7125",
             "actions": [
                 {
-                    "name": "Roll",
+                    "name": "B",
                     "type": "Button",
                     "id": "1e653050-6ad7-4bee-8a8a-7a1669165bd3",
                     "expectedControlType": "Button",
@@ -326,7 +326,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -337,7 +337,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Roll",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -348,7 +348,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Dualshock Controller",
-                    "action": "Roll",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -359,7 +359,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox Controller",
-                    "action": "Roll",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

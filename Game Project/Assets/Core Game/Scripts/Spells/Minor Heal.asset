@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minor Heal
   m_EditorClassIdentifier: 
   itemName: Minor Heal
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 7bdefb57fcfc78d469a3805be5057b76, type: 3}
   spellWarmUpFX: {fileID: 8270258822575705773, guid: 7322db660d1c8e44c9c0f2d353ac1d4c,
     type: 3}
   spellCastFX: {fileID: 8270258822575705773, guid: 7322db660d1c8e44c9c0f2d353ac1d4c,

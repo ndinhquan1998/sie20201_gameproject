@@ -13,23 +13,28 @@ MonoBehaviour:
   m_Name: Talisman
   m_EditorClassIdentifier: 
   itemName: Talisman
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 3b45bfdffb79a8e489f325c75d567da3, type: 3}
   modelPrefab: {fileID: 6056971886446725581, guid: 58d82cc789c32b84fbb933c3fe5367f3,
     type: 3}
   isUnarmed: 0
+  baseDamage: 25
+  criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 0
   right_hand_idle: Right_Arm_Idle
   left_hand_idle: Left_Arm_Idle
-  two_hand_idle: TH_Arm_Idle
+  two_hand_idle: TH_Idle_1
   OH_Light_Attack_1: OH_Light_Attack_1
   OH_Light_Attack_2: OH_Light_Attack_1
-  OH_Heavy_Attack_1: 
-  TH_Light_Attack_1: 
-  TH_Light_Attack_2: 
-  TH_Heavy_Attack_1: 
-  baseStamina: 0
-  lightAttackMultiplier: 0
-  heavyAttackMultiplier: 0
+  OH_Heavy_Attack_1: OH_Heavy_Attack_1
+  TH_Light_Attack_1: TH_Light_Attack_1
+  TH_Light_Attack_2: TH_Light_Attack_1
+  TH_Heavy_Attack_1: TH_Light_Attack_1
+  weapon_Art: 
+  baseStamina: 10
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 1
   isSpellCaster: 0
   isHolyCaster: 1
   isPyroCaster: 0
   isMeleeWeapon: 0
+  isShieldWeapon: 0
