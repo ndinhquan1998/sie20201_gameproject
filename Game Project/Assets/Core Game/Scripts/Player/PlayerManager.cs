@@ -11,7 +11,7 @@ public class PlayerManager : CharacterManager
         PlayerLocomotion playerLocomotion;
         PlayerAnimatorManager playerAnimatorManager;
         PlayerStats playerStats;
-
+        ClimbingLogic climbingLogic;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -27,6 +27,7 @@ public class PlayerManager : CharacterManager
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
+        public bool isClimbing;
 
 
 
@@ -34,13 +35,15 @@ public class PlayerManager : CharacterManager
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
             backStabCollider = GetComponentInChildren<DeathblowsCollider>();
-
+            
             inputHandler = GetComponent<InputHandler>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             anim = GetComponentInChildren<Animator>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerStats = GetComponent<PlayerStats>();
             interactableUI = FindObjectOfType<InteractableUI>();
+
+            //climbingLogic = GetComponent<ClimbingLogic>();
         }
         void Update()
         {
@@ -62,6 +65,7 @@ public class PlayerManager : CharacterManager
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
+            //climbingLogic.Tick(delta);
 
             CheckForInteractableObject();
 
@@ -89,7 +93,7 @@ public class PlayerManager : CharacterManager
             inputHandler.d_Pad_Down = false;
             inputHandler.d_Pad_Left = false;
             inputHandler.d_Pad_Right = false;
-            inputHandler.f_Input = false;
+            inputHandler.a_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
 
@@ -125,7 +129,7 @@ public class PlayerManager : CharacterManager
                         interactableUI.interactableText.text = interactableText;
                         interactableUIGameObject.SetActive(true);
 
-                        if (inputHandler.f_Input)
+                        if (inputHandler.a_Input)
                         {
                             hit.collider.GetComponent<Interactable>().Interact(this);
                         }
@@ -138,7 +142,7 @@ public class PlayerManager : CharacterManager
                     interactableUIGameObject.SetActive(false);
                 }
 
-                if(interactableUIGameObject != null && inputHandler.f_Input)
+                if(interactableUIGameObject != null && inputHandler.a_Input)
                 {
                     itemInteractableGameObject.SetActive(false);
                 }

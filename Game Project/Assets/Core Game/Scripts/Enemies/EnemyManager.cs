@@ -65,6 +65,7 @@ namespace DQ
             HandleRecoveryTimer();
             HandleStateMachine();
 
+            isRotatingWithRootMotion = enemyAnimatorManager.anim.GetBool("isRotatingWithRootMotion");
             canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);

@@ -8,7 +8,7 @@ namespace DQ
         PlayerManager playerManager;
         PlayerInventory playerInventory;
 
-        public WeaponItem attackingWeapon;
+        public Weapon attackingWeapon;
 
         public WeaponHolderSlot leftHandSlot;
         public WeaponHolderSlot rightHandSlot;
@@ -49,7 +49,14 @@ namespace DQ
                 } 
             }
         }
-        public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
+
+        public void ReloadWeapons()
+        {
+            LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+            LoadWeaponOnSlot(playerInventory.leftWeapon, true);
+        }
+
+        public void LoadWeaponOnSlot(Weapon weaponItem, bool isLeft)
         {
             if (isLeft)
             {

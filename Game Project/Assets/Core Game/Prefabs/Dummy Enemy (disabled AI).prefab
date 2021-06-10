@@ -818,17 +818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1027479a28c2e643aac206dcf453105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthLevel: 20
-  maxHealth: 0
-  currentHealth: 0
-  staminaLevel: 10
-  maxStamina: 0
-  currentStamina: 0
-  FP_level: 10
-  maxFP_Points: 0
-  currentFP_Points: 0
+  physicalDmgAbsorbtion_Head: 0
+  physicalDmgAbsorbtion_BodyArmor: 0
+  physicalDmgAbsorbtion_BottomArmor: 0
   coinCount: 0
   isDead: 0
+  _stats: {fileID: 11400000, guid: be1d63e799d6b654d9d4392f90ec5fd6, type: 2}
   enemyHealthBar: {fileID: 4434352403643493589}
   coinsDrop: 50
 --- !u!136 &6475657039193551141

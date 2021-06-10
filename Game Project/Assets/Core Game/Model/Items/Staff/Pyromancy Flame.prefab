@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513781015004654404}
-  m_LocalRotation: {x: -0.70087516, y: 0.0000002738087, z: -0.00000028352574, w: 0.713284}
-  m_LocalPosition: {x: 6.9, y: -2.7, z: -12.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 12.4, z: 1.4}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 3239818632376131386}
   m_Father: {fileID: 5254908620546707057}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -88.995, y: 0.003, z: -0.003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3241486440406280662
 GameObject:
   m_ObjectHideFlags: 0
@@ -13709,6 +13709,7 @@ GameObject:
   - component: {fileID: 3330896531475023446}
   - component: {fileID: 3331938203297934248}
   - component: {fileID: 2732882213909900103}
+  - component: {fileID: 1463680182345676594}
   m_Layer: 0
   m_Name: FX_Fireball_Projectile
   m_TagString: Untagged
@@ -18605,6 +18606,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.001, y: 0.001, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1463680182345676594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242572058499107260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80024b9f5841ea1419b0f826ffd4bd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterManager: {fileID: 0}
+  enabledDamageColliderOnStartUp: 0
+  currentWeaponDamage: 25
 --- !u!1 &5254908620546806353
 GameObject:
   m_ObjectHideFlags: 0

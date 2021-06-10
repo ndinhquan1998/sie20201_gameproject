@@ -16,26 +16,29 @@ public class ResetAnimatorBool : StateMachineBehaviour
         }*/
 
 
-    public string targetBool;
-    public bool status;    
+    public string targetBool = "isInteracting";
+    public bool status = false;    
 
-    public string targetBool_1;
-    public bool status_1;    
+    public string targetBool_1 = "canDoCombo";
+    public bool status_1 = false;    
 
-    public string targetBool_2;
-    public bool status_2;    
+    public string targetBool_2 = "isUsingRightHand";
+    public bool status_2 = false;    
 
-    public string targetBool_3;
-    public bool status_3;    
+    public string targetBool_3 = "isUsingLeftHand";
+    public bool status_3 = false;    
     
-    public string targetBool_4;
-    public bool status_4;    
+    public string targetBool_4 = "isInvulnerable";
+    public bool status_4 = false;    
     
-    public string targetBool_5;
-    public bool status_5;
+    public string targetBool_5 = "canRotate";
+    public bool status_5 = true;
     
-    public string targetBool_6;
-    public bool status_6;
+    public string targetBool_6 = "isFiringSpell";
+    public bool status_6 = false;    
+    
+    public string targetBool_7 = "isRotatingWithRootMotion";
+    public bool status_7 = false;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -46,6 +49,7 @@ public class ResetAnimatorBool : StateMachineBehaviour
         animator.SetBool(targetBool_4, status_4);
         animator.SetBool(targetBool_5, status_5);
         animator.SetBool(targetBool_6, status_6);
+        animator.SetBool(targetBool_7, status_7);
     }
 
 }

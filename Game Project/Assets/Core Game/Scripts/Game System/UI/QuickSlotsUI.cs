@@ -9,8 +9,36 @@ namespace DQ
     {
         public Image leftWeaponIcon;
         public Image rightWeaponIcon;
+        public Image consumableIcon;
+        public Image spellIcon;
 
-        public void UpdateWeaponQuickSlotsUI(bool isLeft, WeaponItem weapon)
+        public void UpdateItemQuickSlotUI(ConsumableItem item)
+        {
+            if (item.itemIcon != null)
+            {
+                consumableIcon.sprite = item.itemIcon;
+                consumableIcon.enabled = true;
+            }
+            else
+            {
+                consumableIcon.sprite = null;
+                consumableIcon.enabled = false;
+            }
+        }        
+        public void UpdateSpellQuickSlotUI(SpellItems spell)
+        {
+            if (spell.itemIcon != null)
+            {
+                spellIcon.sprite = spell.itemIcon;
+                spellIcon.enabled = true;
+            }
+            else
+            {
+                spellIcon.sprite = null;
+                spellIcon.enabled = false;
+            }
+        }
+        public void UpdateWeaponQuickSlotsUI(bool isLeft, Weapon weapon)
         {
             if(isLeft == false)
             {
@@ -25,7 +53,8 @@ namespace DQ
                     rightWeaponIcon.enabled = false;
                 }
 
-            } else
+            } 
+            else
             {
                 if (weapon.itemIcon != null)
                 {

@@ -54,14 +54,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3121524704930851524}
-  m_LocalRotation: {x: 0.42214912, y: 0.6005279, z: -0.66996336, w: 0.110930055}
-  m_LocalPosition: {x: 8.748319, y: 1.0747578, z: -0.9592676}
+  m_LocalRotation: {x: -0.5462323, y: -0.497259, z: -0.36554113, w: 0.5663422}
+  m_LocalPosition: {x: -13, y: 6.5, z: 15.1}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 8260934653847186025}
   m_Father: {fileID: 479192}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 63.938, y: -100.185, z: -234.66101}
+  m_LocalEulerAnglesHint: {x: -100.813, y: 60.887, z: -136.474}
 --- !u!1 &8260934653846989127
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8260934653850126387}
   - component: {fileID: 8260934653849004201}
   - component: {fileID: 8233011349163581083}
+  - component: {fileID: 9057570676602160148}
   m_Layer: 0
   m_Name: SM_Wep_Shield_01
   m_TagString: Untagged
@@ -158,3 +159,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43612478114443642, guid: 61648e37945673d409113b8982cef0bd, type: 2}
+--- !u!114 &9057570676602160148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260934653846989127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80024b9f5841ea1419b0f826ffd4bd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterManager: {fileID: 0}
+  enabledDamageColliderOnStartUp: 0
+  currentWeaponDamage: 0

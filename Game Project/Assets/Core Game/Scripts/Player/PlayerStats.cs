@@ -8,14 +8,14 @@ namespace DQ
 {
     public class PlayerStats : CharacterStats
     {
-
+        public Stats _stats;
 
         public HealthBar healthBar;
         public StaminaBar staminaBar;
-        public FPBar focusPointBar;
+        public MPBar manaBar;
         PlayerManager playerManager;
         PlayerAnimatorManager animatorHandler;
-
+        
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
@@ -24,54 +24,54 @@ namespace DQ
             playerManager = GetComponent<PlayerManager>();
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
-            focusPointBar = FindObjectOfType<FPBar>();
+            manaBar = FindObjectOfType<MPBar>();
             animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
         }
 
         void Start()
         {
             maxHealth = SetMaxHealthFromHealthLevel();
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
-            healthBar.SetCurrentHealth(currentHealth);
+            healthBar.SetCurrentHealth(CurrentHealth);
 
             maxStamina = SetMaxStaminaFromLevel();
             currentStamina = maxStamina;
             staminaBar.SetMaxStamina(maxStamina);
             staminaBar.SetCurrentStamina(currentStamina);
 
-            maxFP_Points = SetMaxFocusPointFromLevel();
-            currentFP_Points = maxFP_Points;
-            focusPointBar.SetMaxFocusPoints(maxFP_Points);
-            focusPointBar.SetCurrentFocusPoints(currentFP_Points);
+            maxMP_Points = SetMaxManaPointFromLevel();
+            currentMP_Points = maxMP_Points;
+            manaBar.SetMaxManaPoints(maxMP_Points);
+            manaBar.SetCurrentManaPoints(currentMP_Points);
             
         }
 
         private int SetMaxHealthFromHealthLevel()
         {
-            maxHealth = healthLevel * 10;
+            maxHealth = _stats.healthLevel * 10;
             return maxHealth;
         }        
         
         private float SetMaxStaminaFromLevel()
         {
-            maxStamina = staminaLevel * 10;
+            maxStamina = _stats.staminaLevel * 10;
             return maxStamina;
         }        
         
-        private float SetMaxFocusPointFromLevel()
+        private float SetMaxManaPointFromLevel()
         {
-            maxFP_Points = FP_level * 10;
-            return maxFP_Points;
+            maxMP_Points = _stats.MP_level * 10;
+            return maxMP_Points;
         }
 
         public void TakeDamageNoAnimation(int damage)
         {
-            currentHealth = currentHealth - damage;
+            CurrentHealth = CurrentHealth - damage;
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
-                currentHealth = 0;
+                CurrentHealth = 0;
                 isDead = true;
             }
         }
@@ -81,21 +81,15 @@ namespace DQ
             if (playerManager.isInvulnerable)
                 return;
 
-            if (isDead)
-                return;
-
-            currentHealth = currentHealth - damage;
-
-            healthBar.SetCurrentHealth(currentHealth);
-
+            base.TakeDamage(damage, damageAnimation = "Damage_01");
+            healthBar.SetCurrentHealth(CurrentHealth);
             animatorHandler.PlayTargetAnimation(damageAnimation, true);
 
-            if(currentHealth <= 0)
+            if(CurrentHealth <= 0)
             {
-                currentHealth = 0;
-                animatorHandler.PlayTargetAnimation("Death_01", true);
+                CurrentHealth = 0;                
                 isDead = true;
-                //Handler death 
+                animatorHandler.PlayTargetAnimation("Death_01", true);
                 //Handle respawn 
                 StartCoroutine(Restart(4, this.gameObject));
             }
@@ -114,8 +108,8 @@ namespace DQ
 
         public void AddHealth()
         {
-            currentHealth += 20;
-            healthBar.SetCurrentHealth(currentHealth);
+            CurrentHealth += 20;
+            healthBar.SetCurrentHealth(CurrentHealth);
         }
 
         public void RegenerateStamina()
@@ -136,26 +130,26 @@ namespace DQ
             }
         }
 
-        public void healPlayer(int healthAmount)
+        public void RestoreHP(int healthAmount)
         {
-            currentHealth = currentHealth + healthAmount;
+            CurrentHealth = CurrentHealth + healthAmount;
 
-            if(currentHealth > maxHealth)
+            if(CurrentHealth > maxHealth)
             {
-                currentHealth = maxHealth;
+                CurrentHealth = maxHealth;
             }
-            healthBar.SetCurrentHealth(currentHealth);
+            healthBar.SetCurrentHealth(CurrentHealth);
         }
 
         public void DeductFocusPoints(int focusPoints)
         {
-            currentFP_Points = currentFP_Points - focusPoints;
+            currentMP_Points = currentMP_Points - focusPoints;
 
-            if(currentFP_Points < 0)
+            if(currentMP_Points < 0)
             {
-                currentFP_Points = 0;
+                currentMP_Points = 0;
             }
-            focusPointBar.SetCurrentFocusPoints(currentFP_Points);
+            manaBar.SetCurrentManaPoints(currentMP_Points);
         }
 
         public void AddCoins(int coins)
