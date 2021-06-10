@@ -818,6 +818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1027479a28c2e643aac206dcf453105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  maxStamina: 0
+  currentStamina: 0
+  maxMP_Points: 0
+  currentMP_Points: 0
   physicalDmgAbsorbtion_Head: 0
   physicalDmgAbsorbtion_BodyArmor: 0
   physicalDmgAbsorbtion_BottomArmor: 0
@@ -892,6 +898,7 @@ MonoBehaviour:
   canBeParried: 0
   isParrying: 0
   isBlocking: 0
+  isRotatingWithRootMotion: 0
   isFiringSpell: 0
   pendingCriticalDamage: 0
   currentState: {fileID: 8421149003184049082}

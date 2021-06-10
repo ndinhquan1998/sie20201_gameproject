@@ -19,21 +19,25 @@ namespace DQ
             if(viewableAngle >= 100 && viewableAngle <=180 && enemyManager.isInteracting)
             {
                 enemyAnimatorManager.PlayTargetAnimationWithRootRotation("Turn Behind", true);
+                Debug.Log("Turn 180");
                 return this;
             }
             else if( viewableAngle <= -101 && viewableAngle >= -180 && !enemyManager.isInteracting)
             {
                 enemyAnimatorManager.PlayTargetAnimationWithRootRotation("Turn Behind", true);
+                Debug.Log("Turn 180");
                 return this;
             }            
             else if( viewableAngle <= -45 && viewableAngle >= -100 && !enemyManager.isInteracting)
             {
                 enemyAnimatorManager.PlayTargetAnimationWithRootRotation("Turn Right", true);
+                Debug.Log("Turn Right");
                 return this;
             }
-            else if( viewableAngle >= 45 && viewableAngle >= 100 && !enemyManager.isInteracting)
+            else if( viewableAngle >= 45 && viewableAngle <= 100 && !enemyManager.isInteracting)
             {
                 enemyAnimatorManager.PlayTargetAnimationWithRootRotation("Turn Left", true);
+                Debug.Log("Turn Left");
                 return this;
             }
 
