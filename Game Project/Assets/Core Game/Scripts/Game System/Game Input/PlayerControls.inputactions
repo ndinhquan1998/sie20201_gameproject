@@ -877,6 +877,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Game Menu",
+            "id": "8be3d20d-cb33-4bf7-b6b3-e9fe1ed22ea4",
+            "actions": [
+                {
+                    "name": "Pause Game",
+                    "type": "Button",
+                    "id": "daae7058-31a0-4c36-9f74-8f43dffc901c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Anykey",
+                    "type": "Button",
+                    "id": "333bac62-4aef-4550-a228-4dba371110c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0ce593d7-a776-43dc-842d-1befd07f9f07",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a9ce59e-3dac-4791-8c57-53f6cb46d2fb",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Dualshock Controller",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0a0f63a-6110-4b44-a320-759dd209c3e2",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Dualshock Controller",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3043299f-4a44-4f9c-8b40-9c3b41547466",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse;Dualshock Controller;Xbox Controller",
+                    "action": "Anykey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
@@ -902,7 +970,7 @@
             "devices": [
                 {
                     "devicePath": "<DualShockGamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]
@@ -913,7 +981,7 @@
             "devices": [
                 {
                     "devicePath": "<XInputController>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

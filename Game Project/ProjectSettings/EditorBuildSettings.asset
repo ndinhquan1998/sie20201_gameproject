@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core Game/Scenes/Boss Fight Area.unity
     guid: 6b69e456cd65fde4f8c8f62568196b59
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: ab1e4b4bc1a246c46936cd5fa7bb59d9
+  - enabled: 1
+    path: Assets/Scenes/Pause Menu.unity
+    guid: e27d1653b8b750147964da0b0f69037d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: af1a8f09015c4d74aa1bee4e56b05c6d,
       type: 2}

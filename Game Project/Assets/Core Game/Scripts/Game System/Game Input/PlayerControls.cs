@@ -890,6 +890,74 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Game Menu"",
+            ""id"": ""8be3d20d-cb33-4bf7-b6b3-e9fe1ed22ea4"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause Game"",
+                    ""type"": ""Button"",
+                    ""id"": ""daae7058-31a0-4c36-9f74-8f43dffc901c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Anykey"",
+                    ""type"": ""Button"",
+                    ""id"": ""333bac62-4aef-4550-a228-4dba371110c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0ce593d7-a776-43dc-842d-1befd07f9f07"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a9ce59e-3dac-4791-8c57-53f6cb46d2fb"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Dualshock Controller"",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0a0f63a-6110-4b44-a320-759dd209c3e2"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Dualshock Controller"",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3043299f-4a44-4f9c-8b40-9c3b41547466"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse;Dualshock Controller;Xbox Controller"",
+                    ""action"": ""Anykey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -915,7 +983,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<DualShockGamepad>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
@@ -926,7 +994,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<XInputController>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
@@ -959,6 +1027,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerQuickSlots_DPadLeft = m_PlayerQuickSlots.FindAction("D-Pad Left", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadDown = m_PlayerQuickSlots.FindAction("D-Pad Down", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadUp = m_PlayerQuickSlots.FindAction("D-Pad Up", throwIfNotFound: true);
+        // Game Menu
+        m_GameMenu = asset.FindActionMap("Game Menu", throwIfNotFound: true);
+        m_GameMenu_PauseGame = m_GameMenu.FindAction("Pause Game", throwIfNotFound: true);
+        m_GameMenu_Anykey = m_GameMenu.FindAction("Anykey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1239,6 +1311,47 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerQuickSlotsActions @PlayerQuickSlots => new PlayerQuickSlotsActions(this);
+
+    // Game Menu
+    private readonly InputActionMap m_GameMenu;
+    private IGameMenuActions m_GameMenuActionsCallbackInterface;
+    private readonly InputAction m_GameMenu_PauseGame;
+    private readonly InputAction m_GameMenu_Anykey;
+    public struct GameMenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public GameMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PauseGame => m_Wrapper.m_GameMenu_PauseGame;
+        public InputAction @Anykey => m_Wrapper.m_GameMenu_Anykey;
+        public InputActionMap Get() { return m_Wrapper.m_GameMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IGameMenuActions instance)
+        {
+            if (m_Wrapper.m_GameMenuActionsCallbackInterface != null)
+            {
+                @PauseGame.started -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnPauseGame;
+                @Anykey.started -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnAnykey;
+                @Anykey.performed -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnAnykey;
+                @Anykey.canceled -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnAnykey;
+            }
+            m_Wrapper.m_GameMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
+                @Anykey.started += instance.OnAnykey;
+                @Anykey.performed += instance.OnAnykey;
+                @Anykey.canceled += instance.OnAnykey;
+            }
+        }
+    }
+    public GameMenuActions @GameMenu => new GameMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1294,5 +1407,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnDPadLeft(InputAction.CallbackContext context);
         void OnDPadDown(InputAction.CallbackContext context);
         void OnDPadUp(InputAction.CallbackContext context);
+    }
+    public interface IGameMenuActions
+    {
+        void OnPauseGame(InputAction.CallbackContext context);
+        void OnAnykey(InputAction.CallbackContext context);
     }
 }

@@ -96,6 +96,8 @@ public class PlayerManager : CharacterManager
             inputHandler.a_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
+            inputHandler.menu_Input = false;
+            inputHandler.any_Input = false;
 
 
             float delta = Time.deltaTime;
@@ -153,10 +155,14 @@ public class PlayerManager : CharacterManager
         {
             playerLocomotion.rigidbody.velocity = Vector3.zero;
             transform.position = playerPosition.transform.position;
-            //playerAnimatorManager.PlayTargetAnimation("Open Chest", true);
-
+            playerAnimatorManager.PlayTargetAnimation("Open Chest", true);
+        }
+        public void ActivateCheckPoint(Transform playerPosition)
+        {
+            playerLocomotion.rigidbody.velocity = Vector3.zero;
+            transform.position = playerPosition.transform.position;
+            playerAnimatorManager.PlayTargetAnimation("Bonfire Ignite", true);
         }
 
-
-}
+    }  
 }

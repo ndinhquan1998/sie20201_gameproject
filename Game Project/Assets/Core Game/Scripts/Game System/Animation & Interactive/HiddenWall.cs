@@ -5,8 +5,11 @@ namespace DQ
 {
     public class HiddenWall : MonoBehaviour
     {
+        private GameObject go;
+
         public bool wallHasBeenHit;
-        public Material hiddenWallMaterial;
+        //public Material hiddenWallMaterial;
+        private Material hiddenWallMaterial;
         public float alpha;
         public float fadeTimer = 2.5f;
 
@@ -15,6 +18,12 @@ namespace DQ
         public AudioSource audioSource;
         public AudioClip illusionarySound;
 
+  
+        private void Start()
+        {
+            go = this.gameObject;
+            hiddenWallMaterial = go.GetComponent<Renderer>().material;
+        }
         private void Update()
         {
             if (wallHasBeenHit)
@@ -29,10 +38,13 @@ namespace DQ
         and set it with material.SetColor("_BaseColor", newColor).*/
         public void FadeHiddenWall()
         {
-            alpha = hiddenWallMaterial.GetColor("_Color").a;
+
+            alpha = hiddenWallMaterial.GetColor("_BaseColor").a;
             alpha = alpha - Time.deltaTime / fadeTimer;
             Color fadedWallColor = new Color(1, 1, 1, alpha);
-            hiddenWallMaterial.SetColor("_Color", fadedWallColor);
+
+
+            hiddenWallMaterial.SetColor("_BaseColor", fadedWallColor);
 
             if (wallCollider.enabled)
             {
