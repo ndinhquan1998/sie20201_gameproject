@@ -6,7 +6,9 @@ namespace DQ
 {
     public class AttackState : State
     {
+        public LookForTargetState lookForTargetState;
         public CombatStanceState combatStanceState;
+        public PursueTargetState pursueTargetState;
 
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
@@ -14,6 +16,11 @@ namespace DQ
 
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+            Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
+            float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
+
+            HandleRotateTowardsTarget(enemyManager);
 
             if (enemyManager.isInteracting && enemyManager.canDoCombo == false)
             {
@@ -27,43 +34,29 @@ namespace DQ
                     enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
 
                 }
-            } 
+            }
 
 
-            // Select attack base on atk score
 
-            // select alt attack based on condition
-
-            // if attack viable , stop movement and atk target
-
-            // set recovery timer
-
-            // return stance state
-            Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
-            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
-            float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
-
-            HandleRotateTowardsTarget(enemyManager);
-
-            if (enemyManager.isPerformingAction )
+            if (enemyManager.isPerformingAction)
             {
-                return combatStanceState;
-            } 
+                return lookForTargetState;
+            }
 
-            if(currentAttack != null)
+            if (currentAttack != null)
             {
                 //if we are too close to the enemy to perform current attack , get a new attack
-                if( distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
                 {
                     return this;
                 }
                 //if we are close enough to attack , then proceed
-                else if(distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
+                else if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
                 {
                     //if our enemy is within our attacks viewable angle, we attack
-                    if(viewableAngle <= currentAttack.maximumAttackAngle && viewableAngle >= currentAttack.minimumAttackAngle)
+                    if (viewableAngle <= currentAttack.maximumAttackAngle && viewableAngle >= currentAttack.minimumAttackAngle)
                     {
-                        if(enemyManager.currentRecoveryTime <= 0 && enemyManager.isPerformingAction == false)
+                        if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPerformingAction == false)
                         {
                             enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
                             enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
@@ -80,7 +73,7 @@ namespace DQ
                             {
                                 enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
                                 currentAttack = null;
-                                return combatStanceState;
+                                return lookForTargetState;
                             }
                         }
                     }
@@ -91,7 +84,7 @@ namespace DQ
                 GetNewAttack(enemyManager);
             }
 
-            return combatStanceState;
+            return lookForTargetState;
 
         }
 
@@ -146,7 +139,8 @@ namespace DQ
         private void HandleRotateTowardsTarget(EnemyManager enemyManager)
         {
             //rotate manually
-            if (enemyManager.isPerformingAction)
+            //if (enemyManager.isPerformingAction)
+            if (enemyManager.isInteracting && enemyManager.canRotate)
             {
                 Vector3 direction = enemyManager.currentTarget.transform.position - transform.position;
                 direction.y = 0;
@@ -159,8 +153,8 @@ namespace DQ
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 enemyManager.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
-            //rotate witd pathfinding (navmesh)
-            else
+            //rotate with pathfinding (navmesh)
+            /*else
             {
                 Vector3 relativeDirection = transform.InverseTransformDirection(enemyManager.navMeshAgent.desiredVelocity);
                 Vector3 targetVelocity = enemyManager.enemyRigidbody.velocity;
@@ -170,7 +164,7 @@ namespace DQ
                 enemyManager.enemyRigidbody.velocity = targetVelocity;
                 enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.transform.rotation, enemyManager.navMeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
                 //control rotation of enemy include the model underneath in the hierarchy 
-            }
+            }*/
 
         }
 

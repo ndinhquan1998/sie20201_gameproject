@@ -68,6 +68,7 @@ namespace DQ
             isRotatingWithRootMotion = enemyAnimatorManager.anim.GetBool("isRotatingWithRootMotion");
             canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
+            canRotate = enemyAnimatorManager.anim.GetBool("canRotate");
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
         }
 
@@ -78,6 +79,10 @@ namespace DQ
         }
         private void HandleStateMachine()
         {
+            if (enemyStats.isDead)
+            {
+                currentState = null;
+            }
             if(currentState != null)
             {
                 State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager);

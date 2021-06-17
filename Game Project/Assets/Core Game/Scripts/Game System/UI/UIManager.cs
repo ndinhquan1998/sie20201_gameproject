@@ -212,9 +212,20 @@ namespace DQ
             optionsScreen.SetActive(false);
         }
 
+        public void QuitMission()
+        {
+            RGBColor col = new RGBColor(255, 200, 0);
+            Color c = col.getRGBColor;
+            gameManager.UpdateStatus(c, "Mission Failed");
+            gameManager.PauseUnpause();
+            gameManager.LevelEndCo();
+        }
+
         public void QuitToMain()
         {
             StartCoroutine(LoadMain());
+            //gameManager.PauseUnpause();
+            //StartCoroutine(gameManager.LoadScene(mainMenuScene));
         }
 
         public IEnumerator LoadMain()

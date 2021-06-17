@@ -254,7 +254,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4316968536360239692, guid: 75f25ab7c125f2540a59a610ce9baf60,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 52b8ff940437aba43aa959b36591b8df, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f25ca1f580774494c97354980f0d5fd0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -918,6 +919,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!850595691 &1188733371
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1256,7 +1289,12 @@ PrefabInstance:
     - target: {fileID: 3943351808651059234, guid: 51c1c169171092049975701e96c3f0f6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: ContinueGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943351808651059234, guid: 51c1c169171092049975701e96c3f0f6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DQ.MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3943351808651059234, guid: 51c1c169171092049975701e96c3f0f6,
         type: 3}
@@ -1266,7 +1304,7 @@ PrefabInstance:
     - target: {fileID: 5934616345800814944, guid: 51c1c169171092049975701e96c3f0f6,
         type: 3}
       propertyPath: m_Name
-      value: Play Button (1)
+      value: Continue Button
       objectReference: {fileID: 0}
     - target: {fileID: 5934616345800814944, guid: 51c1c169171092049975701e96c3f0f6,
         type: 3}
@@ -1278,8 +1316,29 @@ PrefabInstance:
       propertyPath: m_Text
       value: Continue
       objectReference: {fileID: 0}
+    - target: {fileID: 5967582578678924130, guid: 51c1c169171092049975701e96c3f0f6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967582578678924130, guid: 51c1c169171092049975701e96c3f0f6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967582578678924130, guid: 51c1c169171092049975701e96c3f0f6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51c1c169171092049975701e96c3f0f6, type: 3}
+--- !u!1 &1538254707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934616345800814944, guid: 51c1c169171092049975701e96c3f0f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538254706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1597587745 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2419288395819972643, guid: 51c1c169171092049975701e96c3f0f6,
@@ -1490,11 +1549,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75645124f2310464d9870ef2d159f853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Pause Menu
+  levelSelect: Level Select
   optionsScreen: {fileID: 278361682}
+  continueButton: {fileID: 1538254707}
   loadingScreen: {fileID: 1712747801}
   loadingIcon: {fileID: 1205987814}
   loadingText: {fileID: 461949883}
+  levelNames:
+  - DebugScene
+  - 1-1
+  - 1-2
+  - 1-3
+  - 1-4
 --- !u!1 &2039671714
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,12 +29,12 @@ namespace DQ
                 enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
             }
 
-            if(enemyManager.currentRecoveryTime <= 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
+            if (enemyManager.currentRecoveryTime <= 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
             {
                 return attackState;
                 // if still in the atk range , return atk state
             }
-            else if(distanceFromTarget > enemyManager.maximumAttackRange)
+            else if (distanceFromTarget > enemyManager.maximumAttackRange)
             {
                 return pursueTargetState;
                 //in cooldown attacking , return this state and continue focus player
@@ -45,7 +45,7 @@ namespace DQ
                 //fail safe
             }
 
-             
+
         }
 
         private void HandleRotateTowardsTarget(EnemyManager enemyManager)

@@ -8,24 +8,33 @@ namespace DQ
 {
     public class MainMenu : MonoBehaviour
     {
-        public string firstLevel;
+        public string levelSelect;
 
         public GameObject optionsScreen;
-
+        public GameObject continueButton;
         public GameObject loadingScreen, loadingIcon;
         public Text loadingText;
 
         PlayerControls inputActions;
 
-        private bool menu_Input;
+        public string[] levelNames;
+
         private bool any_Input;
         // Start is called before the first frame update
-
+        private void Start()
+        {
+            if (PlayerPrefs.HasKey("Continue"))
+            {
+                continueButton.SetActive(true);
+            } else
+            {
+                ResetProgress();
+            }
+        }
 
         // Update is called once per frame
         void LateUpdate()
         {
-            menu_Input = false;
             any_Input = false;
         }
 
@@ -34,8 +43,6 @@ namespace DQ
             if (inputActions == null)
             {
                 inputActions = new PlayerControls();
-
-                inputActions.GameMenu.PauseGame.performed += i => menu_Input = true;
                 inputActions.GameMenu.Anykey.performed += i => any_Input = true;
             }
             inputActions.Enable();
@@ -55,6 +62,9 @@ namespace DQ
         {
             //SceneManager.LoadScene(firstLevel);
             StartCoroutine(LoadStart());
+            PlayerPrefs.SetInt("Continue", 0);
+            PlayerPrefs.SetString("CurrentLevel", levelSelect);
+            ResetProgress();
         }
 
         public void OpenOptions()
@@ -76,7 +86,7 @@ namespace DQ
         {
             loadingScreen.SetActive(true);
 
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(firstLevel);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelSelect);
 
             asyncLoad.allowSceneActivation = false;
 
@@ -98,11 +108,13 @@ namespace DQ
                 yield return null;
             }
         }
+
+
         public IEnumerator LoadSave()
         {
             loadingScreen.SetActive(true);
 
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(firstLevel);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelSelect);
 
             asyncLoad.allowSceneActivation = false;
 
@@ -122,6 +134,14 @@ namespace DQ
                 }
 
                 yield return null;
+            }
+        }
+
+        public void ResetProgress()
+        {
+            for(int i =0; i< levelNames.Length; i++)
+            {
+                PlayerPrefs.SetInt(levelNames[i] + "_unlocked", 0);
             }
         }
     }

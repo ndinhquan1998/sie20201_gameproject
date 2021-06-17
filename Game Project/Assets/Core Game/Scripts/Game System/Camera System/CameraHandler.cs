@@ -165,7 +165,15 @@ namespace DQ
                             }
                             else
                             {
-                                availableTargets.Add(character);
+                                //availableTargets.Add(character);
+                                if (!character.GetComponent<EnemyStats>().isDead)
+                                {
+                                    availableTargets.Add(character);
+                                }
+                                else
+                                {
+                                    availableTargets.Remove(character);
+                                }
                             }
 
                         }
@@ -215,6 +223,16 @@ namespace DQ
             }
 
 
+        }
+
+        public void CheckDeadTarget()
+        {
+            if (currentLockOnTarget.GetComponentInParent<CharacterStats>().isDead)
+            {
+                inputHandler.lockOnFlag = true;
+                inputHandler.lockOn_Input = true;
+                inputHandler.HandleLockOnInput();
+            }
         }
 
         public void ClearLockOnTargets()

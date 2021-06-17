@@ -20,6 +20,7 @@ namespace DQ {
 
         [Header("Movement Flags")]
         public bool isRotatingWithRootMotion;
+        public bool canRotate;
 
         [Header("Spell Flags")]
         public bool isFiringSpell;

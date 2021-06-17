@@ -310,7 +310,7 @@ namespace DQ
                 playerAttacking.AttemptBackStabOrRiposte();
             }
         }
-        private void HandleLockOnInput()
+        public void HandleLockOnInput()
         {
             if(lockOn_Input && lockOnFlag == false)
             {
@@ -328,6 +328,7 @@ namespace DQ
                 lockOnFlag = false;
 
                 //Clear lock on targets
+                cameraHandler.CheckDeadTarget();
                 cameraHandler.ClearLockOnTargets();
             }
 
@@ -363,10 +364,6 @@ namespace DQ
             }
         }
 
-        private void HandlePauseInput()
-        {
-            
-        }
     }
 
 }

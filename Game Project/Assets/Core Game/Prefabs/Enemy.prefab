@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatStanceState: {fileID: 1231218650}
+  lookForTargetState: {fileID: 8250207098367899908}
 --- !u!1 &1231218648
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ac10a72c4c5ae4da3165f5234610b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookForTargetState: {fileID: 8250207098367899908}
   combatStanceState: {fileID: 1231218650}
+  pursueTargetState: {fileID: 1123109290}
   enemyAttacks:
   - {fileID: 11400000, guid: 6271e0976d81667469f6248a952ad22a, type: 2}
   - {fileID: 11400000, guid: 79f951fc79e6ad4448460f42c236b334, type: 2}
@@ -732,6 +735,7 @@ MonoBehaviour:
   isParrying: 0
   isBlocking: 0
   isRotatingWithRootMotion: 0
+  canRotate: 0
   isFiringSpell: 0
   pendingCriticalDamage: 0
   currentState: {fileID: 1903568747}
@@ -743,7 +747,7 @@ MonoBehaviour:
   rotationSpeed: 15
   maximumAttackRange: 1.5
   canDoCombo: 0
-  allowAIToPerformCombos: 0
+  allowAIToPerformCombos: 1
   comboLikelyHood: 100
   detectionRadius: 20
   maximumDetectionAngle: 50
@@ -1039,6 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9455ef377d002c4448f6cbcc837eaf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatStanceState: {fileID: 1231218650}
 --- !u!1 &7088990828388754554
 GameObject:
   m_ObjectHideFlags: 0

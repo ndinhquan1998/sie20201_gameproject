@@ -16,7 +16,8 @@ namespace DQ
         PlayerManager playerManager;
         PlayerAnimatorManager animatorHandler;
         GameManager gameManager;
-        
+
+        public int coinCount = 0;
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;

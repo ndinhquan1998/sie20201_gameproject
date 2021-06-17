@@ -58,7 +58,7 @@ namespace DQ
         //Magic Absorbtion
 
 
-        public int coinCount = 0;
+        
 
         public bool isDead;
 
