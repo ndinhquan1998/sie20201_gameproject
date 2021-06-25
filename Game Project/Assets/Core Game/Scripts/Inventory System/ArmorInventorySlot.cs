@@ -81,20 +81,20 @@ namespace DQ
         {
             if (uiManager.helmetSlotSelected)
             {
-                playerInventory.helmetsInventory.Add(playerInventory.helmetInSlot[0]);
-                playerInventory.helmetInSlot[0] = item_H;
+                playerInventory.helmetsInventory.Add(playerInventory.playerProfile.helmetInSlot[0]);
+                playerInventory.playerProfile.helmetInSlot[0] = item_H;
                 playerInventory.helmetsInventory.Remove(item_H);
             }
             else if (uiManager.bodyArmorSlotSelected)
             {
-                playerInventory.chestArmorsInventory.Add(playerInventory.chestArmorInSlot[0]);
-                playerInventory.chestArmorInSlot[0] = item_C;
+                playerInventory.chestArmorsInventory.Add(playerInventory.playerProfile.chestArmorInSlot[0]);
+                playerInventory.playerProfile.chestArmorInSlot[0] = item_C;
                 playerInventory.chestArmorsInventory.Remove(item_C);
             }
             else if (uiManager.bottomArmorSlotSelected)
             {
-                playerInventory.bottomArmorsInventory.Add(playerInventory.bottomArmorInSlot[0]);
-                playerInventory.bottomArmorInSlot[0] = item_B;
+                playerInventory.bottomArmorsInventory.Add(playerInventory.playerProfile.bottomArmorInSlot[0]);
+                playerInventory.playerProfile.bottomArmorInSlot[0] = item_B;
                 playerInventory.bottomArmorsInventory.Remove(item_B);
             }
             else
@@ -104,9 +104,9 @@ namespace DQ
             //remove current item 
             //add current item to inven
             //remove this item from inven
-            playerInventory.currentHelmetEquipment = playerInventory.helmetInSlot[0];
-            playerInventory.currentChestArmorEquipment = playerInventory.chestArmorInSlot[0];
-            playerInventory.currentBottomArmorEquipment = playerInventory.bottomArmorInSlot[0];
+            playerInventory.currentHelmetEquipment = playerInventory.playerProfile.helmetInSlot[0];
+            playerInventory.currentChestArmorEquipment = playerInventory.playerProfile.chestArmorInSlot[0];
+            playerInventory.currentBottomArmorEquipment = playerInventory.playerProfile.bottomArmorInSlot[0];
 
 
             uiManager.equipmentWindowUI.LoadArmorOnEquipmentScreen(playerInventory);

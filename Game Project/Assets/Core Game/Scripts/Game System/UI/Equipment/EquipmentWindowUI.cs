@@ -58,19 +58,19 @@ namespace DQ
             {
                 if (handEquipmentSlotUI[i].rightHandSlot01)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInRightHandSlot[0]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.playerProfile.weaponsInRightHandSlot[0]);
                 } 
                 else if (handEquipmentSlotUI[i].rightHandSlot02)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInRightHandSlot[1]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.playerProfile.weaponsInRightHandSlot[1]);
                 }
                 else if (handEquipmentSlotUI[i].leftHandSlot01)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlot[0]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.playerProfile.weaponsInLeftHandSlot[0]);
                 }
                 else
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlot[1]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.playerProfile.weaponsInLeftHandSlot[1]);
                 }
             }
         }
@@ -81,15 +81,15 @@ namespace DQ
             {
                 if (armorEquippedUI[i].slot01)
                 {
-                    armorEquippedUI[i].AddHelmet(playerInventory.helmetInSlot[0]);
+                    armorEquippedUI[i].AddHelmet(playerInventory.playerProfile.helmetInSlot[0]);
                 }
                 else if (armorEquippedUI[i].slot02)
                 {
-                    armorEquippedUI[i].AddChestArmor(playerInventory.chestArmorInSlot[0]);
+                    armorEquippedUI[i].AddChestArmor(playerInventory.playerProfile.chestArmorInSlot[0]);
                 }
                 else
                 {
-                    armorEquippedUI[i].AddBottomArmor(playerInventory.bottomArmorInSlot[0]);
+                    armorEquippedUI[i].AddBottomArmor(playerInventory.playerProfile.bottomArmorInSlot[0]);
                 }
             }
         }
@@ -100,19 +100,19 @@ namespace DQ
             {
                 if (consumableEquippedUIs[i].slot01)
                 {
-                    consumableEquippedUIs[i].AddItem(playerInventory.itemInSlot[0]);
+                    consumableEquippedUIs[i].AddItem(playerInventory.playerProfile.itemInSlot[0]);
                 }
                 else if (consumableEquippedUIs[i].slot02)
                 {
-                    consumableEquippedUIs[i].AddItem(playerInventory.itemInSlot[1]);
+                    consumableEquippedUIs[i].AddItem(playerInventory.playerProfile.itemInSlot[1]);
                 }
                 else if (consumableEquippedUIs[i].slot03)
                 {
-                    consumableEquippedUIs[i].AddItem(playerInventory.itemInSlot[2]);
+                    consumableEquippedUIs[i].AddItem(playerInventory.playerProfile.itemInSlot[2]);
                 }
                 else
                 {
-                    consumableEquippedUIs[i].AddItem(playerInventory.itemInSlot[3]);
+                    consumableEquippedUIs[i].AddItem(playerInventory.playerProfile.itemInSlot[3]);
                 }
             }
         }
@@ -122,19 +122,19 @@ namespace DQ
             {
                 if (spellEquippedUI[i].slot01)
                 {
-                    spellEquippedUI[i].AddItem(playerInventory.spellInSlot[0]);
+                    spellEquippedUI[i].AddItem(playerInventory.playerProfile.spellInSlot[0]);
                 }
                 else if (spellEquippedUI[i].slot02)
                 {
-                    spellEquippedUI[i].AddItem(playerInventory.spellInSlot[1]);
+                    spellEquippedUI[i].AddItem(playerInventory.playerProfile.spellInSlot[1]);
                 }
                 else if (spellEquippedUI[i].slot03)
                 {
-                    spellEquippedUI[i].AddItem(playerInventory.spellInSlot[2]);
+                    spellEquippedUI[i].AddItem(playerInventory.playerProfile.spellInSlot[2]);
                 }
                 else
                 {
-                    spellEquippedUI[i].AddItem(playerInventory.spellInSlot[3]);
+                    spellEquippedUI[i].AddItem(playerInventory.playerProfile.spellInSlot[3]);
                 }
             }
         }

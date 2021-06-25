@@ -31,7 +31,7 @@ namespace DQ
             slider.value = maxHealth;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             timeUntilBarIsHidden = timeUntilBarIsHidden - Time.deltaTime;
 
@@ -52,9 +52,15 @@ namespace DQ
 
                 if (slider.value <= 0)
                 {
-                    Destroy(slider.gameObject);
+                    StartCoroutine(DestroyHPBar());
                 }
             }
+        }
+
+        IEnumerator DestroyHPBar()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Destroy(slider.gameObject);
         }
     }
 }

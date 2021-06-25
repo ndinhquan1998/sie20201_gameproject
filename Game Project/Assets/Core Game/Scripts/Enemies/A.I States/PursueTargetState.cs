@@ -9,7 +9,7 @@ namespace DQ
     {
         public CombatStanceState combatStanceState;
         public LookForTargetState lookForTargetState;
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
         {
             Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
@@ -17,8 +17,8 @@ namespace DQ
 
             HandleRotateTowardsTarget(enemyManager);
 
-            if (viewableAngle > 65 || viewableAngle < -65)
-                return lookForTargetState;
+            /*if (viewableAngle > 65 || viewableAngle < -65)
+                return lookForTargetState;*/
 
             if (enemyManager.isInteracting)
                 return this;
@@ -31,7 +31,15 @@ namespace DQ
 
             if (distanceFromTarget > enemyManager.maximumAttackRange)
             {
-                enemyAnimatorManager.anim.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+                if(gameObject.tag == "Boss")
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 0.4f, 0.1f, Time.deltaTime);
+                }
+                else
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+                }
+
                 //if performing some action , stop all movement on the pursuit state 
             }
 

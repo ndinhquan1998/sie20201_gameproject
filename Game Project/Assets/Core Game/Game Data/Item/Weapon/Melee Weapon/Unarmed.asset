@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7342184f6cfda641af978094a6a96bc, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Unarmed
   itemIcon: {fileID: 0}
   modelPrefab: {fileID: 5325971297040509683, guid: 1494f82e7b35dfd4593a46055ab0b863,
     type: 3}
   isUnarmed: 1
+  baseDamage: 25
+  criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 0
   right_hand_idle: Right Arm Empty
   left_hand_idle: Left Arm Empty
   two_hand_idle: 
@@ -26,6 +29,7 @@ MonoBehaviour:
   TH_Light_Attack_1: 
   TH_Light_Attack_2: 
   TH_Heavy_Attack_1: 
+  weapon_Art: 
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackMultiplier: 0
@@ -33,3 +37,4 @@ MonoBehaviour:
   isHolyCaster: 0
   isPyroCaster: 0
   isMeleeWeapon: 0
+  isShieldWeapon: 0

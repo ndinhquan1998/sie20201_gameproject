@@ -15,7 +15,7 @@ namespace DQ
 
         private Transform myTransform;
         private Vector3 cameraTransformPosition;
-        public LayerMask ignoreLayers;
+        [SerializeField] private LayerMask ignoreLayers;
         public LayerMask environmentLayer;
         private Vector3 cameraFollowVelocity = Vector3.zero;
 
@@ -72,7 +72,10 @@ namespace DQ
         {
             if(inputHandler.lockOnFlag == false)
             {
+                //lookAngle = Mathf.Lerp(lookAngle, lookAngle + mouseXInput, delta * lookSpeed );
                 lookAngle += (mouseXInput * lookSpeed) / delta;
+
+                //pivotAngle = Mathf.Lerp(pivotAngle, pivotAngle - mouseYInput, delta * pivotSpeed );
                 pivotAngle -= (mouseYInput * pivotSpeed) / delta;
                 pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
 

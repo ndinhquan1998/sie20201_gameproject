@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7342184f6cfda641af978094a6a96bc, type: 3}
+  m_Name: Straightsword
+  m_EditorClassIdentifier: 
+  itemName: Straightsword
+  itemIcon: {fileID: 21300000, guid: ccf3f31aadf30b24ab4979c38348757b, type: 3}
+  modelPrefab: {fileID: 5417918820673164712, guid: 73ec21f005b82254f811ff0051c15bcf,
+    type: 3}
+  isUnarmed: 0
+  baseDamage: 45
+  criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 0
+  right_hand_idle: Right_Arm_Idle
+  left_hand_idle: Left_Arm_Idle
+  two_hand_idle: TH_Idle_1
+  OH_Light_Attack_1: S2_MW_OH_Attack_01
+  OH_Light_Attack_2: S2_MW_OH_Attack_02
+  OH_Heavy_Attack_1: S2_MW_OH_HAttack
+  TH_Light_Attack_1: TH_Light_Attack_1
+  TH_Light_Attack_2: TH_Light_Attack_2
+  TH_Heavy_Attack_1: TH_Heavy_Attack_1
+  weapon_Art: 
+  baseStamina: 20
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2
+  isSpellCaster: 0
+  isHolyCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1
+  isShieldWeapon: 0

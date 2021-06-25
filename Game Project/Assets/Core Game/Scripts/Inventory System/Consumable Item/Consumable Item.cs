@@ -27,7 +27,7 @@ namespace DQ
             }
             else
             {
-                playerAnimatorManager.PlayTargetAnimation("Empty", true);
+                playerAnimatorManager.PlayTargetAnimation("Potion Empty", true);
             }
         }
     }

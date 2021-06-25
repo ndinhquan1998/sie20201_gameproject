@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Beginner's Armor
   itemIcon: {fileID: 0}
-  physicalDefense: 15
+  physicalDefense: 2
   armorModelName: Armor_13
   upperLeftArmModelName: Chr_ArmUpperLeft_Male_15
   upperRightArmModelName: Chr_ArmUpperRight_Male_15

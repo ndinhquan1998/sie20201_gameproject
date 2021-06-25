@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace DQ
+{
+    public class Pendulum : MonoBehaviour
+    {
+        Quaternion _start, _end;
+
+        [SerializeField, Range(0.0f, 360f)]
+        private float _angle = 90.0f;
+
+        [SerializeField, Range(0.0f, 5.0f)]
+        private float _speed = 90.0f;
+
+        [SerializeField, Range(0.0f, 10.0f)]
+        private float _startTime = 0.0f;
+
+        private void Start()
+        {
+            _start = PendulumRotation(_angle);
+            _end = PendulumRotation(-_angle);
+        }
+        private void FixedUpdate()
+        {
+            _startTime += Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(_start, _end, (Mathf.Sin(_startTime * _speed + Mathf.PI / 2) + 1.0f) / 2.0f);
+        }
+        void ResetTimer()
+        {
+            _startTime = 0.0f;
+        }
+        Quaternion PendulumRotation(float angle)
+        {
+            Quaternion pendulumRotation = transform.rotation;
+            float angleZ = pendulumRotation.eulerAngles.y + angle;
+
+            if (angleZ > 180)
+                angleZ -= 360;
+            else if (angleZ < -180)
+                angleZ += 360;
+
+            pendulumRotation.eulerAngles = new Vector3(pendulumRotation.eulerAngles.x, pendulumRotation.eulerAngles.y, angleZ);
+
+            return pendulumRotation;
+        }
+    }
+}

@@ -85,13 +85,13 @@ namespace DQ
         {
             #region Headwear
             helmetModelChanger.UnequipHelmet();
-            if (playerInventory.helmetInSlot[0] != null)
+            if (playerInventory.playerProfile.helmetInSlot[0] != null)
             {
                 bareHeadModel.SetActive(false);
                 hairModel.SetActive(false);
-                helmetModelChanger.EquipHelmetModelByName(playerInventory.helmetInSlot[0].helmetModelName);
+                helmetModelChanger.EquipHelmetModelByName(playerInventory.playerProfile.helmetInSlot[0].helmetModelName);
                 //Getting Stats
-                playerStats.physicalDmgAbsorbtion_Head = playerInventory.helmetInSlot[0].physicalDefense;
+                playerStats.physicalDmgAbsorbtion_Head = playerInventory.playerProfile.helmetInSlot[0].physicalDefense;
                 Debug.Log("% Head Def" + playerStats.physicalDmgAbsorbtion_Head);
             }
             else
@@ -113,20 +113,20 @@ namespace DQ
             leftShoulderModelChanger.UnEquipAllModels();
             rightShoulderModelChanger.UnEquipAllModels();
 
-            if (playerInventory.chestArmorInSlot[0] != null)
+            if (playerInventory.playerProfile.chestArmorInSlot[0] != null)
             {
-                chestArmorModelChanger.EquipChestArmorModelByName(playerInventory.chestArmorInSlot[0].armorModelName);
+                chestArmorModelChanger.EquipChestArmorModelByName(playerInventory.playerProfile.chestArmorInSlot[0].armorModelName);
 
-                upperLeftArmModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].upperLeftArmModelName);
-                upperRightArmModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].upperRightArmModelName);
+                upperLeftArmModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].upperLeftArmModelName);
+                upperRightArmModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].upperRightArmModelName);
 
-                lowerLeftArmModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].lowerLeftArmModelName);
-                lowerRightArmModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].lowerRightArmModelName);
+                lowerLeftArmModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].lowerLeftArmModelName);
+                lowerRightArmModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].lowerRightArmModelName);
 
-                leftShoulderModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].leftShoulderModelName);
-                rightShoulderModelChanger.EquipModelByName(playerInventory.chestArmorInSlot[0].rightShoulderModelName);
+                leftShoulderModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].leftShoulderModelName);
+                rightShoulderModelChanger.EquipModelByName(playerInventory.playerProfile.chestArmorInSlot[0].rightShoulderModelName);
                 //Getting Stats
-                playerStats.physicalDmgAbsorbtion_BodyArmor = playerInventory.chestArmorInSlot[0].physicalDefense;
+                playerStats.physicalDmgAbsorbtion_BodyArmor = playerInventory.playerProfile.chestArmorInSlot[0].physicalDefense;
                 Debug.Log("% Body Def" + playerStats.physicalDmgAbsorbtion_BodyArmor);
             }
             else
@@ -149,16 +149,16 @@ namespace DQ
             leftKneeModelChanger.UnEquipAllModels();
             rightKneeModelChanger.UnEquipAllModels();
 
-            if (playerInventory.bottomArmorInSlot[0] != null)
+            if (playerInventory.playerProfile.bottomArmorInSlot[0] != null)
             {
-                bottomArmorModelChanger.EquipArmorModelByName(playerInventory.bottomArmorInSlot[0].hipArmorModelName);
-                leftLegArmorModelChanger.EquipLegModelByName(playerInventory.bottomArmorInSlot[0].leftLegArmorModelName );
-                rightLegArmorModelChanger.EquipLegModelByName(playerInventory.bottomArmorInSlot[0].rightLegArmorModelName);
+                bottomArmorModelChanger.EquipArmorModelByName(playerInventory.playerProfile.bottomArmorInSlot[0].hipArmorModelName);
+                leftLegArmorModelChanger.EquipLegModelByName(playerInventory.playerProfile.bottomArmorInSlot[0].leftLegArmorModelName );
+                rightLegArmorModelChanger.EquipLegModelByName(playerInventory.playerProfile.bottomArmorInSlot[0].rightLegArmorModelName);
 
-                leftKneeModelChanger.EquipModelByName(playerInventory.bottomArmorInSlot[0].leftKneeModelName);
-                rightKneeModelChanger.EquipModelByName(playerInventory.bottomArmorInSlot[0].rightKneeModelName);
+                leftKneeModelChanger.EquipModelByName(playerInventory.playerProfile.bottomArmorInSlot[0].leftKneeModelName);
+                rightKneeModelChanger.EquipModelByName(playerInventory.playerProfile.bottomArmorInSlot[0].rightKneeModelName);
                 //Getting Stats from Armor
-                playerStats.physicalDmgAbsorbtion_BottomArmor = playerInventory.bottomArmorInSlot[0].physicalDefense;
+                playerStats.physicalDmgAbsorbtion_BottomArmor = playerInventory.playerProfile.bottomArmorInSlot[0].physicalDefense;
                 Debug.Log("% Bottom Def" + playerStats.physicalDmgAbsorbtion_BottomArmor);
             }
             else

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f60f0df63a46c448f260fec62858f1, type: 3}
+  m_Name: Player Profile
+  m_EditorClassIdentifier: 
+  weaponsInRightHandSlot:
+  - {fileID: 11400000, guid: 8d1bcb11c519b794bb54a6939defbc6d, type: 2}
+  - {fileID: 11400000, guid: 6b85b3d085d6c154e9a0459408dfc062, type: 2}
+  weaponsInLeftHandSlot:
+  - {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a, type: 2}
+  - {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a, type: 2}
+  helmetInSlot:
+  - {fileID: 11400000, guid: 543621c5c94a939478a2ef9861066da5, type: 2}
+  chestArmorInSlot:
+  - {fileID: 11400000, guid: 4c8d19bce1a5b1d429dc7ae8c6b2061a, type: 2}
+  bottomArmorInSlot:
+  - {fileID: 11400000, guid: 61d3ddc06e1e686498e967fb31592aef, type: 2}
+  spellInSlot:
+  - {fileID: 11400000, guid: cdf060a09524fa6429526736751d6d49, type: 2}
+  - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
+  - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
+  - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
+  itemInSlot:
+  - {fileID: 11400000, guid: 237d76a3b9c471248ad68095c1879e72, type: 2}
+  - {fileID: 11400000, guid: 9eea2b068ad81e248a83c7a24ef6e715, type: 2}
+  - {fileID: 11400000, guid: 9eea2b068ad81e248a83c7a24ef6e715, type: 2}
+  - {fileID: 11400000, guid: 9eea2b068ad81e248a83c7a24ef6e715, type: 2}

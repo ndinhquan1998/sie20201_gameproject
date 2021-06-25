@@ -5,11 +5,7 @@ using UnityEngine;
 namespace DQ
 {
     public class CheckPoint : Interactable
-    {
-        Animator animator;
-
-         
-
+    {        
         public Transform playerStandingPosition;
         public GameObject particle;
         GameManager gameManager;
@@ -17,10 +13,7 @@ namespace DQ
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
-            gameManager = FindObjectOfType<GameManager>();
-
-            
+            gameManager = FindObjectOfType<GameManager>();          
         }
 
         public override void Interact(PlayerManager playerManager)

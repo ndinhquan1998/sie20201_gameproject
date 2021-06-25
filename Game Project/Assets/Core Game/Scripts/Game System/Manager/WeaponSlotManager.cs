@@ -125,7 +125,18 @@ namespace DQ
         {
             if (playerManager.isUsingRightHand)
             {
-                rightHandDamageCollider.EnableDamageCollider();
+                if (playerManager.isDealingLightAttack)
+                {
+                    rightHandDamageCollider.currentWeaponDamage = playerInventory.rightWeapon.baseDamage;
+                    rightHandDamageCollider.EnableDamageCollider();
+                }
+                else if (playerManager.isDealingHeavyAttack)
+                {
+                    rightHandDamageCollider.currentWeaponDamage += Mathf.RoundToInt(playerInventory.rightWeapon.baseDamage * 0.5f);
+                    rightHandDamageCollider.EnableDamageCollider();
+                }
+
+
             }
             else if(playerManager.isUsingLeftHand)
             {

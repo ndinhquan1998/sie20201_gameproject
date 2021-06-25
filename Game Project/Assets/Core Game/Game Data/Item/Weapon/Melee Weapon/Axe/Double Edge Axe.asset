@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7342184f6cfda641af978094a6a96bc, type: 3}
+  m_Name: Double Edge Axe
+  m_EditorClassIdentifier: 
+  itemName: Double Edge Axe
+  itemIcon: {fileID: 21300000, guid: a9487aeb7ad7983479ec2cd816d90e17, type: 3}
+  modelPrefab: {fileID: 6706879222530890244, guid: 5210f5c1878c12e4f954388bbbc3a481,
+    type: 3}
+  isUnarmed: 0
+  baseDamage: 35
+  criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 0
+  right_hand_idle: Axe_R_Idle
+  left_hand_idle: Left_Arm_Idle
+  two_hand_idle: TH_Idle_1
+  OH_Light_Attack_1: S1_MA_OH_Attack_01
+  OH_Light_Attack_2: S1_MA_OH_Attack_02
+  OH_Heavy_Attack_1: S1_MA_OH_HAttack
+  TH_Light_Attack_1: TH_Light_Attack_1
+  TH_Light_Attack_2: TH_Light_Attack_2
+  TH_Heavy_Attack_1: TH_Heavy_Attack_1
+  weapon_Art: 
+  baseStamina: 20
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2
+  isSpellCaster: 0
+  isHolyCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1
+  isShieldWeapon: 0

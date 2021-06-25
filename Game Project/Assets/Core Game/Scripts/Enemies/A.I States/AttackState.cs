@@ -14,7 +14,7 @@ namespace DQ
         public EnemyAttackAction currentAttack;
         private bool comboOnNextAttack = false;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
         {
             Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
@@ -31,6 +31,21 @@ namespace DQ
                 if (comboOnNextAttack)
                 {
                     comboOnNextAttack = false;
+                    //CUSTOM
+                    if (currentAttack.usingWeapon)
+                    {
+                        enemyAnimatorManager.anim.SetBool("isUsingWeapon", true);
+                    }
+                    if (!currentAttack.isLeft)
+                    {
+                        enemyAnimatorManager.anim.SetBool("isUsingRightHand", true);
+                    }
+                    else
+                    {
+                        enemyAnimatorManager.anim.SetBool("isUsingLeftHand", true);
+                    }
+
+                    //
                     enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
 
                 }
@@ -45,6 +60,25 @@ namespace DQ
 
             if (currentAttack != null)
             {
+                if (currentAttack.attackFX != null)
+                {
+                    enemyFXManager.currentFX = currentAttack.attackFX;
+                }
+                //CUSTOM
+                if (currentAttack.usingWeapon)
+                {
+                    enemyAnimatorManager.anim.SetBool("isUsingWeapon", true);
+                }
+                if (!currentAttack.isLeft)
+                {
+                    enemyAnimatorManager.anim.SetBool("isUsingRightHand", true);
+                }
+                else
+                {
+                    enemyAnimatorManager.anim.SetBool("isUsingLeftHand", true);
+                }
+
+                //
                 //if we are too close to the enemy to perform current attack , get a new attack
                 if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
                 {
@@ -60,6 +94,7 @@ namespace DQ
                         {
                             enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
                             enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
+
                             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
                             enemyManager.isPerformingAction = true;
                             RollForComboChance(enemyManager);

@@ -39,6 +39,17 @@ public class ResetAnimatorBool : StateMachineBehaviour
     
     public string targetBool_7 = "isRotatingWithRootMotion";
     public bool status_7 = false;
+    
+    public string targetBool_8 = "isDealingLightAttack";
+    public bool status_8 = false;
+    
+    public string targetBool_9 = "isDealingHeavyAttack";
+    public bool status_9 = false;
+    
+    public string targetBool_10 = "isUsingWeapon";
+    public bool status_10 = false;
+
+
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -50,6 +61,9 @@ public class ResetAnimatorBool : StateMachineBehaviour
         animator.SetBool(targetBool_5, status_5);
         animator.SetBool(targetBool_6, status_6);
         animator.SetBool(targetBool_7, status_7);
+        animator.SetBool(targetBool_8, status_8);
+        animator.SetBool(targetBool_9, status_9);
+        animator.SetBool(targetBool_10, status_10);
     }
 
 }

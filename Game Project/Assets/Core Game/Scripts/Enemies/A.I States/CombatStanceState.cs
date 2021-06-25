@@ -8,11 +8,24 @@ namespace DQ
         public AttackState attackState;
         public PursueTargetState pursueTargetState;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
+        PlayerManager playerManager;
+        private void Awake()
+        {
+            playerManager = FindObjectOfType<PlayerManager>();
+        }
+
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
         {
             if (enemyManager.isInteracting)
                 return this;
-
+            if (playerManager.isUsingRightHand)
+            {
+                int ran = Random.Range(0, 100);
+                if (ran < 90)
+                {
+                    enemyAnimatorManager.PlayTargetAnimation("Rolling", true);
+                }
+            }
 
             // Check for attack range
 
@@ -31,7 +44,7 @@ namespace DQ
 
             if (enemyManager.currentRecoveryTime <= 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
             {
-                return attackState;
+                    return attackState;             
                 // if still in the atk range , return atk state
             }
             else if (distanceFromTarget > enemyManager.maximumAttackRange)

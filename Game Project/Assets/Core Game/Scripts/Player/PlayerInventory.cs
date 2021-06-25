@@ -8,6 +8,7 @@ namespace DQ
     {
         WeaponSlotManager weaponSlotManager;
         QuickSlotsUI quickSlotsUI;
+        public PlayerProfile playerProfile;
 
         [Header("Quick Slot")]
         //current Items
@@ -24,13 +25,13 @@ namespace DQ
 
         public Weapon unarmedWeapon;
 
-        public Weapon[] weaponsInRightHandSlot = new Weapon[1];
+        /*public Weapon[] weaponsInRightHandSlot = new Weapon[1];
         public Weapon[] weaponsInLeftHandSlot = new Weapon[1];
         public Helmet[]  helmetInSlot = new Helmet[0];
         public ChestArmor[] chestArmorInSlot = new ChestArmor[0];
         public BottomArmor[] bottomArmorInSlot = new BottomArmor[0];
         public SpellItems[] spellInSlot = new SpellItems[3];
-        public ConsumableItem[] itemInSlot = new ConsumableItem[3];
+        public ConsumableItem[] itemInSlot = new ConsumableItem[3];*/
 
         public int currentRightWeaponIndex ;
         public int currentLeftWeaponIndex;
@@ -54,24 +55,24 @@ namespace DQ
         private void Start()
         {
             //weapon
-            rightWeapon = weaponsInRightHandSlot[0];
-            leftWeapon = weaponsInLeftHandSlot[0];
+            rightWeapon = playerProfile.weaponsInRightHandSlot[0];
+            leftWeapon = playerProfile.weaponsInLeftHandSlot[0];
             weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
             weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
 
             //gear
-            currentHelmetEquipment = helmetInSlot[0];
+            currentHelmetEquipment = playerProfile.helmetInSlot[0];
 
-            currentChestArmorEquipment = chestArmorInSlot[0];
+            currentChestArmorEquipment = playerProfile.chestArmorInSlot[0];
 
-            currentBottomArmorEquipment = bottomArmorInSlot[0];
+            currentBottomArmorEquipment = playerProfile.bottomArmorInSlot[0];
 
             //item
-            currentConsumable = itemInSlot[0];
+            currentConsumable = playerProfile.itemInSlot[0];
             LoadItemOnSlot(currentConsumable);
 
             //spell
-            currentSpell = spellInSlot[0];
+            currentSpell = playerProfile.spellInSlot[0];
             LoadSpellOnSlot(currentSpell);      
 
         }
@@ -87,30 +88,30 @@ namespace DQ
         {
             currentRightWeaponIndex = currentRightWeaponIndex + 1;
 
-            if(currentRightWeaponIndex == 0 && weaponsInRightHandSlot[0] != null)
+            if(currentRightWeaponIndex == 0 && playerProfile.weaponsInRightHandSlot[0] != null)
             {
-                rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlot[currentRightWeaponIndex], false);
+                rightWeapon = playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex], false);
             } 
-            else if (currentRightWeaponIndex == 0 && weaponsInRightHandSlot[0] == null)
+            else if (currentRightWeaponIndex == 0 && playerProfile.weaponsInRightHandSlot[0] == null)
             {
                 currentRightWeaponIndex = currentRightWeaponIndex + 1;
             }
-            else if (currentRightWeaponIndex == 1 && weaponsInRightHandSlot[1] != null)
+            else if (currentRightWeaponIndex == 1 && playerProfile.weaponsInRightHandSlot[1] != null)
             {
-                rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlot[currentRightWeaponIndex], false);
+                rightWeapon = playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex], false);
             }
-            else if (currentRightWeaponIndex == 1 && weaponsInRightHandSlot[1] == null)
+            else if (currentRightWeaponIndex == 1 && playerProfile.weaponsInRightHandSlot[1] == null)
             {
                 currentRightWeaponIndex = currentRightWeaponIndex + 1;
             }
 
-            if(currentRightWeaponIndex > weaponsInRightHandSlot.Length - 1)
+            if(currentRightWeaponIndex > playerProfile.weaponsInRightHandSlot.Length - 1)
             {
                 currentRightWeaponIndex = 0;
-                rightWeapon = weaponsInRightHandSlot[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlot[currentRightWeaponIndex], false);
+                rightWeapon = playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInRightHandSlot[currentRightWeaponIndex], false);
                 //rightWeapon = unarmedWeapon;
                 //weaponSlotManager.LoadWeaponOnSlot(unarmedWeapon, false);
             }
@@ -119,30 +120,30 @@ namespace DQ
         public void ChangeLeftWeapon()
         {
             currentLeftWeaponIndex = currentLeftWeaponIndex + 1;
-            if(currentLeftWeaponIndex ==0 && weaponsInLeftHandSlot[0] != null)
+            if(currentLeftWeaponIndex ==0 && playerProfile.weaponsInLeftHandSlot[0] != null)
             {
-                leftWeapon = weaponsInLeftHandSlot[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
+                leftWeapon = playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
             } 
-            else if (currentLeftWeaponIndex == 0 && weaponsInLeftHandSlot[0] == null)
+            else if (currentLeftWeaponIndex == 0 && playerProfile.weaponsInLeftHandSlot[0] == null)
             {
                 currentLeftWeaponIndex = currentLeftWeaponIndex + 1;
             }
-            else if (currentLeftWeaponIndex == 1 && weaponsInLeftHandSlot[1] != null)
+            else if (currentLeftWeaponIndex == 1 && playerProfile.weaponsInLeftHandSlot[1] != null)
             {
-                leftWeapon = weaponsInLeftHandSlot[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
+                leftWeapon = playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
             }
-            else if(currentLeftWeaponIndex == 1 && weaponsInLeftHandSlot[1] == null)
+            else if(currentLeftWeaponIndex == 1 && playerProfile.weaponsInLeftHandSlot[1] == null)
             {
                 currentLeftWeaponIndex = currentLeftWeaponIndex + 1;
             }
 
-            if(currentLeftWeaponIndex > weaponsInLeftHandSlot.Length - 1)
+            if(currentLeftWeaponIndex > playerProfile.weaponsInLeftHandSlot.Length - 1)
             {
                 currentLeftWeaponIndex = 0;
-                leftWeapon = weaponsInLeftHandSlot[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
+                leftWeapon = playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(playerProfile.weaponsInLeftHandSlot[currentLeftWeaponIndex], true);
                 //leftWeapon = unarmedWeapon;
                 //weaponSlotManager.LoadWeaponOnSlot(unarmedWeapon, true);
             }
@@ -151,96 +152,96 @@ namespace DQ
         public void ChangeSpellItem()
         {
             currentSpellIndex = currentSpellIndex + 1;
-            if (currentSpellIndex == 0 && spellInSlot[0] != null)
+            if (currentSpellIndex == 0 && playerProfile.spellInSlot[0] != null)
             {
-                currentSpell = spellInSlot[currentSpellIndex];
-                LoadSpellOnSlot(spellInSlot[currentSpellIndex]);
+                currentSpell = playerProfile.spellInSlot[currentSpellIndex];
+                LoadSpellOnSlot(playerProfile.spellInSlot[currentSpellIndex]);
             }
-            else if (currentSpellIndex == 0 && spellInSlot[0] == null)
-            {
-                currentSpellIndex = currentSpellIndex + 1;
-            }
-            else if (currentSpellIndex == 1 && spellInSlot[1] != null)
-            {
-                currentSpell = spellInSlot[currentSpellIndex];
-                LoadSpellOnSlot(spellInSlot[currentSpellIndex]);
-            }
-            else if (currentSpellIndex == 1 && spellInSlot[1] == null)
+            else if (currentSpellIndex == 0 && playerProfile.spellInSlot[0] == null)
             {
                 currentSpellIndex = currentSpellIndex + 1;
             }
-            else if (currentSpellIndex == 2 && spellInSlot[2] != null)
+            else if (currentSpellIndex == 1 && playerProfile.spellInSlot[1] != null)
             {
-                currentSpell = spellInSlot[currentSpellIndex];
-                LoadSpellOnSlot(spellInSlot[currentSpellIndex]);
+                currentSpell = playerProfile.spellInSlot[currentSpellIndex];
+                LoadSpellOnSlot(playerProfile.spellInSlot[currentSpellIndex]);
             }
-            else if (currentSpellIndex == 2 && spellInSlot[2] == null)
+            else if (currentSpellIndex == 1 && playerProfile.spellInSlot[1] == null)
             {
                 currentSpellIndex = currentSpellIndex + 1;
             }
-            else if (currentSpellIndex == 3 && spellInSlot[3] != null)
+            else if (currentSpellIndex == 2 && playerProfile.spellInSlot[2] != null)
             {
-                currentSpell = spellInSlot[currentSpellIndex];
-                LoadSpellOnSlot(spellInSlot[currentSpellIndex]);
+                currentSpell = playerProfile.spellInSlot[currentSpellIndex];
+                LoadSpellOnSlot(playerProfile.spellInSlot[currentSpellIndex]);
             }
-            else if (currentSpellIndex == 3 && spellInSlot[3] == null)
+            else if (currentSpellIndex == 2 && playerProfile.spellInSlot[2] == null)
+            {
+                currentSpellIndex = currentSpellIndex + 1;
+            }
+            else if (currentSpellIndex == 3 && playerProfile.spellInSlot[3] != null)
+            {
+                currentSpell = playerProfile.spellInSlot[currentSpellIndex];
+                LoadSpellOnSlot(playerProfile.spellInSlot[currentSpellIndex]);
+            }
+            else if (currentSpellIndex == 3 && playerProfile.spellInSlot[3] == null)
             {
                 currentSpellIndex = currentSpellIndex + 1;
             }
 
-            if (currentSpellIndex > spellInSlot.Length - 1)
+            if (currentSpellIndex > playerProfile.spellInSlot.Length - 1)
             {
                 currentSpellIndex = 0;
-                currentSpell = spellInSlot[currentSpellIndex];
-                LoadSpellOnSlot(spellInSlot[currentSpellIndex]);
+                currentSpell = playerProfile.spellInSlot[currentSpellIndex];
+                LoadSpellOnSlot(playerProfile.spellInSlot[currentSpellIndex]);
             }
         }
 
         public void ChangeConsumableItem()
         {
             currentItemIndex = currentItemIndex + 1;
-            if (currentItemIndex == 0 && itemInSlot[0] != null)
+            if (currentItemIndex == 0 && playerProfile.itemInSlot[0] != null)
             {
-                currentConsumable = itemInSlot[currentItemIndex];
-                LoadItemOnSlot(itemInSlot[currentItemIndex]);
+                currentConsumable = playerProfile.itemInSlot[currentItemIndex];
+                LoadItemOnSlot(playerProfile.itemInSlot[currentItemIndex]);
             }
-            else if (currentItemIndex == 0 && itemInSlot[0] == null)
-            {
-                currentItemIndex = currentItemIndex + 1;
-            }
-            else if (currentItemIndex == 1 && itemInSlot[1] != null)
-            {
-                currentConsumable = itemInSlot[currentItemIndex];
-                LoadItemOnSlot(itemInSlot[currentItemIndex]);
-            }
-            else if (currentItemIndex == 1 && itemInSlot[1] == null)
+            else if (currentItemIndex == 0 && playerProfile.itemInSlot[0] == null)
             {
                 currentItemIndex = currentItemIndex + 1;
             }
-            else if (currentItemIndex == 2 && itemInSlot[2] != null)
+            else if (currentItemIndex == 1 && playerProfile.itemInSlot[1] != null)
             {
-                currentConsumable = itemInSlot[currentItemIndex];
-                LoadItemOnSlot(itemInSlot[currentItemIndex]);
+                currentConsumable = playerProfile.itemInSlot[currentItemIndex];
+                LoadItemOnSlot(playerProfile.itemInSlot[currentItemIndex]);
             }
-            else if (currentItemIndex == 2 && itemInSlot[2] == null)
+            else if (currentItemIndex == 1 && playerProfile.itemInSlot[1] == null)
             {
                 currentItemIndex = currentItemIndex + 1;
             }
-            else if (currentItemIndex == 3 && itemInSlot[3] != null)
+            else if (currentItemIndex == 2 && playerProfile.itemInSlot[2] != null)
             {
-                currentConsumable = itemInSlot[currentItemIndex];
-                LoadItemOnSlot(itemInSlot[currentItemIndex]);
+                currentConsumable = playerProfile.itemInSlot[currentItemIndex];
+                LoadItemOnSlot(playerProfile.itemInSlot[currentItemIndex]);
             }
-            else if (currentItemIndex == 3 && itemInSlot[3] == null)
+            else if (currentItemIndex == 2 && playerProfile.itemInSlot[2] == null)
+            {
+                currentItemIndex = currentItemIndex + 1;
+            }
+            else if (currentItemIndex == 3 && playerProfile.itemInSlot[3] != null)
+            {
+                currentConsumable = playerProfile.itemInSlot[currentItemIndex];
+                LoadItemOnSlot(playerProfile.itemInSlot[currentItemIndex]);
+            }
+            else if (currentItemIndex == 3 && playerProfile.itemInSlot[3] == null)
             {
                 currentItemIndex = currentItemIndex + 1;
             }
 
-            if (currentItemIndex > itemInSlot.Length - 1)
+            if (currentItemIndex > playerProfile.itemInSlot.Length - 1)
             {
                 currentItemIndex = 0;
-                currentConsumable = itemInSlot[currentItemIndex];
-                LoadItemOnSlot(itemInSlot[currentItemIndex]);
+                currentConsumable = playerProfile.itemInSlot[currentItemIndex];
+                LoadItemOnSlot(playerProfile.itemInSlot[currentItemIndex]);
             }
         } 
     }

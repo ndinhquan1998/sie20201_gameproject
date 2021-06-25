@@ -11,16 +11,18 @@ namespace DQ
         public int levelEndBGM = 8;
         private string levelToLoad = "Level Select";
         private bool isPaused;
- 
+
         UIManager uiManager;
         InputHandler inputHandler;
         PlayerStats playerStats;
+        PlayerInventory playerInventory;
 
         public static GameManager instance;
         // Start is called before the first frame update
         void Start()
         {
             CheckSaveFile();
+            //CheckSavedProfile();
             if (PlayerPrefs.HasKey("_coins"))
             {
                 PlayerStats playerStats = FindObjectOfType<PlayerStats>();
@@ -49,6 +51,7 @@ namespace DQ
             uiManager = FindObjectOfType<UIManager>();
             inputHandler = FindObjectOfType<InputHandler>();
             playerStats = FindObjectOfType<PlayerStats>();
+            playerInventory = FindObjectOfType<PlayerInventory>();
             instance = this;
  
         }
@@ -143,6 +146,7 @@ namespace DQ
         private void CheckSaveFile()
         {
             SaveFile save = Serialization.GetSaveFile();
+
             SaveableMonoBehaviour[] saveables = GameObject.FindObjectsOfType<SaveableMonoBehaviour>();
             Dictionary<string, SaveableMonoBehaviour> savedDict = new Dictionary<string, SaveableMonoBehaviour>();
             for (int i = 0; i < saveables.Length; i++)
@@ -164,6 +168,16 @@ namespace DQ
             }
         }
 
+        private void CheckSavedProfile()
+        {
+            SaveProfile save = Serialization.GetSavedProfileFile();
+            if(save != null)
+            {
+                playerInventory.playerProfile.weaponsInRightHandSlot = save.weaponsInRightHandSlot;
+                playerInventory.playerProfile.weaponsInLeftHandSlot = save.weaponsInLeftHandSlot;
+            }
+        }
+
         public void Saving()
         {
             SaveFile save = new SaveFile();
@@ -178,6 +192,8 @@ namespace DQ
             }
 
             Serialization.SaveToFile(save);
+            //Serialization.SaveProfileToFile(playerInventory.playerProfile.GetSaveableProfile());
+
         }
     }
 

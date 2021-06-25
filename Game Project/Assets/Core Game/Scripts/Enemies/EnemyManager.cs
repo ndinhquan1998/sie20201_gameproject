@@ -10,17 +10,20 @@ namespace DQ
         EnemyLocomotionManager enemyLocomotionManager;
         EnemyAnimatorManager enemyAnimatorManager;
         EnemyStats enemyStats;
-        
+        EnemyFXManager enemyFXManager;
 
         public State currentState;
         public CharacterStats currentTarget;
         public NavMeshAgent navMeshAgent;
         public Rigidbody enemyRigidbody;
 
+
+        public bool isUsingWeapon;
         public bool isPerformingAction;
         public bool isInteracting;
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
+
 
         [Header("Combat Flags")]
         public bool canDoCombo;
@@ -45,6 +48,7 @@ namespace DQ
         {
             enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
             enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+            enemyFXManager = GetComponentInChildren<EnemyFXManager>();
             enemyStats = GetComponent<EnemyStats>();
             enemyRigidbody = GetComponent<Rigidbody>();
             
@@ -69,7 +73,16 @@ namespace DQ
             canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
             canRotate = enemyAnimatorManager.anim.GetBool("canRotate");
+
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
+
+            isUsingWeapon = enemyAnimatorManager.anim.GetBool("isUsingWeapon");
+            enemyAnimatorManager.anim.SetBool("isUsingWeapon", isUsingWeapon);
+
+            isUsingRightHand = enemyAnimatorManager.anim.GetBool("isUsingRightHand");
+            isUsingLeftHand = enemyAnimatorManager.anim.GetBool("isUsingLeftHand");
+            enemyAnimatorManager.anim.SetBool("isDealingLightAttack", isDealingLightAttack);
+            enemyAnimatorManager.anim.SetBool("isDealingHeavyAttack", isDealingHeavyAttack);
         }
 
         private void LateUpdate()
@@ -85,7 +98,7 @@ namespace DQ
             }
             if(currentState != null)
             {
-                State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager);
+                State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager,enemyFXManager);
 
                 if(nextState!= null)
                 {

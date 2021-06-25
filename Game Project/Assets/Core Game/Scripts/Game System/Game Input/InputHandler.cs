@@ -213,7 +213,7 @@ namespace DQ
             }            
             if(rt_Input)
             {
-                playerAttacking.HandleHeavyAttack(playerInventory.rightWeapon);
+                playerAttacking.HandleRTAction();
             }
             if (lt_Input)
             {

@@ -97,6 +97,19 @@ namespace DQ
             }
         }
 
+        public GameObject bossUI;
+        public GameObject bossPrefab;
+        public Transform barGrid;
+
+        public UIBossHealthBar AddBossBar()
+        {
+            GameObject go = Instantiate(bossPrefab);
+            go.transform.SetParent(barGrid);
+            go.transform.localScale = Vector3.one;
+            go.SetActive(true);
+
+            return go.GetComponentInChildren<UIBossHealthBar>();
+        }
 
 
         private void EndScene()

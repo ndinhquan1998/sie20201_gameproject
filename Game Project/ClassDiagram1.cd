@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UnityStandardAssets.Water.Displace" Collapsed="true">
+    <Position X="9.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\Displace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.GerstnerDisplace" Collapsed="true">
+    <Position X="9.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.MeshContainer" Collapsed="true">
+    <Position X="29.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAABAAAAAAAAAAAAARAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.PlanarReflection" Collapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQgAAAAkDAAgAEAAAAEIAEASgMAgBAMAAAAABAACAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.SpecularLighting" Collapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAABAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.Water" Collapsed="true">
+    <Position X="32.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQkACAAARCAgAAAAgCAIAIAgAAIEAAIAAAEABEAAAQ=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\Water.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.WaterBase" Collapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAIAAAAAAAAAAAAAAAEAQAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.Water.WaterTile" Collapsed="true">
+    <Position X="18.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAAAAAAAAAAAAICAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.AmbushState">
+    <Position X="17.5" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAAAAAAAAAAAAACIAAAAAAABAAAAAAIAAQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\AmbushState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.AttackState">
+    <Position X="26.5" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAADAAAAAIAAQIAAAAAgAAAAAAAAABAAAAAACAIQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\AttackState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CombatStanceState">
+    <Position X="24" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAAAAAIQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\CombatStanceState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.IdleState">
+    <Position X="15.5" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\IdleState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LookForTargetState">
+    <Position X="22" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\LookForTargetState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PursueTargetState">
+    <Position X="19.5" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAgAAAAAAAAAAAAAAAAAAIQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\PursueTargetState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.State" Collapsed="true">
+    <Position X="21" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\A.I States\State.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.DamagePlayer" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\DamagePlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyAction" Collapsed="true">
+    <Position X="6.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyAnimatorManager" Collapsed="true">
+    <Position X="10.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAgEAAAAAAAAkBAAAAIAAAAAACAQEAEACAAAAAgEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyAnimatorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyAttackAction" Collapsed="true">
+    <Position X="6.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAQAAAAAABAAAAAAAAAAAEAAAAACABAQEAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyAttackAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyHealthBar" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyHealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyLocomotionManager" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAABAAAACAIAAAAAAAAAAAAAAAAAAUA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyLocomotionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyManager" Collapsed="true">
+    <Position X="7.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAANACCAAiAAIAAAIAIAEBCAAEAEAAhCAAEAgUA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyStats" Collapsed="true">
+    <Position X="2.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAAAEAAAAAACAAAAAAABQEAAAAAgAAAAVA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EnemyWeaponSlotManager" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAUAAECgIAAgoAAAACAAAAAAAEAAAYABAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyWeaponSlotManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CheckPoint" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAAAAAAAAAAABAAgAAAgAIBAAAAAAAAACAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\CheckPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ClimbingLogic" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEIEQFBAQCAAEggAAAAAAAAABAAGAAAAEQgaAEAAQEo=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\ClimbingLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.IKSnapshot" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAQAAAAAAAAAAAAAABAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\ClimbingLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CurrencyCounter" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\CurrencyCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.DayNightController" Collapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAABiAAAAAAAAAAALAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\DayNightController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.FreeClimbAnimHook" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAQAAAAAASAAQABABAAgAgAgAQQBAABRAAGIAIAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\FreeClimbAnimHook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HiddenWall" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAECAAAAACAAAQAAAAEAAAEAAIAAAQAAAAABA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\HiddenWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Interactable" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAIQAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\Interactable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HealthPickUp" Collapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQgAAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\Item\HealthPickUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.WeaponPickUp" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\Item\WeaponPickUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.OpenChest" Collapsed="true">
+    <Position X="12.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACAAAAAAAAAAAAAIAAAAAIAAAAAABAAACAAAAAEQ=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\OpenChest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CameraHandler" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBEAAAEaqiAAAAAKSBAAQAgQIMgBwBEAEUAQAgIEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Camera System\CameraHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.BlockingCollider" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAgAAAAAwAAAAAAAAAAMA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Collider\BlockingCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.DamageCollider" Collapsed="true">
+    <Position X="0.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJAAEAAAAAAAAAAAAAAAAgAAAAAAAQABAAAAAAGA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Collider\DamageCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.DeathblowsCollider" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Collider\DeathblowsCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.InputHandler" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAkR4UiQRIhRAAEEBk2EAQAIyACGYsUEEBCAACsg=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Game Input\InputHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LevelBridge" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\LevelBridge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LevelDescription" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAAAEAAAACAAAIACAAAAAAIABAAAAAAgEAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\LevelDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LevelEntry" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAGAAAAAAAgAAABAAIADAAAAAAAAAAAAIBEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\LevelEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LevelExit" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\LevelExit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.MissionSpecs" Collapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYgIAAAAgAAAEAAAAAAQAAAAAwBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\MissionSpecs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.AnimatorManager" Collapsed="true">
+    <Position X="11.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAQAAAAAAAAAAIAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\AnimatorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CharacterManager" Collapsed="true">
+    <Position X="6.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EARAAAAAAQBAAEAAIAAAAAAQAAAAAAgABAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\CharacterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.CharacterStats" Collapsed="true">
+    <Position X="1.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAIAIAACABACAAAAAwAABAEEAAAAAAAgAAAIAQ=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\CharacterStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.GameManager" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAQEACAAAAAAAAAACgCABABAAAAAAAUAAgAIIEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Stats" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\Stats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.WeaponSlotManager" Collapsed="true">
+    <Position X="24" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEgAAAQAAAAIAAA6AAAACAgEAAAAAAAAcAFMACAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Manager\WeaponSlotManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.AudioManager" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Menu\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.MainMenu" Collapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAwCAKAAAIAAgAAAIYAgBAEAAAAICEAAwAAACAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Menu\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.OptionsMenu" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQBEAYACCIQAiAAYAAFBAAAAIICAQAAgAAAAAAAEQA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Menu\OptionsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ResItem" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Menu\OptionsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PauseMenu" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAQAAIAAACAQgAAAIQAAAAEAAAAIAMAEwgAAKAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Menu\PauseMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HealthBar" Collapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Bars\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.MPBar" Collapsed="true">
+    <Position X="32.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAAAAAAAAAAAAAABAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Bars\MPBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.StaminaBar" Collapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACIAAAAAAAAAIACAAAAAAAAAAAAEAAAAAQA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Bars\StaminaBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.UIEnemyHealthBar" Collapsed="true">
+    <Position X="25.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAIAAAAAIACAAAAAAAAAAAAEAgAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Bars\UIEnemyHealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ArmorEquippedUI" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAgAAAAAAAAAAAgBEEgIAQAAAAAAAAQAABgAAAEQ=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\ArmorEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.BottomArmorEquippedUI" Collapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAABAAgIAgAAAAAAAAQCAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\BottomArmorEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ChestArmorEquippedUI" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAgIAgAAAAAAAAQCAAgAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\ChestArmorEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ConsumableEquippedUI" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAgIAgAAAAAAAAQCAAACAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\ConsumableEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.EquipmentWindowUI" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACMBICAAgCDAAQ4BEAhAIICABAQSAACBAAAAIgJEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\EquipmentWindowUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HandEquipmentSlotUI" Collapsed="true">
+    <Position X="29.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAhAIiAAAAAAAAQCAAAACAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\HandEquipmentSlotUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HelmetEquippedUI" Collapsed="true">
+    <Position X="32.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAgAAAAAAAAAAAAAAAgIAgAAAAAAAAQCAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\HelmetEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SpellEquippedUI" Collapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAgAAAAAAAAAAAAgIAgAAAAAAAAQCAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\Equipment\SpellEquippedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.InteractableUI" Collapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAABAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\InteractableUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.QuickSlotsUI" Collapsed="true">
+    <Position X="32.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAASAAAAACAAAAAEABAAAgAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\QuickSlotsUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.UIManager" Collapsed="true">
+    <Position X="27.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CMUSMAIQAaSADDAYsAAAhQAACAEIQEAARIMA0CggBEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.RGBColor" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\RGBColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerSaveableMono" Collapsed="true">
+    <Position X="3.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\PlayerSaveableMono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SaveableMonoBehaviour" Collapsed="true">
+    <Position X="3.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAABAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\SaveableMonobehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SaveTransform" Collapsed="true">
+    <Position X="32.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\SaveableMonobehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Serialization" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\Serialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SaveProfile" Collapsed="true">
+    <Position X="31" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\Serialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SaveFile" Collapsed="true">
+    <Position X="29.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\Serialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SaveableVector" Collapsed="true">
+    <Position X="27.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Utilities\Serialization\Serialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ArmorInventorySlot" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAggIABAAEEAAAgQAAAKAAAEE=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\ArmorInventorySlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ConsumableItem" Collapsed="true">
+    <Position X="14.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAggACAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Consumable Item\Consumable Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.VitalityItem" Collapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAEAAAAAAABCAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Consumable Item\VitalityItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.BottomArmor" Collapsed="true">
+    <Position X="5.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAIAABAAAAAQAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\BottomArmor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ChestArmor" Collapsed="true">
+    <Position X="1" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABAACAAAAAAAAAAgAABAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\ChestArmor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Equipment" Collapsed="true">
+    <Position X="3.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Helmet" Collapsed="true">
+    <Position X="3.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\Helmet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Weapon" Collapsed="true">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAQAAAEAQAAhAgAQAQQABAAgAAAUAAAoICJCAACAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.WeaponHolderSlot" Collapsed="true">
+    <Position X="20.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAIAAASAAAAABAIIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\WeaponHolderSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.Item" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.BottomArmorModelChanger" Collapsed="true">
+    <Position X="29.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAASAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\BottomArmorModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ChestArmorModelChanger" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAEAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\ChestArmorModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HelmetModelChanger" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAABAEAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\HelmetModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LeftKneeModelChanger" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\LeftKneeModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LeftLegArmorModelChanger" Collapsed="true">
+    <Position X="29.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\LeftLegArmorModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LeftShoulderModelChanger" Collapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\LeftShoulderModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LowerLeftArmModelChanger" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\LowerLeftArmModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.LowerRightArmModelChanger" Collapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\LowerRightArmModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.RightKneeModelChanger" Collapsed="true">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\RightKneeModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.RightLegArmorModelChanger" Collapsed="true">
+    <Position X="24" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\RightLegArmorModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.RightShoulderModelChanger" Collapsed="true">
+    <Position X="25.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\RightShoulderModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.UpperLeftArmModelChanger" Collapsed="true">
+    <Position X="29.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\UpperLeftArmModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.UpperRightArmModelChanger" Collapsed="true">
+    <Position X="31" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBIAAIAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Models Loader\UpperRightArmModelChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerAnimatorManager" Collapsed="true">
+    <Position X="12.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAgEQAAAAAAQkAAAAAIAAAAAACAQAAMAGAAAAAAAE=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerAnimatorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerAttacking" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoQEEAAIAoCEAEAAgAAQAMIABAAQEAGAAiAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerAttacking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerEquipmentManager" Collapsed="true">
+    <Position X="24" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QSDAIAQAACAAgEAABAIAABIAgC6AQAAQAAEBCCABAMg=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerEquipmentManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerFXManager" Collapsed="true">
+    <Position X="25.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAAAAAAAAAAAIgAAAAAAAAAAAAAAABAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerFXManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerInventory" Collapsed="true">
+    <Position X="27.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAgABAgQCGAwABAQIwChAALAwCAgAAAAEAIAgBAAEI=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerInventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerLocomotion" Collapsed="true">
+    <Position X="29.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIEBQEACAAAQAEAACQCQCAhABAEABYEAFIgiAAAEE=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerLocomotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerManager" Collapsed="true">
+    <Position X="5.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAIIQAAgAAIAAIAAAAIAAAAgAAADAYAQ0BQBEAAEM=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.PlayerStats" Collapsed="true">
+    <Position X="0.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAAIQEACAAAEAAAAkACEAAAABBAAAQkAABgIAQQVA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\PlayerStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.WeaponInventorySlot" Collapsed="true">
+    <Position X="22.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAggAAgAAUAAAAAQAAACAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Player\WeaponInventorySlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.DestroyAfterCastingSpell" Collapsed="true">
+    <Position X="32.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Spells\Spells Logic\DestroyAfterCastingSpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.HealingSpell" Collapsed="true">
+    <Position X="10" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAIAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Spells\Spells Logic\HealingSpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.ProjectileSpell" Collapsed="true">
+    <Position X="12.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAIAEAAAAAAAQAIAgAEAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Spells\Spells Logic\ProjectileSpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SpellItems" Collapsed="true">
+    <Position X="11.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAIAAAAAAAABAAIgAAKAAAAAAAAAAAQAkA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Spells\Spells Logic\Spell_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SpellDamageCollider" Collapsed="true">
+    <Position X="0.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAIAIAAAiAgAAAgAAAAAAAAAAAAACAIAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Spells\Spells Logic\SpellDamageCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyUI" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Enemies\EnemyUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResetAnimatorBool" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQABAoQAAAAAAUAAAAAAACIAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\ResetAnimatorBool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraFollow" Collapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Camera System\CameraFollow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockCharacterCollision" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Collider\BlockCharacterCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="@PlayerControls" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAQEAEQIyiCIpBEAIAADBACAACKAmZGKACohAgQEAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Game Input\PlayerControls.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LevelCamera" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Level\LevelCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LegArmor" Collapsed="true">
+    <Position X="32.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Inventory System\Equipment\LegArmor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brightness" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAhAAAACAAAAAAAAAAAAAAAAAAAAEKAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Custom Package\SpeedTutor_Full_Menu_System\GUI Elements\UI_BrightnessShader\Brightness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DQ.SceneManagement.Portal" Collapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Core Game\Scripts\Game System\Animation &amp; Interactive\Portal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpeedTutorMainMenuSystem.Init_LoadPreferences" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAADQAAAEAACABAAAAAEAAAEAAAAAAIAAAEA=</HashCode>
+      <FileName>Assets\Custom Package\SpeedTutor_Full_Menu_System\MenuScripts\Init_LoadPreferences.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpeedTutorMainMenuSystem.MenuController" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCSBJCKAgCCQABIABACYECAVgNABABUAAQQkIoAQAAA=</HashCode>
+      <FileName>Assets\Custom Package\SpeedTutor_Full_Menu_System\MenuScripts\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="UnityStandardAssets.Water.WaterQuality" Collapsed="true">
+    <Position X="17" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
