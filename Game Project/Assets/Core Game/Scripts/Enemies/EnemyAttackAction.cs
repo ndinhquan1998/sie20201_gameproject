@@ -6,7 +6,10 @@ namespace DQ
     [CreateAssetMenu(menuName ="A.I/Enemy Actions/Attack Action")]
     public class EnemyAttackAction : EnemyAction
     {
+
         public bool canDoCombo;
+        public bool usingWeapon;
+        public bool isLeft;
 
         public EnemyAttackAction comboAction;
 
@@ -18,6 +21,7 @@ namespace DQ
 
         public float maximumDistanceNeededToAttack = 3;
         public float minimumDistanceNeededToAttack = 0;
+
     }
 }
 

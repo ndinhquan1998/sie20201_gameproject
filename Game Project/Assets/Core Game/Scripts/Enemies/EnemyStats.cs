@@ -15,15 +15,16 @@ namespace DQ
         private void Awake()
         {
             enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
-  
+            maxHealth = SetMaxHealthFromHealthLevel();
+            CurrentHealth = maxHealth;
+
         }
 
         void Start()
         {
-            maxHealth = SetMaxHealthFromHealthLevel();
-            CurrentHealth = maxHealth;
             enemyHealthBar.SetMaxHealth(maxHealth);
         }
+
 
         private int SetMaxHealthFromHealthLevel()
         {
@@ -35,10 +36,11 @@ namespace DQ
         {
             enemyHealthBar.SetHealth(CurrentHealth);
             CurrentHealth = CurrentHealth - damage;
-
+ 
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
+                enemyHealthBar.SetHealth(CurrentHealth);
                 isDead = true;
             }
         }
@@ -58,6 +60,17 @@ namespace DQ
             }
         }
 
+        public void RestoreHP(int healthAmount)
+        {            
+            CurrentHealth = CurrentHealth + healthAmount;
+
+            if (CurrentHealth > maxHealth)
+            {
+                CurrentHealth = maxHealth;
+            }
+            enemyHealthBar.SetHealth(CurrentHealth);
+        }
+
         private void HandleDeath()
         {
             CurrentHealth = 0;
@@ -66,12 +79,6 @@ namespace DQ
             isDead = true;
             //StartCoroutine(RemoveAfterSeconds(60, this.gameObject));
 
-        }
-
-        IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
-        {
-            yield return new WaitForSeconds(seconds);
-            obj.SetActive(false);
         }
     }
 }

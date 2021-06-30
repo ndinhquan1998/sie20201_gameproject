@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0b340b7f10d1840b24f473a7bbed75, type: 3}
+  m_Name: Stomp Attack
+  m_EditorClassIdentifier: 
+  actionAnimation: Stomp_Right
+  attackFX: {fileID: 1284412465784686, guid: b99ce17d2a62f164698110549e49b762, type: 3}
+  canDoCombo: 1
+  usingWeapon: 0
+  isLeft: 0
+  comboAction: {fileID: 11400000, guid: f95fa3be8978b8744828c2d0499bd0d5, type: 2}
+  attackScore: 3
+  recoveryTime: 2
+  maximumAttackAngle: 35
+  minimumAttackAngle: -35
+  maximumDistanceNeededToAttack: 3
+  minimumDistanceNeededToAttack: 0

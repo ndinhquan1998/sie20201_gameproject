@@ -17,7 +17,7 @@ MonoBehaviour:
   modelPrefab: {fileID: 5254908620546806353, guid: a41c81a44adf6d34a91a1f29cad74a97,
     type: 3}
   isUnarmed: 0
-  baseDamage: 25
+  baseDamage: 50
   criticalDamageMultiplier: 4
   physicalDamageAbsorption: 0
   right_hand_idle: Right_Arm_Idle

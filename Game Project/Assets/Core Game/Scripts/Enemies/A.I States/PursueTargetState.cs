@@ -8,16 +8,20 @@ namespace DQ
     public class PursueTargetState : State
     {
         public CombatStanceState combatStanceState;
+        public LookForTargetState lookForTargetState;
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+            Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
+            float viewableAngle = Vector3.SignedAngle(targetDirection, enemyManager.transform.forward, Vector3.up);
+
+            HandleRotateTowardsTarget(enemyManager);
+
+            /*if (viewableAngle > 65 || viewableAngle < -65)
+                return lookForTargetState;*/
+
             if (enemyManager.isInteracting)
                 return this;
-
-            // Chase the target
-
-            //Switch attack state when in the atk range
-
-            //if target out of range , return to this state
 
             if (enemyManager.isPerformingAction)
             {
@@ -25,18 +29,23 @@ namespace DQ
                 return this;
             }
 
-
-            Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
-            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
-            float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
-
             if (distanceFromTarget > enemyManager.maximumAttackRange)
             {
-                enemyAnimatorManager.anim.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+                if(gameObject.tag == "Boss")
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 0.4f, 0.1f, Time.deltaTime);
+                }
+                else if(gameObject.tag == "Slow Mob")
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 0.6f, 0.1f, Time.deltaTime);
+                }
+                else
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+                }
+
                 //if performing some action , stop all movement on the pursuit state 
             }
-
-            HandleRotateTowardsTarget(enemyManager);
 
             if(distanceFromTarget <= enemyManager.maximumAttackRange)
             {
@@ -63,9 +72,9 @@ namespace DQ
                     direction = transform.forward;
                 }
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                enemyManager.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
+                enemyManager.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
-            //rotate witd pathfinding (navmesh)
+            //rotate with pathfinding (navmesh)
             else
             {
                 Vector3 relativeDirection = transform.InverseTransformDirection(enemyManager.navMeshAgent.desiredVelocity);
@@ -74,7 +83,7 @@ namespace DQ
                 enemyManager.navMeshAgent.enabled = true;
                 enemyManager.navMeshAgent.SetDestination(enemyManager.currentTarget.transform.position);
                 enemyManager.enemyRigidbody.velocity = targetVelocity;
-                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.transform.rotation, enemyManager.navMeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
+                enemyManager.transform.rotation = Quaternion.Lerp(enemyManager.transform.rotation, enemyManager.navMeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
                 //control rotation of enemy include the model underneath in the hierarchy 
             }
 

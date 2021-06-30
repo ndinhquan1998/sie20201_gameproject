@@ -7,6 +7,10 @@ namespace DQ
 {
     public class InputHandler : MonoBehaviour
     {
+        //gamemenu
+        public bool menu_Input;
+        public bool any_Input;
+
         //left d-pad
         public float horizontal;
         public float vertical;
@@ -75,7 +79,7 @@ namespace DQ
 
         private void Start()
         {
-            Application.targetFrameRate = 100;
+            //Application.targetFrameRate = 100;
         }
         private void Awake()
         {
@@ -99,6 +103,9 @@ namespace DQ
             if ( inputActions == null) 
             {
                 inputActions = new PlayerControls();
+
+                inputActions.GameMenu.PauseGame.performed += i => menu_Input = true;
+                inputActions.GameMenu.Anykey.performed += i => any_Input = true;
 
                 //Movement Input
                 inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
@@ -148,7 +155,7 @@ namespace DQ
             HandleCombatInput(delta);
             HandleQuickSlotsInput();
             //HandleInteractingButtonInput();
-            //HandleJumpInput();
+            //HandlePauseInput();
             HandleInventoryInput();
             HandleTwoHandInput();
             HandleLockOnInput();
@@ -206,7 +213,7 @@ namespace DQ
             }            
             if(rt_Input)
             {
-                playerAttacking.HandleHeavyAttack(playerInventory.rightWeapon);
+                playerAttacking.HandleRTAction();
             }
             if (lt_Input)
             {
@@ -303,7 +310,7 @@ namespace DQ
                 playerAttacking.AttemptBackStabOrRiposte();
             }
         }
-        private void HandleLockOnInput()
+        public void HandleLockOnInput()
         {
             if(lockOn_Input && lockOnFlag == false)
             {
@@ -321,6 +328,7 @@ namespace DQ
                 lockOnFlag = false;
 
                 //Clear lock on targets
+                cameraHandler.CheckDeadTarget();
                 cameraHandler.ClearLockOnTargets();
             }
 
@@ -355,6 +363,7 @@ namespace DQ
                 playerInventory.currentConsumable.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerFXManager);
             }
         }
+
     }
 
 }

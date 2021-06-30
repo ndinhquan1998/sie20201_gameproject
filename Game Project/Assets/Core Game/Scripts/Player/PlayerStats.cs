@@ -15,21 +15,30 @@ namespace DQ
         public MPBar manaBar;
         PlayerManager playerManager;
         PlayerAnimatorManager animatorHandler;
-        
+        GameManager gameManager;
+
+        public int coinCount = 0;
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
         private void Awake()
-        {
+        {            
             playerManager = GetComponent<PlayerManager>();
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
             manaBar = FindObjectOfType<MPBar>();
-            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
+            gameManager = FindObjectOfType<GameManager>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();            
         }
 
         void Start()
         {
+            Spawn();           
+        }
+
+        public void Spawn()
+        {
+            isDead = false;
             maxHealth = SetMaxHealthFromHealthLevel();
             CurrentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
@@ -44,7 +53,6 @@ namespace DQ
             currentMP_Points = maxMP_Points;
             manaBar.SetMaxManaPoints(maxMP_Points);
             manaBar.SetCurrentManaPoints(currentMP_Points);
-            
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -91,14 +99,10 @@ namespace DQ
                 isDead = true;
                 animatorHandler.PlayTargetAnimation("Death_01", true);
                 //Handle respawn 
-                StartCoroutine(Restart(4, this.gameObject));
+
+                gameManager.Respawn();
             }
 
-        }
-        IEnumerator Restart(int seconds, GameObject obj)
-        {
-            yield return new WaitForSeconds(seconds);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         public void TakeStamina(int damage)
         {

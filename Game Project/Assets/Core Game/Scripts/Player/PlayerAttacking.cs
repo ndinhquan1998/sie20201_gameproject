@@ -63,12 +63,13 @@ namespace DQ
             if (inputHandler.twoHandFlag)
             {
                 animatorHandler.PlayTargetAnimation(weapon.TH_Light_Attack_1, true);
+                
                 lastAttack = weapon.TH_Light_Attack_1;
             }
             else
-            {
-                
+            {               
                 animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_1, true);
+                animatorHandler.anim.SetBool("isDealingLightAttack", true);
                 lastAttack = weapon.OH_Light_Attack_1;
             }
 
@@ -87,14 +88,14 @@ namespace DQ
                 lastAttack = weapon.TH_Heavy_Attack_1;
             }
             else
-            {
-                
+            {             
                 animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
+                animatorHandler.anim.SetBool("isDealingHeavyAttack", true);
                 lastAttack = weapon.OH_Heavy_Attack_1;
             }
 
         }
-
+        #region Handle Inputs
         public void HandleRBAction()
         {
             if (playerInventory.rightWeapon.isMeleeWeapon)
@@ -108,7 +109,14 @@ namespace DQ
 
         }
 
-        #region Handle Inputs
+        public void HandleRTAction()
+        {
+            if (playerInventory.rightWeapon.isMeleeWeapon)
+            {
+                PerformRT_MeleeAction();
+            }
+        }
+        
         public void HandleLTAction()
         {
             if (playerInventory.leftWeapon.isShieldWeapon)
@@ -145,12 +153,18 @@ namespace DQ
                 
                     animatorHandler.anim.SetBool("isUsingRightHand", true);
                     HandleLightAttack(playerInventory.rightWeapon);
-
-/*                animatorHandler.anim.SetBool("isUsingRightHand", true);
-                HandleLightAttack(playerInventory.rightWeapon);*/
             }
         }
 
+        private void PerformRT_MeleeAction()
+        {
+            if (playerManager.isInteracting)
+                return;
+            //if (playerManager.canDoCombo) return;
+
+            animatorHandler.anim.SetBool("isUsingRightHand", true);
+            HandleHeavyAttack(playerInventory.rightWeapon);
+        }
         private void PerformRB_MagicAction( Weapon weapon)
         {
             if (playerManager.isInteracting) 
@@ -286,8 +300,8 @@ namespace DQ
                     int criticalDamage = playerInventory.rightWeapon.criticalDamageMultiplier * rightWeapon.currentWeaponDamage;
                     enemyCharacterManager.pendingCriticalDamage = criticalDamage;
 
-                    animatorHandler.PlayTargetAnimation("Back Stab", true);
-                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
+                    animatorHandler.PlayTargetAnimation("Riposte", true);
+                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Riposted", true);
                 }
 
                 #endregion

@@ -6,12 +6,11 @@ namespace DQ
 public class PlayerManager : CharacterManager
     {
         InputHandler inputHandler;
-        Animator anim;
+        public Animator anim;
         CameraHandler cameraHandler;
         PlayerLocomotion playerLocomotion;
         PlayerAnimatorManager playerAnimatorManager;
         PlayerStats playerStats;
-        ClimbingLogic climbingLogic;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -24,8 +23,6 @@ public class PlayerManager : CharacterManager
         public bool isInAir;
         public bool isGrounded;
         public bool canDoCombo;
-        public bool isUsingRightHand;
-        public bool isUsingLeftHand;
         public bool isInvulnerable;
         public bool isClimbing;
 
@@ -35,7 +32,6 @@ public class PlayerManager : CharacterManager
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
             backStabCollider = GetComponentInChildren<DeathblowsCollider>();
-            
             inputHandler = GetComponent<InputHandler>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             anim = GetComponentInChildren<Animator>();
@@ -55,7 +51,11 @@ public class PlayerManager : CharacterManager
             isUsingLeftHand = anim.GetBool("isUsingLeftHand");
             isInvulnerable = anim.GetBool("isInvulnerable");
             isFiringSpell = anim.GetBool("isFiringSpell");
+            isDealingLightAttack = anim.GetBool("isDealingLightAttack");
+            isDealingHeavyAttack = anim.GetBool("isDealingHeavyAttack");
 
+            anim.SetBool("isDealingLightAttack", isDealingLightAttack);
+            anim.SetBool("isDealingHeavyAttack", isDealingHeavyAttack);
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isDead", playerStats.isDead);
             anim.SetBool("isBlocking", isBlocking);
@@ -96,9 +96,11 @@ public class PlayerManager : CharacterManager
             inputHandler.a_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
+            inputHandler.menu_Input = false;
+            inputHandler.any_Input = false;
 
 
-            float delta = Time.deltaTime;
+            float delta = Time.unscaledDeltaTime;
 
             if (cameraHandler != null)
             {
@@ -153,10 +155,31 @@ public class PlayerManager : CharacterManager
         {
             playerLocomotion.rigidbody.velocity = Vector3.zero;
             transform.position = playerPosition.transform.position;
-            //playerAnimatorManager.PlayTargetAnimation("Open Chest", true);
-
+            playerAnimatorManager.PlayTargetAnimation("Open Chest", true);
+        }
+        public void ActivateCheckPoint(Transform playerPosition)
+        {
+            playerLocomotion.rigidbody.velocity = Vector3.zero;
+            transform.position = playerPosition.transform.position;
+            playerAnimatorManager.PlayTargetAnimation("Bonfire Ignite", true);
         }
 
+        public void TraverseFog()
+        {
+            playerAnimatorManager.PlayTargetAnimation("Traverse", true);
+        }
+        public void OpenGate(Transform playerPosition)
+        {
+            
+            transform.position = playerPosition.transform.position;
+            playerAnimatorManager.PlayTargetAnimation("Push", true);
+        }
+        public void OpenDoor(Transform playerPosition)
+        {
+            
+            transform.position = playerPosition.transform.position;
+            playerAnimatorManager.PlayTargetAnimation("Open Door", true);
+        }
 
-}
+    }  
 }

@@ -40,26 +40,26 @@ namespace DQ
         {
             if (uiManager.rightHandSlot01Selected)
             {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInRightHandSlot[0]);
-                playerInventory.weaponsInRightHandSlot[0] = item;
+                playerInventory.weaponsInventory.Add(playerInventory.playerProfile.weaponsInRightHandSlot[0]);
+                playerInventory.playerProfile.weaponsInRightHandSlot[0] = item;
                 playerInventory.weaponsInventory.Remove(item);
             }
             else if (uiManager.rightHandSlot02Selected)
             {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInRightHandSlot[1]);
-                playerInventory.weaponsInRightHandSlot[1] = item;
+                playerInventory.weaponsInventory.Add(playerInventory.playerProfile.weaponsInRightHandSlot[1]);
+                playerInventory.playerProfile.weaponsInRightHandSlot[1] = item;
                 playerInventory.weaponsInventory.Remove(item);
             } 
             else if (uiManager.leftHandSlot01Selected)
             {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlot[0]);
-                playerInventory.weaponsInLeftHandSlot[0] = item;
+                playerInventory.weaponsInventory.Add(playerInventory.playerProfile.weaponsInLeftHandSlot[0]);
+                playerInventory.playerProfile.weaponsInLeftHandSlot[0] = item;
                 playerInventory.weaponsInventory.Remove(item);
             }
             else if (uiManager.leftHandSlot01Selected)
             {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlot[1]);
-                playerInventory.weaponsInLeftHandSlot[1] = item;
+                playerInventory.weaponsInventory.Add(playerInventory.playerProfile.weaponsInLeftHandSlot[1]);
+                playerInventory.playerProfile.weaponsInLeftHandSlot[1] = item;
                 playerInventory.weaponsInventory.Remove(item);
             }
             else
@@ -69,8 +69,8 @@ namespace DQ
             //remove current item 
             //add current item to inven
             //remove this item from inven
-            playerInventory.rightWeapon = playerInventory.weaponsInRightHandSlot[playerInventory.currentRightWeaponIndex];
-            playerInventory.leftWeapon = playerInventory.weaponsInLeftHandSlot[playerInventory.currentLeftWeaponIndex];
+            playerInventory.rightWeapon = playerInventory.playerProfile.weaponsInRightHandSlot[playerInventory.currentRightWeaponIndex];
+            playerInventory.leftWeapon = playerInventory.playerProfile.weaponsInLeftHandSlot[playerInventory.currentLeftWeaponIndex];
 
             weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
             weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);

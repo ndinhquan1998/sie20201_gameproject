@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Helmet_06
   itemIcon: {fileID: 0}
-  physicalDefense: 10
+  physicalDefense: 1.5
   helmetModelName: Helmet_06

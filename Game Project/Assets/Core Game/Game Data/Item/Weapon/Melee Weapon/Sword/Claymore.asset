@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7342184f6cfda641af978094a6a96bc, type: 3}
+  m_Name: Claymore
+  m_EditorClassIdentifier: 
+  itemName: Claymore
+  itemIcon: {fileID: 21300000, guid: 5c524b2d1f8606d4a9eee8088fc40610, type: 3}
+  modelPrefab: {fileID: 678509781630177161, guid: 750d223169fcf624c877d052ddaf50c7,
+    type: 3}
+  isUnarmed: 0
+  baseDamage: 60
+  criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 0
+  right_hand_idle: GS_R_Idle
+  left_hand_idle: Left_Arm_Idle
+  two_hand_idle: TH_Idle_1
+  OH_Light_Attack_1: S2_GW_OH_Attack_01
+  OH_Light_Attack_2: S2_GW_OH_Attack_02
+  OH_Heavy_Attack_1: S2_GW_OH_HAttack
+  TH_Light_Attack_1: TH_Light_Attack_1
+  TH_Light_Attack_2: TH_Light_Attack_2
+  TH_Heavy_Attack_1: TH_Heavy_Attack_1
+  weapon_Art: 
+  baseStamina: 20
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2
+  isSpellCaster: 0
+  isHolyCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1
+  isShieldWeapon: 0

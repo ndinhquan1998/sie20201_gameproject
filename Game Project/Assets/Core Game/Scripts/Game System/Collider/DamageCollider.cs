@@ -9,8 +9,9 @@ namespace DQ
         Collider damageCollider;
         public bool enabledDamageColliderOnStartUp = false ;
         // help spell trigger damage collider without animation events like physical attack
+        public EnemyFXManager enemyFXManager;
 
-        public int currentWeaponDamage = 25;
+        public int currentWeaponDamage;
 
         private void Awake()
         {
@@ -19,7 +20,7 @@ namespace DQ
             damageCollider.isTrigger = true;
             damageCollider.enabled = enabledDamageColliderOnStartUp;
 
-
+            enemyFXManager = GetComponentInParent<EnemyFXManager>();
         }
 
         public void EnableDamageCollider()
@@ -31,9 +32,11 @@ namespace DQ
         {
             damageCollider.enabled = false;
         }
+
+
         private void OnTriggerEnter(Collider collision)
         {
-            if(collision.tag == "Player")
+            if (collision.tag == "Player")
             {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
                 CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
@@ -67,6 +70,7 @@ namespace DQ
             
             if(collision.tag == "Enemy")
             {
+                
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
                 CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
                 BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
@@ -76,7 +80,7 @@ namespace DQ
                     if (enemyCharacterManager.isParrying)
                     {
                         // play animation
-                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        characterManager.GetComponentInChildren<EnemyAnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
                     else if (shield != null && enemyCharacterManager.isBlocking)

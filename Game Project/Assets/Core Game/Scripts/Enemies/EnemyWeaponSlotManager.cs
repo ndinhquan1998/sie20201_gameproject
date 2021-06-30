@@ -6,18 +6,29 @@ namespace DQ
 {
     public class EnemyWeaponSlotManager : MonoBehaviour
     {
+        EnemyManager enemyManager;
+        EnemyAnimatorManager enemyAnimator;
+        EnemyStats enemyStats;
+
         public Weapon rightHandWeapon;
         public Weapon leftHandWeapon;
 
-        WeaponHolderSlot rightHandSlot;
-        WeaponHolderSlot leftHandSlot;
+        public WeaponHolderSlot rightHandSlot;
+        public WeaponHolderSlot leftHandSlot;
 
+        
 
         DamageCollider leftHandDamageCollider;
         DamageCollider rightHandDamageCollider;
+        public DamageCollider bodypartCollider_1;
+        public DamageCollider bodypartCollider_2;
 
         private void Awake()
         {
+            enemyManager = GetComponentInParent<EnemyManager>();
+            enemyStats = GetComponentInParent<EnemyStats>();
+            enemyAnimator = GetComponent<EnemyAnimatorManager>();
+
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
@@ -72,26 +83,67 @@ namespace DQ
         {
             if (isLeft)
             {
-                leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
-                leftHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+                if (leftHandWeapon != null)
+                {
+                    leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+                    leftHandDamageCollider.currentWeaponDamage = leftHandWeapon.baseDamage;
+                    leftHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+                }
+
             }
             else
-            {
-                rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
-                rightHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+            {                               
+                if(rightHandWeapon != null)
+                {
+                    rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+                    rightHandDamageCollider.currentWeaponDamage = rightHandWeapon.baseDamage;
+                    rightHandDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
+                }
+                else if(bodypartCollider_1 != null)
+                {
+                    bodypartCollider_1.currentWeaponDamage = leftHandWeapon.baseDamage;
+                }
+                else if (bodypartCollider_2 != null)
+                {
+                    bodypartCollider_2.currentWeaponDamage = rightHandWeapon.baseDamage;
+                }              
+                
             }
         }
 
         public void OpenDamageCollider()
         {
-
+            if (enemyManager.isUsingWeapon)
+            {
                 rightHandDamageCollider.EnableDamageCollider();
-
-
+            }
+            else
+            {
+                if (enemyManager.isUsingRightHand)
+                {
+                    bodypartCollider_2.EnableDamageCollider();
+                }
+                else if (enemyManager.isUsingLeftHand)
+                {
+                    bodypartCollider_1.EnableDamageCollider();
+                }
+                
+            }               
         }        
         public void CloseDamageCollider()
         {
-            rightHandDamageCollider.DisableDamageCollider();
+            if (enemyManager.isUsingWeapon)
+            {
+                rightHandDamageCollider.DisableDamageCollider();
+            }
+            else if (enemyManager.isUsingRightHand)
+            {
+                bodypartCollider_2.DisableDamageCollider();
+            }
+            else if (enemyManager.isUsingLeftHand)
+            {
+                bodypartCollider_1.DisableDamageCollider();
+            }
             //leftHandDamageCollider.DisableDamageCollider();
         }
 
@@ -110,6 +162,11 @@ namespace DQ
         public void DisableCombo()
         {
            
+        }
+
+        public void SuccessfullyCastSpell()
+        {
+            enemyManager.currentMagicAttack.SuccessfullyCastSpell(enemyAnimator,enemyManager,this);
         }
     }
 }
