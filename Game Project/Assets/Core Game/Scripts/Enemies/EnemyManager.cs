@@ -25,6 +25,11 @@ namespace DQ
         public float maximumAttackRange = 1.5f;
 
 
+        [Header("Combat Actions")]
+        public EnemyAttackAction[] enemyAttacks;
+        public EnemyAttackAction currentAttack;
+        public ShamanSpell currentMagicAttack;
+
         [Header("Combat Flags")]
         public bool canDoCombo;
 
@@ -98,7 +103,7 @@ namespace DQ
             }
             if(currentState != null)
             {
-                State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager,enemyFXManager);
+                State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager);
 
                 if(nextState!= null)
                 {

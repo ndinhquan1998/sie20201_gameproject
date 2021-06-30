@@ -100,7 +100,7 @@ public class PlayerManager : CharacterManager
             inputHandler.any_Input = false;
 
 
-            float delta = Time.deltaTime;
+            float delta = Time.unscaledDeltaTime;
 
             if (cameraHandler != null)
             {
@@ -168,11 +168,17 @@ public class PlayerManager : CharacterManager
         {
             playerAnimatorManager.PlayTargetAnimation("Traverse", true);
         }
-        public void OpenDoor(Transform playerPosition)
+        public void OpenGate(Transform playerPosition)
         {
             
             transform.position = playerPosition.transform.position;
             playerAnimatorManager.PlayTargetAnimation("Push", true);
+        }
+        public void OpenDoor(Transform playerPosition)
+        {
+            
+            transform.position = playerPosition.transform.position;
+            playerAnimatorManager.PlayTargetAnimation("Open Door", true);
         }
 
     }  

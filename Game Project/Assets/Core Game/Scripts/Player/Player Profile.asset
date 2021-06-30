@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   weaponsInRightHandSlot:
+  - {fileID: 11400000, guid: 966cbe3694a22054d8a0a24cfb3c746b, type: 2}
   - {fileID: 11400000, guid: 8d1bcb11c519b794bb54a6939defbc6d, type: 2}
-  - {fileID: 11400000, guid: 6b85b3d085d6c154e9a0459408dfc062, type: 2}
   weaponsInLeftHandSlot:
   - {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a, type: 2}
   - {fileID: 11400000, guid: a65075bb54f77a24ea352c72505c6b5a, type: 2}
@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 61d3ddc06e1e686498e967fb31592aef, type: 2}
   spellInSlot:
   - {fileID: 11400000, guid: cdf060a09524fa6429526736751d6d49, type: 2}
-  - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
+  - {fileID: 11400000, guid: 18e106fc87544d046b6cc191748ff4d2, type: 2}
   - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
   - {fileID: 11400000, guid: 2daabcc54b9187f4581a87323dd1ab16, type: 2}
   itemInSlot:

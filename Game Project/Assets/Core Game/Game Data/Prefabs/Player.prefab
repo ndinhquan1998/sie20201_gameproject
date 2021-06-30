@@ -898,14 +898,17 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   normalCamera: {fileID: 0}
   groundDectectionRayStartPoint: 0.5
-  minimumDistanceNeededToBeginFall: 1
+  minimumDistanceNeededToBeginFall: 2
   groundDirectionRayDistance: 0.2
+  ignoreForGroundCheck:
+    serializedVersion: 2
+    m_Bits: 0
   inAirTimer: 0
   movementSpeed: 5
   walkingSpeed: 1
   rotationSpeed: 10
   sprintSpeed: 7
-  fallingSpeed: 700
+  fallingSpeed: 500
   rollStaminaCost: 15
   characterCollider: {fileID: 4462247851748741404}
   characterCollisionBlockerCollider: {fileID: 2687122324398576151}
@@ -928,10 +931,15 @@ MonoBehaviour:
   canBeParried: 0
   isParrying: 0
   isBlocking: 0
+  isDealingLightAttack: 0
+  isDealingHeavyAttack: 0
+  isUsingRightHand: 0
+  isUsingLeftHand: 0
   isRotatingWithRootMotion: 0
   canRotate: 0
   isFiringSpell: 0
   pendingCriticalDamage: 0
+  anim: {fileID: 0}
   interactableUIGameObject: {fileID: 0}
   itemInteractableGameObject: {fileID: 0}
   isInteracting: 0
@@ -939,8 +947,6 @@ MonoBehaviour:
   isInAir: 0
   isGrounded: 0
   canDoCombo: 0
-  isUsingRightHand: 0
-  isUsingLeftHand: 0
   isInvulnerable: 0
   isClimbing: 0
 --- !u!114 &4462247851748741406

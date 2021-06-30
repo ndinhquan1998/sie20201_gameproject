@@ -18606,7 +18606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterManager: {fileID: 0}
   enabledDamageColliderOnStartUp: 1
-  currentWeaponDamage: 75
+  enemyFXManager: {fileID: 0}
+  currentWeaponDamage: 45
   impactParticles: {fileID: 1228592092739431458, guid: 98978d8b6a120a146b439946e5490e3d,
     type: 3}
   projectileParticles: {fileID: 6443170032596667514, guid: 502e24909ff99434e95479c26d719a52,

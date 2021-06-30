@@ -14,7 +14,7 @@ namespace DQ
             playerManager = FindObjectOfType<PlayerManager>();
         }
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             if (enemyManager.isInteracting)
                 return this;
@@ -33,7 +33,7 @@ namespace DQ
 
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
 
-
+            Debug.Log(distanceFromTarget);
             HandleRotateTowardsTarget(enemyManager);
 
             if (enemyManager.isPerformingAction)

@@ -7,7 +7,7 @@ namespace DQ
     {
         public CombatStanceState combatStanceState;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             enemyAnimatorManager.anim.SetFloat("Vertical", 0);
             enemyAnimatorManager.anim.SetFloat("Horizontal", 0);

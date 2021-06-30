@@ -33,28 +33,24 @@ namespace DQ
             damageCollider.enabled = false;
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-                       
-        }
 
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.tag == "Player")
             {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
-                CharacterManager characterManager = collision.GetComponent<CharacterManager>();
+                CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
                 BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
 
-                if (characterManager != null)
+                if (enemyCharacterManager != null)
                 {
-                    if (characterManager.isParrying)
+                    if (enemyCharacterManager.isParrying)
                     {
                         // play animation
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
-                    else if (shield != null && characterManager.isBlocking)
+                    else if (shield != null && enemyCharacterManager.isBlocking)
                     {
                         float physicalDamageAfterBlock =
                             currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
@@ -84,7 +80,7 @@ namespace DQ
                     if (enemyCharacterManager.isParrying)
                     {
                         // play animation
-                        characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        characterManager.GetComponentInChildren<EnemyAnimatorManager>().PlayTargetAnimation("Parried", true);
                         return;
                     }
                     else if (shield != null && enemyCharacterManager.isBlocking)

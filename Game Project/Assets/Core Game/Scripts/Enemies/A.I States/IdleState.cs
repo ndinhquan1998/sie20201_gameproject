@@ -7,7 +7,7 @@ namespace DQ
     {
         public PursueTargetState pursueTargetState;
         public LayerMask detectionLayer;
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             // Look for target
             #region Target Detection

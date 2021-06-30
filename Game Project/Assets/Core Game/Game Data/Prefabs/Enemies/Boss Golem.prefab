@@ -761,10 +761,6 @@ MonoBehaviour:
   lookForTargetState: {fileID: 4475536310077772852}
   combatStanceState: {fileID: 5504193878140472042}
   pursueTargetState: {fileID: 5504193878298911896}
-  enemyAttacks:
-  - {fileID: 11400000, guid: f95fa3be8978b8744828c2d0499bd0d5, type: 2}
-  - {fileID: 11400000, guid: f95fa3be8978b8744828c2d0499bd0d5, type: 2}
-  currentAttack: {fileID: 0}
 --- !u!1 &5504193878140472040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1074,7 @@ MonoBehaviour:
   physicalDmgAbsorbtion_BodyArmor: 0
   physicalDmgAbsorbtion_BottomArmor: 0
   isDead: 0
-  _stats: {fileID: 11400000, guid: afafa6a0e9f914e45bb26c7c78cd3158, type: 2}
+  _stats: {fileID: 11400000, guid: 7b43638e8ad858240a99754e395abab6, type: 2}
   enemyHealthBar: {fileID: 5658298983264793914}
   coinsDrop: 50
 --- !u!136 &7016918872186794180
@@ -1164,6 +1160,12 @@ MonoBehaviour:
   isInteracting: 0
   rotationSpeed: 5
   maximumAttackRange: 1.5
+  enemyAttacks:
+  - {fileID: 11400000, guid: a46a651a94a59f340b4d444fe3394921, type: 2}
+  - {fileID: 11400000, guid: 9d14c3eede306f349b24d3054dd6981a, type: 2}
+  - {fileID: 11400000, guid: f95fa3be8978b8744828c2d0499bd0d5, type: 2}
+  currentAttack: {fileID: 0}
+  currentMagicAttack: {fileID: 0}
   canDoCombo: 0
   allowAIToPerformCombos: 1
   comboLikelyHood: 100
@@ -1280,6 +1282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterManager: {fileID: 5504193876399590302}
   enabledDamageColliderOnStartUp: 0
+  enemyFXManager: {fileID: 0}
   currentWeaponDamage: 25
 --- !u!65 &8325079827425039952
 BoxCollider:
@@ -1340,6 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterManager: {fileID: 5504193876399590302}
   enabledDamageColliderOnStartUp: 0
+  enemyFXManager: {fileID: 0}
   currentWeaponDamage: 25
 --- !u!65 &8325079828674439760
 BoxCollider:
@@ -1382,6 +1386,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHandWeapon: {fileID: 11400000, guid: dad21563da9c6ae41a122743d36789d0, type: 2}
   leftHandWeapon: {fileID: 0}
+  rightHandSlot: {fileID: 0}
+  leftHandSlot: {fileID: 0}
   bodypartCollider_1: {fileID: 8325079827425039955}
   bodypartCollider_2: {fileID: 8325079828674439763}
 --- !u!114 &8325079826715518739

@@ -15,6 +15,7 @@ MonoBehaviour:
   actionAnimation: GW_OH_Attack_01
   canDoCombo: 1
   usingWeapon: 1
+  isLeft: 0
   comboAction: {fileID: 11400000, guid: 008e0c3517033c949af98497f0e693df, type: 2}
   attackScore: 3
   recoveryTime: 2

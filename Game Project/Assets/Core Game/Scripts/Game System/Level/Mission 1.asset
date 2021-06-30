@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8a4af6b13f0054eaf53972f2b1bef7, type: 3}
   m_Name: Mission 1
   m_EditorClassIdentifier: 
-  _name: Town's Road
-  _description: Commission Eliminate any wanderer goblin
-  _sceneName: 1-1
-  _levelToCheck: DebugScene
+  _name: Abandoned Dungeon
+  _description: Commission Eliminate a goblin nest
+  _sceneName: Campaign
+  _levelToCheck: Tutorial Scene
   _image: {fileID: 21300000, guid: 98ec80c8fbb2bf648a138d5a2b853755, type: 3}

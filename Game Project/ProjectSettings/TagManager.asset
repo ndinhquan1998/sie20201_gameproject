@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Hidden Wall
   - Boss
+  - Slow Mob
   layers:
   - Default
   - TransparentFX

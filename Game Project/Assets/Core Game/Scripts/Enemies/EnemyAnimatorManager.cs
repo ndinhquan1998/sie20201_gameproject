@@ -47,6 +47,11 @@ namespace DQ
         {
             anim.SetBool("isInvulnerable", false);
         }
+        
+        public void EnablePartsCollision()
+        {
+            anim.SetBool("isUsingWeapon", true);
+        }
 
         public void EnableIsParrying()
         {

@@ -7,7 +7,7 @@ namespace DQ
     public class OpenDoor : Interactable
     {
         Animator animator;
-        public MeshCollider meshCollider;
+        public Collider collider;
         public Transform playerStandingPosition;
 
         UIBossHealthBar[] bossHealthBar;
@@ -34,28 +34,20 @@ namespace DQ
             animator.Play("Door Open");
             StartCoroutine(DisableCollider());
 
-
-            StartCoroutine(DelayFunction());
         }
 
         private IEnumerator DisableCollider()
         {
             yield return new WaitForSeconds(1f);
-            if (meshCollider.enabled)
-            {
-                meshCollider.enabled = false;
 
-                //audioSource.PlayOneShot(illusionarySound);
-            } 
+                if (collider.enabled)
+                {
+                    collider.enabled = false;
+
+                    //audioSource.PlayOneShot(illusionarySound);
+                }
+            
         }
 
-        private IEnumerator DelayFunction()
-        {
-            yield return new WaitForSeconds(1f);
-            for(int i = 0; i<= bossHealthBar.Length; i++)
-            {
-                bossHealthBar[i].SetUIHealthBarToActive();
-            }
-        }
     }
 }

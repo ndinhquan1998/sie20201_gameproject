@@ -6,7 +6,6 @@ namespace DQ
     [CreateAssetMenu(menuName ="A.I/Enemy Actions/Attack Action")]
     public class EnemyAttackAction : EnemyAction
     {
-        public GameObject attackFX;
 
         public bool canDoCombo;
         public bool usingWeapon;

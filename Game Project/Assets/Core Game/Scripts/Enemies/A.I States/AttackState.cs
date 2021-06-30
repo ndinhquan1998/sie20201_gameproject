@@ -10,16 +10,21 @@ namespace DQ
         public CombatStanceState combatStanceState;
         public PursueTargetState pursueTargetState;
 
-        public EnemyAttackAction[] enemyAttacks;
-        public EnemyAttackAction currentAttack;
+        //public EnemyAttackAction[] enemyAttacks;
+        //public EnemyAttackAction currentAttack;
         private bool comboOnNextAttack = false;
 
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
+        //public ShamanSpell currentMagicAttack;
+
+        protected int rageCount = 0;
+        protected int phaseLimit;
+
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
             float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
-
+            phaseLimit = enemyStats.MaxHealth / 2;
             HandleRotateTowardsTarget(enemyManager);
 
             if (enemyManager.isInteracting && enemyManager.canDoCombo == false)
@@ -32,21 +37,21 @@ namespace DQ
                 {
                     comboOnNextAttack = false;
                     //CUSTOM
-                    if (currentAttack.usingWeapon)
+                    if (enemyManager.currentAttack.usingWeapon)
                     {
                         enemyAnimatorManager.anim.SetBool("isUsingWeapon", true);
                     }
-                    if (!currentAttack.isLeft)
+                    if (!enemyManager.currentAttack.isLeft)
                     {
                         enemyAnimatorManager.anim.SetBool("isUsingRightHand", true);
                     }
-                    else
+                    else if (enemyManager.currentAttack.isLeft)
                     {
                         enemyAnimatorManager.anim.SetBool("isUsingLeftHand", true);
                     }
 
                     //
-                    enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
+                    enemyAnimatorManager.PlayTargetAnimation(enemyManager.currentAttack.actionAnimation, true);
 
                 }
             }
@@ -57,59 +62,93 @@ namespace DQ
             {
                 return lookForTargetState;
             }
-
-            if (currentAttack != null)
+            if (gameObject.tag == "Enemy")
             {
-                if (currentAttack.attackFX != null)
+                if (enemyStats.CurrentHealth < phaseLimit && rageCount < 1)
                 {
-                    enemyFXManager.currentFX = currentAttack.attackFX;
+                    enemyAnimatorManager.PlayTargetAnimation("Rage", true);
+                    enemyStats.RestoreHP(phaseLimit / 2);
+                    rageCount++;
                 }
+            }
+            
+
+            if (enemyManager.currentAttack != null)
+            {
                 //CUSTOM
-                if (currentAttack.usingWeapon)
+                if (enemyManager.currentAttack.usingWeapon)
                 {
                     enemyAnimatorManager.anim.SetBool("isUsingWeapon", true);
                 }
-                if (!currentAttack.isLeft)
+                if (!enemyManager.currentAttack.isLeft)
                 {
                     enemyAnimatorManager.anim.SetBool("isUsingRightHand", true);
-                }
-                else
+                } 
+                else if (enemyManager.currentAttack.isLeft)
                 {
                     enemyAnimatorManager.anim.SetBool("isUsingLeftHand", true);
                 }
 
                 //
                 //if we are too close to the enemy to perform current attack , get a new attack
-                if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                if (distanceFromTarget < enemyManager.currentAttack.minimumDistanceNeededToAttack)
                 {
                     return this;
                 }
                 //if we are close enough to attack , then proceed
-                else if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
+                else if (distanceFromTarget < enemyManager.currentAttack.maximumDistanceNeededToAttack)
                 {
                     //if our enemy is within our attacks viewable angle, we attack
-                    if (viewableAngle <= currentAttack.maximumAttackAngle && viewableAngle >= currentAttack.minimumAttackAngle)
+                    if (viewableAngle <= enemyManager.currentAttack.maximumAttackAngle && viewableAngle >= enemyManager.currentAttack.minimumAttackAngle)
                     {
                         if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPerformingAction == false)
                         {
                             enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
                             enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
 
-                            enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
+                            enemyAnimatorManager.PlayTargetAnimation(enemyManager.currentAttack.actionAnimation, true);
                             enemyManager.isPerformingAction = true;
                             RollForComboChance(enemyManager);
 
-                            if (currentAttack.canDoCombo && comboOnNextAttack)
+                            if (enemyManager.currentAttack.canDoCombo && comboOnNextAttack)
                             {
-                                currentAttack = currentAttack.comboAction;
+                                enemyManager.currentAttack = enemyManager.currentAttack.comboAction;
                                 return this;
                             }
                             else
                             {
-                                enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
-                                currentAttack = null;
+                                enemyManager.currentRecoveryTime = enemyManager.currentAttack.recoveryTime;
+                                enemyManager.currentAttack = null;
                                 return lookForTargetState;
                             }
+                        }
+                    }
+                }
+            }
+
+            else if (enemyManager.currentMagicAttack != null)
+            {
+                 if (distanceFromTarget < enemyManager.currentMagicAttack.maximumDistanceNeededToAttack)
+                    {
+                    //if our enemy is within our attacks viewable angle, we attack
+                    if (viewableAngle <= enemyManager.currentMagicAttack.maximumAttackAngle && viewableAngle >= enemyManager.currentMagicAttack.minimumAttackAngle)
+                    {
+                        if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPerformingAction == false)
+                        {
+                            enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+                            enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
+
+                            enemyManager.currentMagicAttack.AttemptToCastSpell(enemyAnimatorManager);
+                            enemyManager.isPerformingAction = true;
+
+                            enemyManager.currentRecoveryTime = enemyManager.currentMagicAttack.recoveryTime;
+                            //enemyManager.currentMagicAttack = null;
+                            return lookForTargetState;
+
+                        }
+                        else if (enemyManager.currentRecoveryTime > 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
+                        {
+                            return lookForTargetState;
                         }
                     }
                 }
@@ -132,9 +171,9 @@ namespace DQ
 
             int maxScore = 0;
 
-            for (int i = 0; i < enemyAttacks.Length; i++)
+            for (int i = 0; i < enemyManager.enemyAttacks.Length; i++)
             {
-                EnemyAttackAction enemyAttackAction = enemyAttacks[i];
+                EnemyAttackAction enemyAttackAction = enemyManager.enemyAttacks[i];
 
                 if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
                 {
@@ -147,22 +186,22 @@ namespace DQ
             int randomValue = Random.Range(0, maxScore);
             int temporaryScore = 0;
 
-            for (int i = 0; i < enemyAttacks.Length; i++)
+            for (int i = 0; i < enemyManager.enemyAttacks.Length; i++)
             {
-                EnemyAttackAction enemyAttackAction = enemyAttacks[i];
+                EnemyAttackAction enemyAttackAction = enemyManager.enemyAttacks[i];
 
                 if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
                 {
                     if (viewableAngle <= enemyAttackAction.maximumAttackAngle && viewableAngle >= enemyAttackAction.minimumAttackAngle)
                     {
-                        if (currentAttack != null)
+                        if (enemyManager.currentAttack != null)
                             return;
 
                         temporaryScore += enemyAttackAction.attackScore;
 
                         if (temporaryScore > randomValue)
                         {
-                            currentAttack = enemyAttackAction;
+                            enemyManager.currentAttack = enemyAttackAction;
                         }
 
                     }

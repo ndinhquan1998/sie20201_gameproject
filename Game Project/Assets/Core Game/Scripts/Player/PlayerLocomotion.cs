@@ -232,10 +232,8 @@ namespace DQ
                 }
             }
         }
-        
 
 
-        //incomplete 
         public void HandleFalling(float delta, Vector3 moveDirection)
         {
             playerManager.isGrounded = false;
@@ -259,6 +257,7 @@ namespace DQ
             targetPosition = myTransform.position;
 
             Debug.DrawRay(origin, -Vector3.up * minimumDistanceNeededToBeginFall, Color.red, 0.1f, false);
+
             if(Physics.Raycast(origin, -Vector3.up, out hit, minimumDistanceNeededToBeginFall, ignoreForGroundCheck))
             {
                 normalVector = hit.normal;
@@ -268,7 +267,7 @@ namespace DQ
 
                 if (playerManager.isInAir)
                 {
-                    if( inAirTimer > 0.5f)
+                    if( inAirTimer > 0.1f)
                     {
                         Debug.Log("In air for " + inAirTimer);
                         animatorHandler.PlayTargetAnimation("Landing", true);
@@ -312,7 +311,7 @@ namespace DQ
                 myTransform.position = targetPosition;
             }
         }
-
+        
         public void HandleJumping()
         {
             if (playerManager.isInteracting)

@@ -12,7 +12,7 @@ namespace DQ
         public float alpha;
         public float fadeTimer = 2.5f;
 
-        public BoxCollider wallCollider;
+        public Collider wallCollider;
         public AudioSource audioSource;
         public AudioClip illusionarySound;
  

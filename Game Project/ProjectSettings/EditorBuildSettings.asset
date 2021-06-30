@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Core Game/Scenes/Old Scenes/Tutorial Scene.unity
-    guid: 04cf4f79815149e48889b8c4b69abaa7
+    path: Assets/Core Game/Scenes/Main Menu.unity
+    guid: ab1e4b4bc1a246c46936cd5fa7bb59d9
+  - enabled: 1
+    path: Assets/Core Game/Scenes/Tutorial Scene.unity
+    guid: c4221c9fc6e12324eb939d237d07fb0f
+  - enabled: 1
+    path: Assets/Core Game/Scenes/Level Select.unity
+    guid: dfb45e92e266a6845a7b2ce31cd41d0b
+  - enabled: 1
+    path: Assets/Core Game/Scenes/Campaign.unity
+    guid: b4686656fb454a64fb4eff01de8593c3
   - enabled: 1
     path: Assets/Core Game/Scenes/Old Scenes/Transition Zone.unity
     guid: 3233ca97f8e95bb4083aa959d3f2e711
@@ -24,17 +33,11 @@ EditorBuildSettings:
     path: Assets/Core Game/Scenes/Old Scenes/Boss Fight Area.unity
     guid: 6b69e456cd65fde4f8c8f62568196b59
   - enabled: 1
-    path: Assets/Core Game/Scenes/Main Menu.unity
-    guid: ab1e4b4bc1a246c46936cd5fa7bb59d9
-  - enabled: 1
     path: Assets/Core Game/Scenes/Sample/Pause Menu.unity
     guid: e27d1653b8b750147964da0b0f69037d
   - enabled: 1
     path: Assets/Core Game/Scenes/DebugScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Core Game/Scenes/Level Select.unity
-    guid: dfb45e92e266a6845a7b2ce31cd41d0b
   - enabled: 1
     path: Assets/Core Game/Scenes/1-1.unity
     guid: c5a2efb9ba1c2e44fa928b776d175095

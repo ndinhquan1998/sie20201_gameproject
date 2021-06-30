@@ -22,7 +22,7 @@ namespace DQ
         public void SetHealth(int health)
         {
             slider.value = health;
-            timeUntilBarIsHidden = 3;
+            timeUntilBarIsHidden = 6;
         }
 
         public void SetMaxHealth(int maxHealth)

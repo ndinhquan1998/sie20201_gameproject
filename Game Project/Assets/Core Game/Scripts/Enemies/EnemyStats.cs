@@ -60,6 +60,17 @@ namespace DQ
             }
         }
 
+        public void RestoreHP(int healthAmount)
+        {            
+            CurrentHealth = CurrentHealth + healthAmount;
+
+            if (CurrentHealth > maxHealth)
+            {
+                CurrentHealth = maxHealth;
+            }
+            enemyHealthBar.SetHealth(CurrentHealth);
+        }
+
         private void HandleDeath()
         {
             CurrentHealth = 0;

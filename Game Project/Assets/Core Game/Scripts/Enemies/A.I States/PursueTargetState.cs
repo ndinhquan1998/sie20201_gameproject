@@ -9,7 +9,7 @@ namespace DQ
     {
         public CombatStanceState combatStanceState;
         public LookForTargetState lookForTargetState;
-        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager, EnemyFXManager enemyFXManager)
+        public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
@@ -34,6 +34,10 @@ namespace DQ
                 if(gameObject.tag == "Boss")
                 {
                     enemyAnimatorManager.anim.SetFloat("Vertical", 0.4f, 0.1f, Time.deltaTime);
+                }
+                else if(gameObject.tag == "Slow Mob")
+                {
+                    enemyAnimatorManager.anim.SetFloat("Vertical", 0.6f, 0.1f, Time.deltaTime);
                 }
                 else
                 {

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Tutorial
   _description: Basic Tutorial for Player
-  _sceneName: DebugScene
+  _sceneName: Tutorial Scene
   _levelToCheck: 
   _image: {fileID: 21300000, guid: 98ec80c8fbb2bf648a138d5a2b853755, type: 3}
