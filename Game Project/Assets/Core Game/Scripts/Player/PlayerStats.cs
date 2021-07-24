@@ -18,9 +18,14 @@ namespace DQ
         GameManager gameManager;
 
         public int coinCount = 0;
+        public int expCount = 0;
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
+
+
+        public Vector3 deathPos;
+        public Vector3 deathEuler;
         private void Awake()
         {            
             playerManager = GetComponent<PlayerManager>();
@@ -99,7 +104,10 @@ namespace DQ
                 isDead = true;
                 animatorHandler.PlayTargetAnimation("Death_01", true);
                 //Handle respawn 
-
+                deathPos = transform.position;
+                deathEuler = transform.eulerAngles;
+                gameManager.lostExp = expCount;
+                gameManager.lostCoin = coinCount;
                 gameManager.Respawn();
             }
 
@@ -144,21 +152,36 @@ namespace DQ
             }
             healthBar.SetCurrentHealth(CurrentHealth);
         }
+        
+        public void RestoreMP(int amount)
+        {
+            CurrentMP_Points = CurrentMP_Points + amount;
+
+            if(CurrentMP_Points > maxMP_Points)
+            {
+                CurrentMP_Points = maxMP_Points;
+            }
+            manaBar.SetCurrentManaPoints(CurrentMP_Points);
+        }
 
         public void DeductFocusPoints(int focusPoints)
         {
-            currentMP_Points = currentMP_Points - focusPoints;
+            CurrentMP_Points = CurrentMP_Points - focusPoints;
 
-            if(currentMP_Points < 0)
+            if(CurrentMP_Points < 0)
             {
-                currentMP_Points = 0;
+                CurrentMP_Points = 0;
             }
-            manaBar.SetCurrentManaPoints(currentMP_Points);
+            manaBar.SetCurrentManaPoints(CurrentMP_Points);
         }
 
         public void AddCoins(int coins)
         {
             coinCount += coins;
+        }
+        public void AddExp(int exp)
+        {
+            expCount += exp;
         }
 
     }

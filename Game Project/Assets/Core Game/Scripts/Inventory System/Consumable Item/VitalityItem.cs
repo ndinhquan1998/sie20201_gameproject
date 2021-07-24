@@ -29,7 +29,15 @@ namespace DQ
             //spawn item model
             GameObject potionModel = Instantiate(itemModel, weaponSlotManager.leftHandSlot.transform);
             playerFXManager.currentFX = recoveryFX;
-            playerFXManager.amountToBeHealed = hpRestoredAmount;
+            if (hpRestoredAmount > 0)
+            {
+                playerFXManager.hp_Restored = hpRestoredAmount;
+            }
+            if (mpRestoredAmount > 0)
+            {
+                playerFXManager.mp_Restored = mpRestoredAmount;
+            }
+
             playerFXManager.instantiatedFXModel = potionModel;
             // disable weapon model
             

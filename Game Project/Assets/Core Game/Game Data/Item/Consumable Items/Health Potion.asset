@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740251cdf0cf06c49a8b2945e2a74a65, type: 3}
   m_Name: Health Potion
   m_EditorClassIdentifier: 
-  itemName: HP
-  itemIcon: {fileID: 21300000, guid: 2d0f4e9418498b847b5d97858d473558, type: 3}
-  maxAmount: 1
-  currentAmount: 0
+  itemName: Estus
+  itemIcon: {fileID: 21300000, guid: 25fc9f2351ca16b469d7f5d1a729363a, type: 3}
+  maxAmount: 2
+  currentAmount: 2
   itemModel: {fileID: 1278302788782681938, guid: 86652565b1f57ea4eb7748b7ca929c18,
     type: 3}
   consumeAnimation: Drinking
   isInteracting: 0
   healthPotion: 1
   magicPotion: 0
-  hpRestoredAmount: 100
+  hpRestoredAmount: 50
   mpRestoredAmount: 0
   recoveryFX: {fileID: 8424694592280792160, guid: 6c3b13d37dabc9d4bbf0e0ab034a39f3,
     type: 3}

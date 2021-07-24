@@ -36,6 +36,7 @@ namespace DQ
             Color c = col.getRGBColor;
             gameManager.UpdateStatus(c, "Bonfire Lit");
             gameManager.Saving();
+            gameManager.SavePlayerCurrency();
         }
 
         private void DisableInactiveCP()

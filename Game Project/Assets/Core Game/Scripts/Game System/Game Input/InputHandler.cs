@@ -270,7 +270,7 @@ namespace DQ
                 if (inventoryFlag)
                 {
                     uiManager.OpenSelectWindows();
-                    uiManager.UpdateUI();
+                    uiManager.UpdateInventoryUISlots();
                     uiManager.hudWindow.SetActive(false);
                 }
                 else

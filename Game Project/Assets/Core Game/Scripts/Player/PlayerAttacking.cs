@@ -44,10 +44,12 @@ namespace DQ
                 if (lastAttack == weapon.OH_Light_Attack_1)
                 {
                     animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_2, true);
+                    animatorHandler.anim.SetBool("isDealingLightAttack", true);
                 } 
                 else if (lastAttack == weapon.TH_Light_Attack_1)
                 {
                     animatorHandler.PlayTargetAnimation(weapon.TH_Light_Attack_2, true);
+                    animatorHandler.anim.SetBool("isDealingLightAttack", true);
                 }
              }
 

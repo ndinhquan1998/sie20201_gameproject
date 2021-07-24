@@ -92,13 +92,19 @@ namespace DQ
         {
             PlayerStats playerStats = FindObjectOfType<PlayerStats>();
             CurrencyCounter currencyCounter = FindObjectOfType<CurrencyCounter>();
-
+            ExperienceCounter expCounter = FindObjectOfType<ExperienceCounter>();
             if (playerStats != null)
             {
                 playerStats.AddCoins(enemyStats.coinsDrop);
+                playerStats.AddExp(enemyStats.exp);
+
                 if (currencyCounter != null)
                 {
                     currencyCounter.SetCoinText(playerStats.coinCount);
+                }
+                if (expCounter != null)
+                {
+                    expCounter.SetExpText(playerStats.expCount);
                 }
             }
         }

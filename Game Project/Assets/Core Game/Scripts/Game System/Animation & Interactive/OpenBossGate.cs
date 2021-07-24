@@ -31,7 +31,7 @@ namespace DQ
             playerManager.transform.rotation = targetRotation;
             //play the animation
             playerManager.OpenGate(playerStandingPosition);
-            animator.Play("Gate Open");
+            animator.Play("Door Open");
             StartCoroutine(DisableCollider());
 
 

@@ -17,8 +17,6 @@ namespace DQ
 
         public int MP_level;
 
- 
- 
     }
 
 }

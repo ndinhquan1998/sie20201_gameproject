@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Helmet
   m_EditorClassIdentifier: 
   itemName: Helmet_06
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 79853496f68e6f04a9e2651137644766, type: 3}
   physicalDefense: 1.5
   helmetModelName: Helmet_06

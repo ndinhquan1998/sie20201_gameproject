@@ -16,4 +16,4 @@ MonoBehaviour:
   _description: Basic Tutorial for Player
   _sceneName: Tutorial Scene
   _levelToCheck: 
-  _image: {fileID: 21300000, guid: 98ec80c8fbb2bf648a138d5a2b853755, type: 3}
+  _image: {fileID: 21300000, guid: 043e37f592e2042408c69a717f5f52b0, type: 3}

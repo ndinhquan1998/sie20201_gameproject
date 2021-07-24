@@ -8,7 +8,7 @@ namespace DQ
     public class ArmorInventorySlot : MonoBehaviour
     {
         PlayerInventory playerInventory;
-        WeaponSlotManager weaponSlotManager;
+        PlayerEquipmentManager playerEquipmentManager;
         UIManager uiManager;
 
         public Image icon;
@@ -19,7 +19,7 @@ namespace DQ
         private void Awake()
         {
             playerInventory = FindObjectOfType<PlayerInventory>();
-            weaponSlotManager = FindObjectOfType<WeaponSlotManager>();
+            playerEquipmentManager = FindObjectOfType<PlayerEquipmentManager>();
             uiManager = FindObjectOfType<UIManager>();
         }
         #region Helmet
@@ -108,7 +108,8 @@ namespace DQ
             playerInventory.currentChestArmorEquipment = playerInventory.playerProfile.chestArmorInSlot[0];
             playerInventory.currentBottomArmorEquipment = playerInventory.playerProfile.bottomArmorInSlot[0];
 
-
+            playerEquipmentManager.EquipAllGearModelsOnStart();
+            uiManager.UpdateInventoryUISlots();
             uiManager.equipmentWindowUI.LoadArmorOnEquipmentScreen(playerInventory);
             uiManager.ResetAllSelectedSlots();
         }

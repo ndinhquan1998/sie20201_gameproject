@@ -86,7 +86,7 @@ namespace DQ
         {
             loadingScreen.SetActive(true);
 
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelSelect);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Tutorial Scene");
 
             asyncLoad.allowSceneActivation = false;
 
@@ -114,7 +114,7 @@ namespace DQ
         {
             loadingScreen.SetActive(true);
 
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelSelect);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level Select");
 
             asyncLoad.allowSceneActivation = false;
 

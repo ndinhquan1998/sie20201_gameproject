@@ -75,6 +75,7 @@ namespace DQ
             weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
             weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
 
+            uiManager.UpdateInventoryUISlots();
             uiManager.equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
             uiManager.ResetAllSelectedSlots();
         }

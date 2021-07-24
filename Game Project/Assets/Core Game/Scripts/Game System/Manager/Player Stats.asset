@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthLevel: 10
   staminaLevel: 10
-  MP_level: 10
+  MP_level: 1

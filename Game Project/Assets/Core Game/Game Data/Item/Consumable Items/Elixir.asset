@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740251cdf0cf06c49a8b2945e2a74a65, type: 3}
+  m_Name: Elixir
+  m_EditorClassIdentifier: 
+  itemName: Elixir
+  itemIcon: {fileID: 21300000, guid: 671132fea57ede34dbc6a6166bcc28ae, type: 3}
+  maxAmount: 2
+  currentAmount: 2
+  itemModel: {fileID: 9197338264201628017, guid: cb529b84893dcbd4e828223bc1f8f823,
+    type: 3}
+  consumeAnimation: Drinking
+  isInteracting: 0
+  healthPotion: 1
+  magicPotion: 0
+  hpRestoredAmount: 50
+  mpRestoredAmount: 50
+  recoveryFX: {fileID: 8424694592280792160, guid: 6c3b13d37dabc9d4bbf0e0ab034a39f3,
+    type: 3}

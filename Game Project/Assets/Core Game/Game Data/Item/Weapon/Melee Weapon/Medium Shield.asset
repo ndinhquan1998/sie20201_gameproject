@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medium Shield
   m_EditorClassIdentifier: 
   itemName: Shield
-  itemIcon: {fileID: 21300000, guid: 82dbbf7ce08a9bc499ac7afe1277e625, type: 3}
+  itemIcon: {fileID: 21300000, guid: ed11c16bf6c6a7a4dbba0a7eaa1c6662, type: 3}
   modelPrefab: {fileID: 150774, guid: a7b97d24ba2370040ba159577de7b931, type: 3}
   isUnarmed: 0
   baseDamage: 0

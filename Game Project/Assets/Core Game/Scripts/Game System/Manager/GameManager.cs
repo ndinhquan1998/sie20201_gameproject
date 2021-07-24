@@ -17,28 +17,20 @@ namespace DQ
         PlayerStats playerStats;
         PlayerInventory playerInventory;
 
+
+        public int lostCoin;
+        public int lostExp;
+
         public static GameManager instance;
         // Start is called before the first frame update
         void Start()
         {
             CheckSaveFile();
+            CheckCoins();
+            CheckExp();
             //CheckSavedProfile();
-            if (PlayerPrefs.HasKey("_coins"))
-            {
-                PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-                CurrencyCounter currencyCounter = FindObjectOfType<CurrencyCounter>();
 
-                if (playerStats != null)
-                {
-                    playerStats.coinCount = PlayerPrefs.GetInt("_coins");
-                    if (currencyCounter != null)
-                    {
-                        currencyCounter.SetCoinText(playerStats.coinCount);
-                    }
-                }
-                
-            }
-            
+            GetPlayerDeathLoot();
         }
 
         // Update is called once per frame
@@ -78,6 +70,7 @@ namespace DQ
 
         public void Respawn()
         {
+            SavePlayerDeathLoot();
             StartCoroutine(Restart());
         }
         IEnumerator Restart()
@@ -101,7 +94,9 @@ namespace DQ
             //AudioManager.PlayMusic(levelEndBGM);
             //yield return new WaitForSeconds(2f);
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
-            PlayerPrefs.SetInt("_coins", playerStats.coinCount);
+            SavePlayerCurrency();
+            //PlayerPrefs.SetInt("_coins", playerStats.coinCount);
+            //PlayerPrefs.SetInt("_exps", playerStats.expCount);
             
             StartCoroutine(LoadScene(levelToLoad));
         }
@@ -194,6 +189,62 @@ namespace DQ
             Serialization.SaveToFile(save);
             //Serialization.SaveProfileToFile(playerInventory.playerProfile.GetSaveableProfile());
 
+        }
+
+        public void SavePlayerCurrency()
+        {
+            PlayerPrefs.SetInt("_coins", playerStats.coinCount);
+            PlayerPrefs.SetInt("_exps", playerStats.expCount);
+        }
+
+        public void SavePlayerDeathLoot()
+        {
+            PlayerPrefs.SetInt("_coinsD", lostCoin);
+            PlayerPrefs.SetInt("_expsD", lostExp);
+        }
+
+        public void GetPlayerDeathLoot()
+        {
+            if (PlayerPrefs.HasKey("_coinsD") && PlayerPrefs.HasKey("_expsD"))
+            {
+                Debug.Log("Lost" + PlayerPrefs.GetInt("_coinsD") + "exp and" + PlayerPrefs.GetInt("_expsD") + "coins");
+            }
+        }
+        public void CheckCoins()
+        {
+            if (PlayerPrefs.HasKey("_coins"))
+            {
+                PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+                CurrencyCounter currencyCounter = FindObjectOfType<CurrencyCounter>();
+
+                if (playerStats != null)
+                {
+                    playerStats.coinCount = PlayerPrefs.GetInt("_coins");
+                    if (currencyCounter != null)
+                    {
+                        currencyCounter.SetCoinText(playerStats.coinCount);
+                    }
+                }
+
+            }
+        }
+        public void CheckExp()
+        {
+            if (PlayerPrefs.HasKey("_exps"))
+            {
+                PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+                ExperienceCounter expCounter = FindObjectOfType<ExperienceCounter>();
+
+                if (playerStats != null)
+                {
+                    playerStats.expCount = PlayerPrefs.GetInt("_exps");
+                    if (expCounter != null)
+                    {
+                        expCounter.SetExpText(playerStats.expCount);
+                    }
+                }
+
+            }
         }
     }
 

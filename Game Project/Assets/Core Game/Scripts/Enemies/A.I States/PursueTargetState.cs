@@ -17,9 +17,6 @@ namespace DQ
 
             HandleRotateTowardsTarget(enemyManager);
 
-            /*if (viewableAngle > 65 || viewableAngle < -65)
-                return lookForTargetState;*/
-
             if (enemyManager.isInteracting)
                 return this;
 

@@ -8,9 +8,13 @@ namespace DQ
         //private int healthLevel = 10;
         public Stats _stats;
         EnemyAnimatorManager enemyAnimatorManager;
+        EnemyBossManager enemyBossManager;
         public UIEnemyHealthBar enemyHealthBar;
-        
+
         public int coinsDrop = 50;
+        public int exp = 50;
+
+        public bool isBoss;
 
         private void Awake()
         {
@@ -22,7 +26,11 @@ namespace DQ
 
         void Start()
         {
-            enemyHealthBar.SetMaxHealth(maxHealth);
+            if (!isBoss)
+            {
+                enemyHealthBar.SetMaxHealth(maxHealth);
+            }
+            
         }
 
 
@@ -49,8 +57,15 @@ namespace DQ
         {
             base.TakeDamage(damage, damageAnimation = "Damage_01");
 
-
-            enemyHealthBar.SetHealth(CurrentHealth);
+            if (!isBoss)
+            {
+                enemyHealthBar.SetHealth(CurrentHealth);
+            }
+            /*else if(isBoss && enemyBossManager != null)
+            {
+                
+            }*/
+            
 
             enemyAnimatorManager.PlayTargetAnimation(damageAnimation, true);
 

@@ -81,7 +81,7 @@ namespace DQ
             EquipAllGearModelsOnStart();
         }
 
-        private void EquipAllGearModelsOnStart()
+        public void EquipAllGearModelsOnStart()
         {
             #region Headwear
             helmetModelChanger.UnequipHelmet();
